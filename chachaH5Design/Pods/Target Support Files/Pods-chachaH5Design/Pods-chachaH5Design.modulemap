@@ -1,0 +1,6 @@
+framework module Pods_chachaH5Design {
+  umbrella header "Pods-chachaH5Design-umbrella.h"
+
+  export *
+  module * { export * }
+}

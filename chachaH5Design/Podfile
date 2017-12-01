@@ -1,0 +1,8 @@
+target 'chachaH5Design' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for chacha_Mac
+  pod 'SnapKit', '~> 3.0.0'
+  pod 'pop', '~> 1.0'
+end
