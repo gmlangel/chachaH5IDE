@@ -8,9 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		4E2CFF4C1FD0FC3C0056EF51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CFF4B1FD0FC3C0056EF51 /* AppDelegate.swift */; };
-		4E2CFF4E1FD0FC3C0056EF51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CFF4D1FD0FC3C0056EF51 /* ViewController.swift */; };
 		4E2CFF501FD0FC3C0056EF51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CFF4F1FD0FC3C0056EF51 /* Assets.xcassets */; };
 		4E2CFF531FD0FC3C0056EF51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CFF511FD0FC3C0056EF51 /* Main.storyboard */; };
+		4E96F4F71FD100D10058FC13 /* BaseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F4F61FD100D10058FC13 /* BaseWindow.swift */; };
+		4E96F4FB1FD101FE0058FC13 /* GMLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F4FA1FD101FE0058FC13 /* GMLExtensions.swift */; };
+		4E96F4FF1FD1037B0058FC13 /* CurrentBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F4FC1FD1037B0058FC13 /* CurrentBtn.swift */; };
+		4E96F5001FD1037B0058FC13 /* FontEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F4FD1FD1037B0058FC13 /* FontEnum.swift */; };
+		4E96F5011FD1037B0058FC13 /* GMLSkinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F4FE1FD1037B0058FC13 /* GMLSkinManager.swift */; };
+		4E96F5051FD109740058FC13 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5041FD109740058FC13 /* MainViewController.swift */; };
+		4E96F5071FD109820058FC13 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5061FD109820058FC13 /* MainView.swift */; };
+		4E96F5151FD109E50058FC13 /* GMLCoreDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F50A1FD109E50058FC13 /* GMLCoreDispatcher.m */; };
+		4E96F5161FD109E50058FC13 /* GMLEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F50C1FD109E50058FC13 /* GMLEvent.m */; };
+		4E96F5171FD109E50058FC13 /* GMLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F50E1FD109E50058FC13 /* GMLExtension.m */; };
+		4E96F5181FD109E50058FC13 /* GMLProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5111FD109E50058FC13 /* GMLProxy.m */; };
+		4E96F5191FD109E50058FC13 /* GMLProxyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5131FD109E50058FC13 /* GMLProxyFactory.m */; };
+		4E96F51B1FD10AE20058FC13 /* GMLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F51A1FD10AE20058FC13 /* GMLView.swift */; };
+		4E96F51D1FD125B80058FC13 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F51C1FD125B80058FC13 /* TopView.swift */; };
+		4E96F51F1FD125E10058FC13 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F51E1FD125E10058FC13 /* LeftView.swift */; };
+		4E96F5211FD125F10058FC13 /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5201FD125F10058FC13 /* CenterView.swift */; };
+		4E96F5231FD126040058FC13 /* RightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5221FD126040058FC13 /* RightView.swift */; };
+		4E96F5251FD131EF0058FC13 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5241FD131EF0058FC13 /* NotifyManager.swift */; };
+		4E96F5271FD1436E0058FC13 /* CenterContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5261FD1436E0058FC13 /* CenterContainerView.swift */; };
 		6E8E962B68A26429742E4C28 /* Pods_chachaH5Design.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56383ED411FE038707476C9 /* Pods_chachaH5Design.framework */; };
 /* End PBXBuildFile section */
 
@@ -18,10 +36,36 @@
 		1D16190E018068A2613BA93D /* Pods-chachaH5Design.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chachaH5Design.debug.xcconfig"; path = "Pods/Target Support Files/Pods-chachaH5Design/Pods-chachaH5Design.debug.xcconfig"; sourceTree = "<group>"; };
 		4E2CFF481FD0FC3C0056EF51 /* chachaH5Design.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chachaH5Design.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E2CFF4B1FD0FC3C0056EF51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4E2CFF4D1FD0FC3C0056EF51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E2CFF4F1FD0FC3C0056EF51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E2CFF521FD0FC3C0056EF51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E2CFF541FD0FC3C0056EF51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E96F4F61FD100D10058FC13 /* BaseWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWindow.swift; sourceTree = "<group>"; };
+		4E96F4FA1FD101FE0058FC13 /* GMLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMLExtensions.swift; sourceTree = "<group>"; };
+		4E96F4FC1FD1037B0058FC13 /* CurrentBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentBtn.swift; sourceTree = "<group>"; };
+		4E96F4FD1FD1037B0058FC13 /* FontEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontEnum.swift; sourceTree = "<group>"; };
+		4E96F4FE1FD1037B0058FC13 /* GMLSkinManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMLSkinManager.swift; sourceTree = "<group>"; };
+		4E96F5021FD103A50058FC13 /* BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		4E96F5041FD109740058FC13 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4E96F5061FD109820058FC13 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4E96F5091FD109E50058FC13 /* GMLCoreDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLCoreDispatcher.h; sourceTree = "<group>"; };
+		4E96F50A1FD109E50058FC13 /* GMLCoreDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLCoreDispatcher.m; sourceTree = "<group>"; };
+		4E96F50B1FD109E50058FC13 /* GMLEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLEvent.h; sourceTree = "<group>"; };
+		4E96F50C1FD109E50058FC13 /* GMLEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLEvent.m; sourceTree = "<group>"; };
+		4E96F50D1FD109E50058FC13 /* GMLExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLExtension.h; sourceTree = "<group>"; };
+		4E96F50E1FD109E50058FC13 /* GMLExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLExtension.m; sourceTree = "<group>"; };
+		4E96F50F1FD109E50058FC13 /* GMLKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLKit.h; sourceTree = "<group>"; };
+		4E96F5101FD109E50058FC13 /* GMLProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLProxy.h; sourceTree = "<group>"; };
+		4E96F5111FD109E50058FC13 /* GMLProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLProxy.m; sourceTree = "<group>"; };
+		4E96F5121FD109E50058FC13 /* GMLProxyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLProxyFactory.h; sourceTree = "<group>"; };
+		4E96F5131FD109E50058FC13 /* GMLProxyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMLProxyFactory.m; sourceTree = "<group>"; };
+		4E96F5141FD109E50058FC13 /* GMLViewProtocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMLViewProtocal.h; sourceTree = "<group>"; };
+		4E96F51A1FD10AE20058FC13 /* GMLView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMLView.swift; sourceTree = "<group>"; };
+		4E96F51C1FD125B80058FC13 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		4E96F51E1FD125E10058FC13 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
+		4E96F5201FD125F10058FC13 /* CenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
+		4E96F5221FD126040058FC13 /* RightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightView.swift; sourceTree = "<group>"; };
+		4E96F5241FD131EF0058FC13 /* NotifyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
+		4E96F5261FD1436E0058FC13 /* CenterContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterContainerView.swift; sourceTree = "<group>"; };
 		C080094D75602B98C942ACE8 /* Pods-chachaH5Design.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chachaH5Design.release.xcconfig"; path = "Pods/Target Support Files/Pods-chachaH5Design/Pods-chachaH5Design.release.xcconfig"; sourceTree = "<group>"; };
 		F56383ED411FE038707476C9 /* Pods_chachaH5Design.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chachaH5Design.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -59,13 +103,55 @@
 		4E2CFF4A1FD0FC3C0056EF51 /* chachaH5Design */ = {
 			isa = PBXGroup;
 			children = (
+				4E96F51A1FD10AE20058FC13 /* GMLView.swift */,
+				4E96F5081FD109E50058FC13 /* GMLKit */,
+				4E96F5031FD109740058FC13 /* IDEUI */,
+				4E96F4FC1FD1037B0058FC13 /* CurrentBtn.swift */,
+				4E96F4FD1FD1037B0058FC13 /* FontEnum.swift */,
+				4E96F4FE1FD1037B0058FC13 /* GMLSkinManager.swift */,
+				4E96F4F61FD100D10058FC13 /* BaseWindow.swift */,
 				4E2CFF4B1FD0FC3C0056EF51 /* AppDelegate.swift */,
-				4E2CFF4D1FD0FC3C0056EF51 /* ViewController.swift */,
 				4E2CFF4F1FD0FC3C0056EF51 /* Assets.xcassets */,
 				4E2CFF511FD0FC3C0056EF51 /* Main.storyboard */,
 				4E2CFF541FD0FC3C0056EF51 /* Info.plist */,
+				4E96F4FA1FD101FE0058FC13 /* GMLExtensions.swift */,
+				4E96F5021FD103A50058FC13 /* BridgeHeader.h */,
 			);
 			path = chachaH5Design;
+			sourceTree = "<group>";
+		};
+		4E96F5031FD109740058FC13 /* IDEUI */ = {
+			isa = PBXGroup;
+			children = (
+				4E96F5041FD109740058FC13 /* MainViewController.swift */,
+				4E96F5061FD109820058FC13 /* MainView.swift */,
+				4E96F51C1FD125B80058FC13 /* TopView.swift */,
+				4E96F51E1FD125E10058FC13 /* LeftView.swift */,
+				4E96F5221FD126040058FC13 /* RightView.swift */,
+				4E96F5201FD125F10058FC13 /* CenterView.swift */,
+				4E96F5241FD131EF0058FC13 /* NotifyManager.swift */,
+				4E96F5261FD1436E0058FC13 /* CenterContainerView.swift */,
+			);
+			path = IDEUI;
+			sourceTree = "<group>";
+		};
+		4E96F5081FD109E50058FC13 /* GMLKit */ = {
+			isa = PBXGroup;
+			children = (
+				4E96F5091FD109E50058FC13 /* GMLCoreDispatcher.h */,
+				4E96F50A1FD109E50058FC13 /* GMLCoreDispatcher.m */,
+				4E96F50B1FD109E50058FC13 /* GMLEvent.h */,
+				4E96F50C1FD109E50058FC13 /* GMLEvent.m */,
+				4E96F50D1FD109E50058FC13 /* GMLExtension.h */,
+				4E96F50E1FD109E50058FC13 /* GMLExtension.m */,
+				4E96F50F1FD109E50058FC13 /* GMLKit.h */,
+				4E96F5101FD109E50058FC13 /* GMLProxy.h */,
+				4E96F5111FD109E50058FC13 /* GMLProxy.m */,
+				4E96F5121FD109E50058FC13 /* GMLProxyFactory.h */,
+				4E96F5131FD109E50058FC13 /* GMLProxyFactory.m */,
+				4E96F5141FD109E50058FC13 /* GMLViewProtocal.h */,
+			);
+			path = GMLKit;
 			sourceTree = "<group>";
 		};
 		6765BBF00D9C50D769DC44A3 /* Pods */ = {
@@ -215,8 +301,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E2CFF4E1FD0FC3C0056EF51 /* ViewController.swift in Sources */,
+				4E96F5251FD131EF0058FC13 /* NotifyManager.swift in Sources */,
+				4E96F5051FD109740058FC13 /* MainViewController.swift in Sources */,
+				4E96F51D1FD125B80058FC13 /* TopView.swift in Sources */,
+				4E96F5071FD109820058FC13 /* MainView.swift in Sources */,
+				4E96F5191FD109E50058FC13 /* GMLProxyFactory.m in Sources */,
+				4E96F4FF1FD1037B0058FC13 /* CurrentBtn.swift in Sources */,
+				4E96F5151FD109E50058FC13 /* GMLCoreDispatcher.m in Sources */,
+				4E96F4F71FD100D10058FC13 /* BaseWindow.swift in Sources */,
+				4E96F5211FD125F10058FC13 /* CenterView.swift in Sources */,
+				4E96F5161FD109E50058FC13 /* GMLEvent.m in Sources */,
+				4E96F5011FD1037B0058FC13 /* GMLSkinManager.swift in Sources */,
+				4E96F5171FD109E50058FC13 /* GMLExtension.m in Sources */,
+				4E96F51B1FD10AE20058FC13 /* GMLView.swift in Sources */,
+				4E96F5001FD1037B0058FC13 /* FontEnum.swift in Sources */,
+				4E96F4FB1FD101FE0058FC13 /* GMLExtensions.swift in Sources */,
+				4E96F5271FD1436E0058FC13 /* CenterContainerView.swift in Sources */,
 				4E2CFF4C1FD0FC3C0056EF51 /* AppDelegate.swift in Sources */,
+				4E96F5181FD109E50058FC13 /* GMLProxy.m in Sources */,
+				4E96F51F1FD125E10058FC13 /* LeftView.swift in Sources */,
+				4E96F5231FD126040058FC13 /* RightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +438,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.51talkiosDeveloper.chachaH5Design;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = chachaH5Design/BridgeHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -348,6 +453,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.51talkiosDeveloper.chachaH5Design;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = chachaH5Design/BridgeHeader.h;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -371,6 +477,7 @@
 				4E2CFF591FD0FC3C0056EF51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
