@@ -8,7 +8,7 @@
 
 import Foundation
 class LeftView: GMLView {
-    open var maxWidth:CGFloat = 200;
+    open var maxWidth:CGFloat = 400;
     open var minWidth:CGFloat = 100;
     override func gml_initialUI() {
         self.bgColor = NSColor.white;

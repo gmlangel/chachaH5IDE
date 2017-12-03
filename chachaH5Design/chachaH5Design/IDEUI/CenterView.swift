@@ -103,7 +103,6 @@ class CenterView: GMLView {
     
     fileprivate func getBtn() -> NSButton{
         let btn = NSButton(frame: NSRect(x: 0, y: 0, width: 25, height: 25));
-        btn.stringValue = "";
         return btn;
     }
     

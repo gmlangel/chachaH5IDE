@@ -26,9 +26,13 @@
 		4E96F51D1FD125B80058FC13 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F51C1FD125B80058FC13 /* TopView.swift */; };
 		4E96F51F1FD125E10058FC13 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F51E1FD125E10058FC13 /* LeftView.swift */; };
 		4E96F5211FD125F10058FC13 /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5201FD125F10058FC13 /* CenterView.swift */; };
-		4E96F5231FD126040058FC13 /* RightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5221FD126040058FC13 /* RightView.swift */; };
 		4E96F5251FD131EF0058FC13 /* NotifyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5241FD131EF0058FC13 /* NotifyManager.swift */; };
 		4E96F5271FD1436E0058FC13 /* CenterContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5261FD1436E0058FC13 /* CenterContainerView.swift */; };
+		4E96F52D1FD38DBC0058FC13 /* RightView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F52B1FD38DBC0058FC13 /* RightView1.swift */; };
+		4E96F52E1FD38DBC0058FC13 /* RightView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F52C1FD38DBC0058FC13 /* RightView2.swift */; };
+		4E96F5301FD38DD30058FC13 /* RightView_Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F52F1FD38DD30058FC13 /* RightView_Attribute.swift */; };
+		4E96F5321FD38DE50058FC13 /* RightView_Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5311FD38DE50058FC13 /* RightView_Path.swift */; };
+		4E96F5341FD390CD0058FC13 /* RightView_CollectionV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F5331FD390CD0058FC13 /* RightView_CollectionV.swift */; };
 		6E8E962B68A26429742E4C28 /* Pods_chachaH5Design.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56383ED411FE038707476C9 /* Pods_chachaH5Design.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,9 +67,13 @@
 		4E96F51C1FD125B80058FC13 /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		4E96F51E1FD125E10058FC13 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		4E96F5201FD125F10058FC13 /* CenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
-		4E96F5221FD126040058FC13 /* RightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightView.swift; sourceTree = "<group>"; };
 		4E96F5241FD131EF0058FC13 /* NotifyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyManager.swift; sourceTree = "<group>"; };
 		4E96F5261FD1436E0058FC13 /* CenterContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterContainerView.swift; sourceTree = "<group>"; };
+		4E96F52B1FD38DBC0058FC13 /* RightView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightView1.swift; sourceTree = "<group>"; };
+		4E96F52C1FD38DBC0058FC13 /* RightView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightView2.swift; sourceTree = "<group>"; };
+		4E96F52F1FD38DD30058FC13 /* RightView_Attribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightView_Attribute.swift; sourceTree = "<group>"; };
+		4E96F5311FD38DE50058FC13 /* RightView_Path.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightView_Path.swift; sourceTree = "<group>"; };
+		4E96F5331FD390CD0058FC13 /* RightView_CollectionV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightView_CollectionV.swift; sourceTree = "<group>"; };
 		C080094D75602B98C942ACE8 /* Pods-chachaH5Design.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-chachaH5Design.release.xcconfig"; path = "Pods/Target Support Files/Pods-chachaH5Design/Pods-chachaH5Design.release.xcconfig"; sourceTree = "<group>"; };
 		F56383ED411FE038707476C9 /* Pods_chachaH5Design.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_chachaH5Design.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,11 +131,11 @@
 		4E96F5031FD109740058FC13 /* IDEUI */ = {
 			isa = PBXGroup;
 			children = (
+				4E96F52A1FD38DBC0058FC13 /* rightViews */,
 				4E96F5041FD109740058FC13 /* MainViewController.swift */,
 				4E96F5061FD109820058FC13 /* MainView.swift */,
 				4E96F51C1FD125B80058FC13 /* TopView.swift */,
 				4E96F51E1FD125E10058FC13 /* LeftView.swift */,
-				4E96F5221FD126040058FC13 /* RightView.swift */,
 				4E96F5201FD125F10058FC13 /* CenterView.swift */,
 				4E96F5241FD131EF0058FC13 /* NotifyManager.swift */,
 				4E96F5261FD1436E0058FC13 /* CenterContainerView.swift */,
@@ -152,6 +160,18 @@
 				4E96F5141FD109E50058FC13 /* GMLViewProtocal.h */,
 			);
 			path = GMLKit;
+			sourceTree = "<group>";
+		};
+		4E96F52A1FD38DBC0058FC13 /* rightViews */ = {
+			isa = PBXGroup;
+			children = (
+				4E96F52B1FD38DBC0058FC13 /* RightView1.swift */,
+				4E96F52C1FD38DBC0058FC13 /* RightView2.swift */,
+				4E96F52F1FD38DD30058FC13 /* RightView_Attribute.swift */,
+				4E96F5311FD38DE50058FC13 /* RightView_Path.swift */,
+				4E96F5331FD390CD0058FC13 /* RightView_CollectionV.swift */,
+			);
+			path = rightViews;
 			sourceTree = "<group>";
 		};
 		6765BBF00D9C50D769DC44A3 /* Pods */ = {
@@ -309,18 +329,22 @@
 				4E96F4FF1FD1037B0058FC13 /* CurrentBtn.swift in Sources */,
 				4E96F5151FD109E50058FC13 /* GMLCoreDispatcher.m in Sources */,
 				4E96F4F71FD100D10058FC13 /* BaseWindow.swift in Sources */,
+				4E96F5341FD390CD0058FC13 /* RightView_CollectionV.swift in Sources */,
 				4E96F5211FD125F10058FC13 /* CenterView.swift in Sources */,
 				4E96F5161FD109E50058FC13 /* GMLEvent.m in Sources */,
 				4E96F5011FD1037B0058FC13 /* GMLSkinManager.swift in Sources */,
 				4E96F5171FD109E50058FC13 /* GMLExtension.m in Sources */,
+				4E96F5321FD38DE50058FC13 /* RightView_Path.swift in Sources */,
+				4E96F5301FD38DD30058FC13 /* RightView_Attribute.swift in Sources */,
 				4E96F51B1FD10AE20058FC13 /* GMLView.swift in Sources */,
+				4E96F52D1FD38DBC0058FC13 /* RightView1.swift in Sources */,
+				4E96F52E1FD38DBC0058FC13 /* RightView2.swift in Sources */,
 				4E96F5001FD1037B0058FC13 /* FontEnum.swift in Sources */,
 				4E96F4FB1FD101FE0058FC13 /* GMLExtensions.swift in Sources */,
 				4E96F5271FD1436E0058FC13 /* CenterContainerView.swift in Sources */,
 				4E2CFF4C1FD0FC3C0056EF51 /* AppDelegate.swift in Sources */,
 				4E96F5181FD109E50058FC13 /* GMLProxy.m in Sources */,
 				4E96F51F1FD125E10058FC13 /* LeftView.swift in Sources */,
-				4E96F5231FD126040058FC13 /* RightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
