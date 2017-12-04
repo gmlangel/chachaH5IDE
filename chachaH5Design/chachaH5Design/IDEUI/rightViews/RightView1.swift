@@ -8,6 +8,7 @@
 
 import Foundation
 class RightView1: GMLView {
+
     open var maxWidth:CGFloat = 400;
     open var minWidth:CGFloat = 200;
     open var minHeight:CGFloat = 50;
@@ -18,6 +19,10 @@ class RightView1: GMLView {
     var currentShowPanel:GMLView?;
     var attributePanel:GMLView!;
     var pathPanel:GMLView!;
+    /**
+     路径数据源
+     */
+    var pathDataSource:PathData?;
     override func gml_initialUI() {
         self.bgColor = NSColor(cgColor:GMLSkinManager.instance.mainForegroundColor);
         self.layer?.borderWidth = 0.5;
@@ -98,6 +103,77 @@ class RightView1: GMLView {
             currentShowPanel?.isHidden = true;
             currentShowPanel = pathPanel;
             currentShowPanel?.isHidden = false;
+            //读取文件夹结构
+            DispatchQueue.global().async {
+                let data = PathData();
+                data.fullPath = GlobelInfo.instance.currentProjectPath
+                data.fileType = .Dir;
+                data.isSelected = true;
+                if let nameArr = FileManager.default.componentsToDisplay(forPath: GlobelInfo.instance.currentProjectPath){
+                    data.fileName = nameArr[nameArr.count - 1];
+                }
+                data.childrenPathArr = self.makeProjectPathDataSource(data.fullPath,data);
+                self.pathDataSource = data;
+                if self.pathDataSource != nil{
+                    //填充给pathPanel
+                    DispatchQueue.main.async {
+                        self.pathPanel.gml_fillUserInfo(["data":self.pathDataSource!]);
+                    }
+                }
+            }
+            
         }
     }
+    fileprivate var isDic:ObjCBool = true;
+    //读取项目文件夹结构
+    func makeProjectPathDataSource(_ path:String,_ parentNode:PathData? = nil) -> [PathData]?{
+        
+        if FileManager.default.fileExists(atPath: path, isDirectory: &isDic){
+            if isDic.boolValue == false{
+                return nil;//不是文件夹，则return空
+            }
+            do{
+                var tempPaths = try FileManager.default.contentsOfDirectory(atPath: path)
+                var arr = [PathData]();//FileManager.default.componentsToDisplay(forPath: path);
+                let j = tempPaths.count;
+                for i:Int in 0 ..< j{
+                    if tempPaths[i] == ".DS_Store"{
+                        continue;
+                    }
+                    let pd = PathData();
+                    pd.fullPath = path + "/" + tempPaths[i];
+                    pd.fileName = tempPaths[i];
+                    FileManager.default.fileExists(atPath: pd.fullPath, isDirectory: &isDic)
+                    pd.fileType = isDic.boolValue ? .Dir : .File;
+                    pd.parentPathData = parentNode;//设置父级
+                    pd.childrenPathArr = makeProjectPathDataSource(pd.fullPath,pd);
+                    arr.append(pd);
+                }
+                return arr;
+            }catch{
+                return nil;
+            }
+        }else{
+            return nil;
+        }
+        
+    }
+}
+
+/**
+ 路径信息实体
+ */
+class PathData: NSObject {
+    var fileType:PathDataFileType = .File;
+    var fullPath:String = "";//文件完整路径
+    var fileName:String = "";//文件名 + 扩展名
+    var isSelected:Bool = false;//是否默认被选中
+    var isZhanKai:Bool = true;//是否默认展开
+    weak var parentPathData:PathData?;//父级路径数据
+    var childrenPathArr:[PathData]?;//子路径数据数组
+}
+
+enum PathDataFileType:Int{
+    case Dir = 0;//文件夹
+    case File = 1;//文件
 }

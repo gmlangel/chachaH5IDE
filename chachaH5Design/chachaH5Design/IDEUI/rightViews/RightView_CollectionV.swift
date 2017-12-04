@@ -16,6 +16,7 @@ class RightView_CollectionV: GMLView {
     fileprivate var itemWidth:CGFloat = 60;
     fileprivate var itemHeight:CGFloat = 60;
     override func gml_initialUI() {
+        self.bgColor = NSColor.white;
         scrollContainerScroll = NSScrollView(frame: NSZeroRect);
         scrollContainerScroll.hasVerticalScroller = true;
         scrollContainerScroll.autohidesScrollers = false;
@@ -63,7 +64,7 @@ class RightView_CollectionV: GMLView {
             container.frame.origin.y = 0;
             scrollContainerScroll.documentView = container;
             scrollContainerScroll.scroll(scrollContainerScroll.contentView, to: NSPoint(x: 0, y: container.frame.size.height - scrollContainerScroll.frame.size.height))
-            NSLog("\(NSPoint(x: 0, y: container.frame.size.height - scrollContainerScroll.frame.size.height))")
+            //NSLog("\(NSPoint(x: 0, y: container.frame.size.height - scrollContainerScroll.frame.size.height))")
         }
         //轮流更改每一个item的尺寸和位置
         let arr = container.subviews;

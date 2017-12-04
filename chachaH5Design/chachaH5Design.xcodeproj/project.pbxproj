@@ -10,6 +10,9 @@
 		4E2CFF4C1FD0FC3C0056EF51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E2CFF4B1FD0FC3C0056EF51 /* AppDelegate.swift */; };
 		4E2CFF501FD0FC3C0056EF51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CFF4F1FD0FC3C0056EF51 /* Assets.xcassets */; };
 		4E2CFF531FD0FC3C0056EF51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2CFF511FD0FC3C0056EF51 /* Main.storyboard */; };
+		4E4C068F1FD5312D00D58281 /* RootDirectoryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4C068E1FD5312D00D58281 /* RootDirectoryProxy.swift */; };
+		4E4C06911FD5338700D58281 /* GMLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4C06901FD5338700D58281 /* GMLLog.swift */; };
+		4E4C06931FD5688400D58281 /* GlobelInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4C06921FD5688400D58281 /* GlobelInfo.swift */; };
 		4E96F4F71FD100D10058FC13 /* BaseWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F4F61FD100D10058FC13 /* BaseWindow.swift */; };
 		4E96F4FB1FD101FE0058FC13 /* GMLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F4FA1FD101FE0058FC13 /* GMLExtensions.swift */; };
 		4E96F4FF1FD1037B0058FC13 /* CurrentBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E96F4FC1FD1037B0058FC13 /* CurrentBtn.swift */; };
@@ -43,6 +46,9 @@
 		4E2CFF4F1FD0FC3C0056EF51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E2CFF521FD0FC3C0056EF51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E2CFF541FD0FC3C0056EF51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E4C068E1FD5312D00D58281 /* RootDirectoryProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootDirectoryProxy.swift; sourceTree = "<group>"; };
+		4E4C06901FD5338700D58281 /* GMLLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMLLog.swift; sourceTree = "<group>"; };
+		4E4C06921FD5688400D58281 /* GlobelInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobelInfo.swift; sourceTree = "<group>"; };
 		4E96F4F61FD100D10058FC13 /* BaseWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWindow.swift; sourceTree = "<group>"; };
 		4E96F4FA1FD101FE0058FC13 /* GMLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GMLExtensions.swift; sourceTree = "<group>"; };
 		4E96F4FC1FD1037B0058FC13 /* CurrentBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentBtn.swift; sourceTree = "<group>"; };
@@ -111,6 +117,8 @@
 		4E2CFF4A1FD0FC3C0056EF51 /* chachaH5Design */ = {
 			isa = PBXGroup;
 			children = (
+				4E4C06901FD5338700D58281 /* GMLLog.swift */,
+				4E4C068D1FD5305000D58281 /* proxy */,
 				4E96F51A1FD10AE20058FC13 /* GMLView.swift */,
 				4E96F5081FD109E50058FC13 /* GMLKit */,
 				4E96F5031FD109740058FC13 /* IDEUI */,
@@ -126,6 +134,15 @@
 				4E96F5021FD103A50058FC13 /* BridgeHeader.h */,
 			);
 			path = chachaH5Design;
+			sourceTree = "<group>";
+		};
+		4E4C068D1FD5305000D58281 /* proxy */ = {
+			isa = PBXGroup;
+			children = (
+				4E4C068E1FD5312D00D58281 /* RootDirectoryProxy.swift */,
+				4E4C06921FD5688400D58281 /* GlobelInfo.swift */,
+			);
+			path = proxy;
 			sourceTree = "<group>";
 		};
 		4E96F5031FD109740058FC13 /* IDEUI */ = {
@@ -333,10 +350,13 @@
 				4E96F5211FD125F10058FC13 /* CenterView.swift in Sources */,
 				4E96F5161FD109E50058FC13 /* GMLEvent.m in Sources */,
 				4E96F5011FD1037B0058FC13 /* GMLSkinManager.swift in Sources */,
+				4E4C068F1FD5312D00D58281 /* RootDirectoryProxy.swift in Sources */,
 				4E96F5171FD109E50058FC13 /* GMLExtension.m in Sources */,
 				4E96F5321FD38DE50058FC13 /* RightView_Path.swift in Sources */,
 				4E96F5301FD38DD30058FC13 /* RightView_Attribute.swift in Sources */,
+				4E4C06931FD5688400D58281 /* GlobelInfo.swift in Sources */,
 				4E96F51B1FD10AE20058FC13 /* GMLView.swift in Sources */,
+				4E4C06911FD5338700D58281 /* GMLLog.swift in Sources */,
 				4E96F52D1FD38DBC0058FC13 /* RightView1.swift in Sources */,
 				4E96F52E1FD38DBC0058FC13 /* RightView2.swift in Sources */,
 				4E96F5001FD1037B0058FC13 /* FontEnum.swift in Sources */,

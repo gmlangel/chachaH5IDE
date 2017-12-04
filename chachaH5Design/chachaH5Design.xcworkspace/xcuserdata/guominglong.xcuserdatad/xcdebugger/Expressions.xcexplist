@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "RightView_Path.gml_fillUserInfo([AnyHashable : Any]?) -&gt; ():RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.forEachAdd(PathData, CGFloat, CGFloat, CGFloat) -&gt; CGFloat:RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView1.(showWenjianjiegou(Any) -&gt; ()).(closure #1).(closure #1):RightView1.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.pathDataSource">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.makeRowItem(PathData, CGFloat, CGFloat) -&gt; PathItemView:RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView1.makeProjectPathDataSource(String) -&gt; [PathData]?:RightView1.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView1.makeProjectPathDataSource(String, PathData?) -&gt; [PathData]?:RightView1.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pd.fullPath">
+            </PersistentString>
+            <PersistentString
+               value = "isDic">
+            </PersistentString>
+            <PersistentString
+               value = "FileManager.default.fileExists(atPath: &quot;/Users/guominglong/Documents/h5Design/projects/&#x672a;&#x547d;&#x540d;&#x6587;&#x4ef6;&#x5939; 3/untitled.md&quot;, isDirectory: &amp;isDic)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RightView1.(showWenjianjiegou(Any) -&gt; ()).(closure #1):RightView1.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.pathDataSource!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
