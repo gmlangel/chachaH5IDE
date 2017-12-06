@@ -3,10 +3,50 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "RightView_Path.gml_fillUserInfo([AnyHashable : Any]?) -&gt; ():RightView_Path.swift">
+         contextName = "RightView_Path.makeRowItem(PathData, CGFloat, CGFloat) -&gt; PathItemView:RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.outlineView(NSOutlineView, isGroupItem : Any) -&gt; Bool:RightView_Path.swift">
       </ContextState>
       <ContextState
          contextName = "RightView_Path.forEachAdd(PathData, CGFloat, CGFloat, CGFloat) -&gt; CGFloat:RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView1.(showWenjianjiegou(Any) -&gt; ()).(closure #1):RightView1.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.pathDataSource!">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.outlineView(NSOutlineView, numberOfChildrenOfItem : Any?) -&gt; Int:RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.outlineView(NSOutlineView, shouldShowOutlineCellForItem : Any) -&gt; Bool:RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView1.makeProjectPathDataSource(String) -&gt; [PathData]?:RightView1.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.outlineView(NSOutlineView, child : Int, ofItem : Any?) -&gt; Any:RightView_Path.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "item as! PathData">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.outlineView(NSOutlineView, isItemExpandable : Any) -&gt; Bool:RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.outlineView(NSOutlineView, rowViewForItem : Any) -&gt; NSTableRowView?:RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.outlineView(NSOutlineView, viewFor : NSTableColumn?, item : Any) -&gt; NSView?:RightView_Path.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.gml_fillUserInfo([AnyHashable : Any]?) -&gt; ():RightView_Path.swift">
       </ContextState>
       <ContextState
          contextName = "RightView1.(showWenjianjiegou(Any) -&gt; ()).(closure #1).(closure #1):RightView1.swift">
@@ -15,12 +55,6 @@
                value = "self.pathDataSource">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "RightView_Path.makeRowItem(PathData, CGFloat, CGFloat) -&gt; PathItemView:RightView_Path.swift">
-      </ContextState>
-      <ContextState
-         contextName = "RightView1.makeProjectPathDataSource(String) -&gt; [PathData]?:RightView1.swift">
       </ContextState>
       <ContextState
          contextName = "RightView1.makeProjectPathDataSource(String, PathData?) -&gt; [PathData]?:RightView1.swift">
@@ -37,10 +71,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RightView1.(showWenjianjiegou(Any) -&gt; ()).(closure #1):RightView1.swift">
+         contextName = "RightView_Path.outlineView(NSOutlineView, didAdd : NSTableRowView, forRow : Int) -&gt; ():RightView_Path.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.pathDataSource!">
+               value = "rowView.backgroundColor">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

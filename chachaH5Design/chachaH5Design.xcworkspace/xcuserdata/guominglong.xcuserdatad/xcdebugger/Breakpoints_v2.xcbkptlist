@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235041.802054"
+            timestampString = "534245100.608105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
-            landmarkName = "outlineView(_:numberOfChildrenOfItem:)"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "outlineView(_:shouldEdit:item:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235039.275945"
+            timestampString = "534245114.589093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "outlineView(_:numberOfChildrenOfItem:)"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
+            landmarkName = "outlineView(_:shouldSelectItem:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235312.258304"
+            timestampString = "534245124.061169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
-            landmarkName = "outlineView(_:objectValueFor:byItem:)"
+            startingLineNumber = "347"
+            endingLineNumber = "347"
+            landmarkName = "outlineView(_:shouldSelect:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235304.430427"
+            timestampString = "534245221.955013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "outlineView(_:child:ofItem:)"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
+            landmarkName = "outlineView(_:didClick:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235305.256154"
+            timestampString = "534245223.047087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "outlineView(_:child:ofItem:)"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
+            landmarkName = "outlineView(_:mouseDownInHeaderOf:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,92 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235306.518253"
+            timestampString = "534245376.389371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "outlineView(_:child:ofItem:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235329.338499"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "547"
-            endingLineNumber = "547"
-            landmarkName = "outlineView(_:isGroupItem:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235336.986514"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "375"
-            endingLineNumber = "375"
-            landmarkName = "outlineView(_:rowViewForItem:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235339.214814"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "outlineView(_:isItemExpandable:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235341.582701"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "601"
-            endingLineNumber = "601"
-            landmarkName = "outlineView(_:shouldShowOutlineCellForItem:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "chachaH5Design/IDEUI/rightViews/RightView_Path.swift"
-            timestampString = "534235486.233073"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "366"
-            endingLineNumber = "366"
-            landmarkName = "outlineView(_:viewFor:item:)"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
+            landmarkName = "selectionShouldChange(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

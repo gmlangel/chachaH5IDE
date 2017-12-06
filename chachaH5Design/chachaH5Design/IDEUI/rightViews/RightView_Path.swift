@@ -7,159 +7,10 @@
 //
 
 import Foundation
-//class RightView_Path: GMLView {
-//    fileprivate var scroll:NSScrollView!;
-//    fileprivate var containerV:NSView!;
-//    fileprivate var rowItemHeight:CGFloat = 20;//每一个子菜单项的高度
-//    override func gml_initialUI() {
-//        containerV = NSView(frame: NSZeroRect);
-//        
-//        scroll = NSScrollView(frame: NSZeroRect);
-//        scroll.contentView.drawsBackground = false;
-//        self.addSubview(scroll);
-//        scroll.autohidesScrollers = true;
-//        scroll.hasVerticalScroller = true;
-//        scroll.hasHorizontalScroller = true;
-//        scroll.snp.makeConstraints { (make) in
-//            make.top.equalTo(self);
-//            make.left.equalTo(self);
-//            make.right.equalTo(self);
-//            make.bottom.equalTo(self);
-//        }
-//    }
-//    
-//    override func gml_fillUserInfo(_ userInfo: [AnyHashable : Any]?) {
-//        if let data = userInfo?["data"] as? PathData{
-//            //移除旧的
-//            let arr = containerV.subviews;
-//            for v in arr{
-//                v.removeFromSuperview();
-//            }
-//            
-//            //添加新的
-//            let offset = forEachAdd(data,self.frame.size.width,0);
-//            containerV.frame = NSRect(x: 0, y: 0, width: self.frame.size.width, height: -offset);
-//            let arr2 = containerV.subviews;
-//            for v in arr2{
-//                v.frame.origin.y -= offset;
-//            }
-//            self.addSubview(containerV);
-//            
-//            resizeScroll();//重新计算滚动条
-//        }
-//    }
-//    
-//    override func setFrameSize(_ newSize: NSSize) {
-//        super.setFrameSize(newSize);
-//        resizeScroll();//重新计算滚动条
-//    }
-//    
-//    //重新计算滚动条
-//    fileprivate func resizeScroll(){
-//        if containerV.frame.size.height > self.frame.size.height{
-//            //显示滚动条
-//            containerV.frame.origin.y = 0;这个值，切换回来后，有问题
-//            scroll.documentView = containerV;
-//            scroll.scroll(scroll.contentView, to: NSPoint(x:0,y:containerV.frame.size.height - scroll.frame.size.height));
-//        }else{
-//            self.addSubview(containerV);
-//            containerV.frame.origin.y = self.frame.size.height - containerV.frame.size.height;
-//        }
-//    }
-//    
-//    fileprivate func forEachAdd(_ data:PathData,_ w:CGFloat,_ xOffset:CGFloat = 0,_ yOffset:CGFloat = 0) -> CGFloat{
-//        var tYOffset = yOffset
-//        //填充树形菜单
-//        let rootItem = makeRowItem(data,w,xOffset,tYOffset);
-//        containerV.addSubview(rootItem);
-//        tYOffset -= rowItemHeight;
-//        if data.isZhanKai{
-//            //如果该项是展开的，则循环遍历其子item
-//            if let arr = data.childrenPathArr , arr.count > 0{
-//                let j = arr.count;
-//                for i:Int in 1 ... j{
-//                    tYOffset = forEachAdd(arr[j - i],w - 15,xOffset + 15,tYOffset);
-//                }
-//            }
-//        }
-//        return tYOffset;
-//    }
-//    
-//    func makeRowItem(_ data:PathData,_ w:CGFloat,_ xOffset:CGFloat,_ yOffset:CGFloat) -> PathItemView{
-//        let v = PathItemView(frame:NSRect(x: xOffset, y: yOffset - rowItemHeight, width: w, height: rowItemHeight));
-//        v.titleTb.stringValue = data.fileName;
-//        v.img.bgColor = data.fileType == .Dir ? NSColor.blue : NSColor.red;
-//        v.data = data;
-//        return v;
-//    }
-//    
-//    
-//}
-//
-//class PathItemView:NSView{
-//    /**
-//     显示的名称
-//     */
-//    var titleTb:NSTextField!;
-//    /**
-//     显示的图片
-//     */
-//    var img:NSImageView!;
-//    
-//    /**
-//     数据源
-//     */
-//    weak var data:PathData?;
-//    
-//    
-//    override init(frame frameRect: NSRect) {
-//        super.init(frame: frameRect)
-//        img = NSImageView(frame:NSZeroRect);
-//        self.addSubview(img);
-//        img.snp.makeConstraints { (make) in
-//            make.height.equalTo(self);
-//            make.width.equalTo(self.frame.size.height);
-//            make.top.equalTo(0);
-//            make.left.equalTo(0);
-//        }
-//        
-//        titleTb = NSTextField(frame: NSRect(x: 0, y: 0, width: 150, height: 18));
-//        titleTb.font = NSFont.systemFont(ofSize: 12)
-//        titleTb.isSelectable = false;
-//        titleTb.isEditable = false;
-//        titleTb.isBordered = false;
-//        titleTb.backgroundColor = NSColor.clear;
-//        titleTb.textColor = GMLSkinManager.instance.currentFontColor
-//        titleTb.alignment = .left;
-//        titleTb.lineBreakMode = .byTruncatingTail;
-//        self.addSubview(titleTb);
-//        titleTb.snp.makeConstraints { (make) in
-//            make.height.equalTo(18);
-//            make.left.equalTo(img.snp.right).offset(5);
-//            make.right.equalTo(self).offset(-5);
-//            make.centerY.equalTo(self.snp.centerY);
-//        }
-//        
-//        
-//    }
-//    
-//    override func mouseDown(with event: NSEvent) {
-//        super.mouseDown(with: event);
-//        if data != nil && data!.isSelected == false{
-//            data!.isSelected = true
-//            NotificationCenter.default.post(name: PathItemSelected, object: data!);
-//        }
-//        data!.isZhanKai = !data!.isZhanKai;
-//        NotificationCenter.default.post(name: PathItemZhanKaiStateChange, object: data!);
-//    }
-//    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//}
 
 
 class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
+    fileprivate var lineHeight:CGFloat = 20;
     fileprivate var contentV:NSOutlineView!;
     fileprivate var scroll:NSScrollView!;
     fileprivate var pathData:PathData?;
@@ -177,8 +28,12 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
         }
         
         contentV = NSOutlineView(frame:NSZeroRect);
+        contentV.backgroundColor = NSColor.clear;
+        contentV.gridColor = NSColor.red;
         contentV.dataSource = self;
         contentV.delegate = self;
+        contentV.enclosingScrollView?.backgroundColor = NSColor.clear;
+        contentV.enclosingScrollView?.drawsBackground = false;
         scroll.documentView = contentV;
     }
     override func gml_fillUserInfo(_ userInfo: [AnyHashable : Any]?) {
@@ -200,7 +55,9 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
                 return 0;
             }
         }else{
-            NSLog("4");
+            if let subPathData = item as? PathData,let subsubs = subPathData.childrenPathArr{
+                return subsubs.count;
+            }
             return 0;
         }
         
@@ -215,9 +72,11 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
         if self.pathData != nil{
             if item == nil && index == 0{
                 return self.pathData!;
-            }else{
-                return "hahah";
+            }else if let pd = item as? PathData,let subs = pd.childrenPathArr,subs.count > index{
+                return subs[index];
             }
+            return "";
+            
         }else{
             return "";
         }
@@ -230,7 +89,10 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      这个方法可能经常被调用，所以它必须是有效的。
      */
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool{
-        return true;//gml=====>6
+        if let pd = item as? PathData,pd.fileType == .Dir{
+            return true
+        }
+        return false;//gml=====>6
     }
     
     /**
@@ -282,6 +144,9 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      2.拖动源支持 - 拖放多图像是必需的。 实现此方法允许表是一个支持多项拖动的NSDraggingSource。 返回实现NSPasteboardWriting的自定义对象（或简单地使用NSPasteboardItem）。 返回零以防止特定项目被拖动。 如果实现此方法，那么outlineView：writeItems：toPasteboard：将不会被调用。
      */
     func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting?{
+        if let pd = item as? PathData,pd.fileType == .File{
+            return pd.fullPath as NSPasteboardWriting?
+        }
         return nil;
     }
     
@@ -291,7 +156,7 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      2.拖动源支持 - 可选。 知道什么时候拖动会话即将开始，并且可能修改拖动会话。 “draggedItems”是我们拖动的项目数组，不包括由于outlineView：pasteboardWriterForItem：返回nil而未拖动的项目。 该数组将直接将用于开始拖动会话的粘贴板编写器数组与[NSView beginDraggingSessionWithItems：event：source]匹配。 因此，顺序是确定性的，可以用在-outlineView：acceptDrop：item：childIndex：枚举NSDraggingInfo的粘贴板类时。
      */
     func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]){
-    
+        NSLog("4")
     }
     
     /**
@@ -300,7 +165,8 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      2.拖动源支持 - 可选。 实现这个方法知道什么时候拖动会话已经结束。 这个委托方法可以用来知道什么时候拖动源操作在特定位置结束，比如垃圾（通过检查NSDragOperationDelete的操作）。
      */
     func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation){
-    
+        NSLog("5")
+       
     }
 
     /**
@@ -320,7 +186,7 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      2.拖动目标支持 - 拖放多个图像时需要。 实现此方法以允许表在项目被拖到视图上时更新拖动项目。 通常这将涉及调用[draggingInfo enumerateDraggingItemsWithOptions：forView：classes：searchOptions：usingBlock：]并将draggingItem的imageComponentsProvider设置为基于内容的正确图像。 对于基于View的TableView，可以使用NSTableCellView的-draggingImageComponents和-draggingImageFrame。
      */
     func outlineView(_ outlineView: NSOutlineView, updateDraggingItemsForDrag draggingInfo: NSDraggingInfo){
-    
+    NSLog("5")
     }
     
     /**
@@ -364,8 +230,27 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      */
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView?{
         //gml=====>8
-        let v = outlineView.make(withIdentifier: tableColumn!.identifier, owner: self)
-        return v;
+        if let pd = item as? PathData{
+            let v = NSView(frame:NSRect(x: 0, y: 0, width: 100, height: 100));//outlineView.make(withIdentifier: tableColumn!.identifier, owner: self)
+            let tb = NSTextField(frame:NSRect(x: 0, y: 0, width: 100, height: lineHeight));
+            tb.stringValue = pd.fileName;
+            tb.isBordered = false;
+            tb.backgroundColor = NSColor.clear;
+            tb.textColor = NSColor.black;
+            tb.font = NSFont.systemFont(ofSize: 12);
+            tb.alignment = .left
+            v.addSubview(tb);
+            tb.snp.makeConstraints({ (make) in
+                make.height.equalTo(lineHeight);
+                make.width.equalTo(v);
+                make.left.equalTo(v);
+                make.top.equalTo(v);
+            })
+            return v;
+        }else{
+            return nil;
+        }
+        
     }
     
     /**
@@ -373,11 +258,18 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      此方法（如果已实现）仅针对基于NSView的大纲视图进行调用。
      */
     func outlineView(_ outlineView: NSOutlineView, rowViewForItem item: Any) -> NSTableRowView?{
-        let v = NSTableRowView(frame: NSRect(x: 0, y: 0, width: 100, height: 100));
-        let tb = NSTextField(frame:NSRect(x: 0, y: 0, width: 100, height: 100));//gml=====>5
-        tb.stringValue = "bbb";
-        v.addSubview(tb);
-        return v;
+        //gml=====>5
+        if let pd = item as? PathData{
+            let v = NSTableRowView(frame: NSZeroRect);
+            v.bgColor = NSColor.green;
+//            v.backgroundColor = NSColor.green;
+//            v.selectionHighlightStyle = .none;
+//            v.isEmphasized = true;
+            return v;
+        }else{
+            return nil;
+        }
+        
     }
     
     /**
@@ -386,14 +278,24 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      2.当成功的添加了一个row
      */
     func outlineView(_ outlineView: NSOutlineView, didAdd rowView: NSTableRowView, forRow row: Int){
-    
+        //gml=====>9
+        if rowView.subviews.count > 0{
+            let subV = rowView.subviews[0];
+            subV.snp.removeConstraints();
+            subV.snp.makeConstraints({ (make) in
+                make.left.equalTo(subV.frame.origin.x);
+                make.right.equalTo(rowView);
+                make.bottom.equalTo(rowView).offset(-subV.frame.origin.y);
+                make.height.equalTo(subV.frame.size.height);
+            })
+        }
     }
     
     /**
      1.当成功了移除了一个row
      */
     func outlineView(_ outlineView: NSOutlineView, didRemove rowView: NSTableRowView, forRow row: Int){
-    
+    NSLog("5")
     }
     
     /**
@@ -449,21 +351,21 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      点击标题时触发
      */
     func outlineView(_ outlineView: NSOutlineView, mouseDownInHeaderOf tableColumn: NSTableColumn){
-        
+        NSLog("5")
     }
     
     /**
      点击某个内容列时触发
      */
     func outlineView(_ outlineView: NSOutlineView, didClick tableColumn: NSTableColumn){
-        
+        NSLog("5")
     }
     
     /**
      拖拽某个列时触发
      */
     func outlineView(_ outlineView: NSOutlineView, didDrag tableColumn: NSTableColumn){
-    
+    NSLog("5")
     }
     
     /**
@@ -484,7 +386,7 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      为避免意外递归导致挂起的可能性，请不要调用几何计算方法，例如bounds，rect（ofColumn :)，或者在实现此方法的过程中调用tile（）的任何NSTableView方法
      */
     func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat{
-        return 20;//gml=====>4
+        return lineHeight;//gml=====>4
     }
     
     /**
@@ -545,7 +447,7 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      如果该行中的单元格是NSTextFieldCell的一个实例，并且只包含一个字符串值，那么将自动为该单元格应用“组行”样式属性。
      */
     func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool{
-        return false;//gml=====>3
+        return true;//gml=====>3
     }
     
     /**
@@ -553,7 +455,10 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      代表可以实现这个方法来禁止扩展特定项目。
      */
     func outlineView(_ outlineView: NSOutlineView, shouldExpandItem item: Any) -> Bool{
-        return true;
+        if let pd = item as? PathData,pd.fileType == .Dir{
+            return true;
+        }
+        return false;
     }
     
     /**
@@ -599,7 +504,10 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      这种方法仅适用于可展开的行。
      */
     func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool{
-        return true;//gml=====>7
+        if let pd = item as? PathData,pd.fileType == .Dir{
+            return true;
+        }
+        return false;//gml=====>7
     }
 }
 
