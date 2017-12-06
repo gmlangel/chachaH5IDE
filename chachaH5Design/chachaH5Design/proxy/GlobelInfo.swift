@@ -18,6 +18,11 @@ class GlobelInfo: GMLProxy {
     }
     
     open var currentProjectPath:String = "";
+    
+    /**
+     当前操作的路径对象
+     */
+    open var currentPD:PathData?;
     override init() {
         super.init();
         currentProjectPath = RootDirectoryProxy.instance.projectPath;

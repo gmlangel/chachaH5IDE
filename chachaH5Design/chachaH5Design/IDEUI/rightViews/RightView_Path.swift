@@ -9,11 +9,11 @@
 import Foundation
 
 
-class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
+class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate,NSTextFieldDelegate {
     fileprivate var lineHeight:CGFloat = 20;
     fileprivate var contentV:NSOutlineView!;
     fileprivate var scroll:NSScrollView!;
-    fileprivate var pathData:PathData?;
+    fileprivate var pathData:PathData?;//数据源
     override func gml_initialUI() {
         super.gml_initialUI();
         
@@ -35,7 +35,54 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
         contentV.enclosingScrollView?.backgroundColor = NSColor.clear;
         contentV.enclosingScrollView?.drawsBackground = false;
         scroll.documentView = contentV;
+        
+        //当文件列表中的某一项名称被修改
+        NotificationCenter.default.addObserver(self, selector: #selector(fileNameChanged), name: NSNotification.Name(rawValue:"wenbenxiugai"), object: nil)
     }
+    
+    /**
+     当文件或者文件夹名称被修改
+     */
+    func fileNameChanged(_ notify:NSNotification){
+        if let tb = notify.object as? NSTextField{
+            if let cpd = GlobelInfo.instance.currentPD{
+                if tb.stringValue == ""{
+                    //修改名称失败
+                    tb.stringValue = cpd.fileName;
+                    return;
+                }
+                
+                //开始修改
+                let fn = cpd.fileName;
+                let fullPath = cpd.fullPath;
+                
+                cpd.fileName = tb.stringValue
+                var arr = FileManager.default.componentsToDisplay(forPath: fullPath)!;
+                arr[arr.count - 1] = cpd.fileName;
+                arr.remove(at: 0);
+                cpd.fullPath = "/" + arr.joined(separator: "/");
+                //更改本地的文件名称
+                do{
+                    NSLog("\(fullPath)")
+                    NSLog("\(cpd.fullPath)")
+                    try FileManager.default.moveItem(atPath: fullPath, toPath: cpd.fullPath)
+                }catch{
+                    //移动失败，则还原名称
+                    cpd.fileName = fn;
+                    cpd.fullPath = fullPath;
+                    tb.stringValue = fn;
+                }
+                //刷新界面显示
+                self.contentV.reloadData();
+                
+            }
+            
+        }
+        
+        GlobelInfo.instance.currentPD = nil;//避免错误的赋值操作
+        
+    }
+    
     override func gml_fillUserInfo(_ userInfo: [AnyHashable : Any]?) {
         if let data = userInfo?["data"] as? PathData{
             pathData = data;
@@ -232,7 +279,7 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
         //gml=====>8
         if let pd = item as? PathData{
             let v = NSView(frame:NSRect(x: 0, y: 0, width: 100, height: 100));//outlineView.make(withIdentifier: tableColumn!.identifier, owner: self)
-            let tb = NSTextField(frame:NSRect(x: 0, y: 0, width: 100, height: lineHeight));
+            let tb = GMLTextField(frame:NSRect(x: 0, y: 0, width: 100, height: lineHeight));
             tb.stringValue = pd.fileName;
             tb.isBordered = false;
             tb.backgroundColor = NSColor.clear;
@@ -319,7 +366,7 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      做编辑时的正则验证，允许正确格式的数据编辑，禁止不正确数据格式编辑
      */
     func selectionShouldChange(in outlineView: NSOutlineView) -> Bool{
-        return false;
+        return true;
     }
     
     /**
@@ -329,6 +376,8 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      2.如果选择“项目”则返回“是”，否则返回“否”。 为了获得更好的性能和更好的控制，建议您使用outlineView：selectionIndexesForProposedSelection :.
      */
     func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool{
+        GlobelInfo.instance.currentPD = item as? PathData;
+        NotificationCenter.default.post(name: PathItemSelected, object: GlobelInfo.instance.currentPD);
         return true;
     }
     
@@ -373,6 +422,9 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
      2.当用户暂停单元格时，从该方法返回的值将显示在工具提示中。 “点”代表视图坐标中的当前鼠标位置。 如果您不想在该位置提供工具提示，请返回零或空字符串。 在进入时，“矩形”表示提示的提议活动区域。 默认情况下，rect计算为[cell drawingRectForBounds：cellFrame]。 要控制默认的活动区域，您可以修改'rect'参数。
      */
     func outlineView(_ outlineView: NSOutlineView, toolTipFor cell: NSCell, rect: NSRectPointer, tableColumn: NSTableColumn?, item: Any, mouseLocation: NSPoint) -> String{
+//        if let pd = item as? PathData{
+//            return pd.fullPath;
+//        }
         return "";
     }
     
@@ -509,9 +561,21 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate {
         }
         return false;//gml=====>7
     }
+    
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        let b = notification.object as! NSView;
+        NSLog("7")
+    }
 }
 
-
+class GMLTextField:NSTextField{
+    override func textDidEndEditing(_ notification: Notification) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:"wenbenxiugai"), object: self);
+        //super.textDidEndEditing(notification);
+        self.window?.makeFirstResponder(nil);
+        self.resignFirstResponder();
+    }
+}
 
 //class ProjectItem:NSTable{
 //    override init(frame frameRect: NSRect) {

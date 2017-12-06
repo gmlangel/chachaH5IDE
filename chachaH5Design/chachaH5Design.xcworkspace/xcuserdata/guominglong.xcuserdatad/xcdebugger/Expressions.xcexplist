@@ -37,6 +37,23 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "RightView_Path.fileNameChanged(NSNotification) -&gt; ():RightView_Path.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "pathData">
+            </PersistentString>
+            <PersistentString
+               value = "currentPD?.fileName">
+            </PersistentString>
+            <PersistentString
+               value = "notify.object as! String">
+            </PersistentString>
+            <PersistentString
+               value = "cpd.fullPath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "RightView_Path.outlineView(NSOutlineView, isItemExpandable : Any) -&gt; Bool:RightView_Path.swift">
       </ContextState>
       <ContextState
@@ -75,6 +92,25 @@
          <PersistentStrings>
             <PersistentString
                value = "rowView.backgroundColor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.outlineView(NSOutlineView, shouldSelectItem : Any) -&gt; Bool:RightView_Path.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentPD">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RightView_Path.outlineViewSelectionDidChange(Notification) -&gt; ():RightView_Path.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "b as? String">
+            </PersistentString>
+            <PersistentString
+               value = "((b as! NSView).subviews[1] as? NSTextField).stringValue">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
