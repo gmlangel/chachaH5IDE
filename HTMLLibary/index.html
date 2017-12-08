@@ -1,0 +1,23 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Insert title here</title>
+    <script type="text/javascript">
+        //输入框获取鼠标焦点
+        function autoFocus(){
+            var pFocus = document.getElementById("password");
+            pFocus.focus();
+            pFocus.select();
+        }
+    </script>
+</head>
+<body onload="autoFocus()">
+<div id="loginform">
+    <h1 style="font-size:1.5em;padding:20px;">输入密码</h1>
+    <form action="${pageContext.request.contextPath}/" method="post">
+        <input id="password" type="password" name="password">
+        <input type="submit" value="提交">
+    </form>
+</div>
+</body>
+</html>
