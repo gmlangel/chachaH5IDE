@@ -329,10 +329,11 @@ class GMLShape extends GMLDisplay{
     }
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
+        console.log("内部",offsetX,offsetY)
         ctx.strokeStyle = this.sColor;
         ctx.fillStyle = this.fColor;
-        ctx.fillRect((offsetX + this.x) * offsetScaleX,(offsetY + this.y) * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY);
-        ctx.strokeRect((offsetX + this.x) * offsetScaleX,(offsetY + this.y) * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY);
+        ctx.fillRect(offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY);
+        ctx.strokeRect(offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY);
     }
 }
 
@@ -346,24 +347,24 @@ class GMLSprite extends GMLDisplay{
         this._contentNode = new GMLShape();
     }
 
-    set width(n){
-        super.width = n;
-        this._contentNode.width = this._width;
-    }
-
-    get width(){
-        return super.width;
-    }
-
-
-    set height(n){
-        super.height = n;
-        this._contentNode.height = this._height;
-    }
-
-    get height(){
-        return super.height;
-    }
+    //set width(n){
+    //    super.width = n;
+    //    this._contentNode.width = this._width;
+    //}
+    //
+    //get width(){
+    //    return super.width;
+    //}
+    //
+    //
+    //set height(n){
+    //    super.height = n;
+    //    this._contentNode.height = this._height;
+    //}
+    //
+    //get height(){
+    //    return super.height;
+    //}
 
 
     //set scaleX(n){
@@ -456,14 +457,15 @@ class GMLSprite extends GMLDisplay{
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
 
-        let tOffsetX = offsetX + this._x;
-        let tOffsetY = offsetY + this._y;
+        let tOffsetX = offsetX + this._x * offsetScaleX;
+        let tOffsetY = offsetY + this._y * offsetScaleY;
         let tOffsetScaleX = offsetScaleX * this._scaleX;
         let tOffsetScaleY = offsetScaleY * this._scaleY;
         //绘制自身
-        this._contentNode.drawInContext(ctx,tOffsetX,tOffsetX,tOffsetScaleX,tOffsetScaleY)
+        this._contentNode.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
         //绘制子对象
         this._children.forEach(function(item,idx){
+            console.log("外部",tOffsetX,tOffsetY)
             item.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
         });
     }

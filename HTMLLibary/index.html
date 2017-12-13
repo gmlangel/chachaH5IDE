@@ -29,21 +29,27 @@
 
            let ctx = cav.context2D;
            let spr1 = new GMLSprite();
-           spr1.makeShape(0,0,200,200,"#ff6600","#003300");//颜色的色值需要优化
-           spr1.x = 100;
+           spr1.makeShape(50,50,200,200,"#ff6600","#003300");//颜色的色值需要优化
+            spr1.x = 50;
            spr1.y = 100;
            spr1.scaleX = 0.5;
            spr1.scaleY = 0.5;
+
            let spr2 = new GMLSprite();
            spr2.makeShape(0,0,100,100,"#f30000","#f30000");
            spr2.x = 50;
-           spr2.y = 50;
+           spr2.y = 100;
            spr2.scaleX = 0.5;
-           spr2.scaleY = 0.5
+           spr2.scaleY = 0.5;
 
-//
+           let spr3 = new GMLSprite();
+           spr3.makeShape(0,0,100,100,"#f3ff00","#f3ff00");
+           spr3.x = 50;
+           spr3.y = 100;
+
            spr1.addChild(spr2);
-           spr1.drawInContext(ctx,spr1.x,spr1.y,1,1);
+           spr2.addChild(spr3);
+           spr1.drawInContext(ctx,0,0,1,1);//跟容器必须绘制在ctx的0,0位置且 缩放必须为1倍
 
        }
 
