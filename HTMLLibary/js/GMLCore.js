@@ -329,7 +329,7 @@ class GMLShape extends GMLDisplay{
     }
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
-        console.log("内部",offsetX,offsetY)
+       // console.log("内部",offsetX,offsetY)
         ctx.strokeStyle = this.sColor;
         ctx.fillStyle = this.fColor;
         ctx.fillRect(offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY);
@@ -346,65 +346,6 @@ class GMLSprite extends GMLDisplay{
         this._children = [];//子显示对象数组
         this._contentNode = new GMLShape();
     }
-
-    //set width(n){
-    //    super.width = n;
-    //    this._contentNode.width = this._width;
-    //}
-    //
-    //get width(){
-    //    return super.width;
-    //}
-    //
-    //
-    //set height(n){
-    //    super.height = n;
-    //    this._contentNode.height = this._height;
-    //}
-    //
-    //get height(){
-    //    return super.height;
-    //}
-
-
-    //set scaleX(n){
-    //    super.scaleX = n;
-    //    this._contentNode.scaleX = this._scaleX;
-    //}
-    //
-    //get scaleX(){
-    //    return super.scaleX;
-    //}
-    //
-    //
-    //set scaleY(n){
-    //    super.scaleY = n;
-    //    this._contentNode.scaleY = this._scaleY;
-    //}
-    //
-    //get scaleY(){
-    //    return super.scaleY;
-    //}
-
-    //set x(n){
-    //    super.x = n;
-    //    this._contentNode.x = this._x;
-    //}
-    //
-    ////必须成对  重新,  否则会被看做undefined
-    //get x(){
-    //    return super.x;
-    //}
-    //
-    //set y(n){
-    //    super.y = n;
-    //    this._contentNode.y = this._y;
-    //}
-    //
-    ////必须成对  重新,  否则会被看做undefined
-    //get y(){
-    //    return super.y;
-    //}
 
     makeShape(_x,_y,_w,_h,_fillColor,_strokeColor){
         this._contentNode.makeShape(_x,_y,_w,_h,_fillColor,_strokeColor);
@@ -465,7 +406,7 @@ class GMLSprite extends GMLDisplay{
         this._contentNode.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
         //绘制子对象
         this._children.forEach(function(item,idx){
-            console.log("外部",tOffsetX,tOffsetY)
+            //console.log("外部",tOffsetX,tOffsetY)
             item.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
         });
     }

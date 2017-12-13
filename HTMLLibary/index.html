@@ -7,7 +7,7 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <title>Insert title here</title>
     <script type="text/javascript" src="./js/GMLCore.js"></script>
-
+    <script type="text/javascript" src="./js/AppDelegate.js"></script>
 
     <script type="text/javascript">
 
@@ -21,42 +21,55 @@
 //            pFocus.select();
 //        }
 
-       function onGloaded(){
-           var cav = new GMLCanvas();
-           cav.width = 500;
-           cav.height = 500;
-           document.body.appendChild(cav.canvas);
-
-           let ctx = cav.context2D;
-           let spr1 = new GMLSprite();
-           spr1.makeShape(50,50,200,200,"#ff6600","#003300");//颜色的色值需要优化
-            spr1.x = 50;
-           spr1.y = 100;
-           spr1.scaleX = 0.5;
-           spr1.scaleY = 0.5;
-
-           let spr2 = new GMLSprite();
-           spr2.makeShape(0,0,100,100,"#f30000","#f30000");
-           spr2.x = 50;
-           spr2.y = 100;
-           spr2.scaleX = 0.5;
-           spr2.scaleY = 0.5;
-
-           let spr3 = new GMLSprite();
-           spr3.makeShape(0,0,100,100,"#f3ff00","#f3ff00");
-           spr3.x = 50;
-           spr3.y = 100;
-
-           spr1.addChild(spr2);
-           spr2.addChild(spr3);
-           spr1.drawInContext(ctx,0,0,1,1);//跟容器必须绘制在ctx的0,0位置且 缩放必须为1倍
-
+       var app = new AppDelegate();
+       window.onload = function(){
+           app.start();
+           app.resize(window.innerWidth,window.innerHeight);
        }
+
+       window.addEventListener("resize",function(){
+           app.resize(window.innerWidth,window.innerHeight);
+       })
+
+
+
+//       function onGloaded(){
+//           var cav = new GMLCanvas();
+//           cav.width = 500;
+//           cav.height = 500;
+//
+//
+//           let ctx = cav.context2D;
+//           document.body.appendChild(cav.canvas);
+//           let spr1 = new GMLSprite();
+//           spr1.makeShape(50,50,200,200,"#ff6600","#003300");//颜色的色值需要优化
+//            spr1.x = 50;
+//           spr1.y = 100;
+//           spr1.scaleX = 0.5;
+//           spr1.scaleY = 0.5;
+//
+//           let spr2 = new GMLSprite();
+//           spr2.makeShape(0,0,100,100,"#f30000","#f30000");
+//           spr2.x = 50;
+//           spr2.y = 100;
+//           spr2.scaleX = 0.5;
+//           spr2.scaleY = 0.5;
+//
+//           let spr3 = new GMLSprite();
+//           spr3.makeShape(0,0,100,100,"#f3ff00","#f3ff00");
+//           spr3.x = 50;
+//           spr3.y = 100;
+//
+//           spr1.addChild(spr2);
+//           spr2.addChild(spr3);
+//           spr1.drawInContext(ctx,0,0,1,1);
+//
+//       }
 
 
     </script>
 </head>
-<body onload="onGloaded()">
+<body >
 <!--<div id="loginform">-->
     <!--<h1 style="font-size:1.5em;padding:20px;">输入密码</h1>-->
     <!--<form action="${pageContext.request.contextPath}/" method="post">-->
