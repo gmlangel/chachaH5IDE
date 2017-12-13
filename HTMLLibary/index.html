@@ -10,23 +10,55 @@
 
 
     <script type="text/javascript">
-        var a = new GMLDisplay();
-        //输入框获取鼠标焦点
-        function autoFocus(){
 
-            var pFocus = document.getElementById("password");
-            pFocus.focus();
-            pFocus.select();
-        }
+       // a.width = 13;
+        //console.log(a.width);
+        //输入框获取鼠标焦点
+//        function autoFocus(){
+//
+//            var pFocus = document.getElementById("password");
+//            pFocus.focus();
+//            pFocus.select();
+//        }
+
+       function onGloaded(){
+           var cav = new GMLCanvas();
+           cav.width = 500;
+           cav.height = 500;
+           document.body.appendChild(cav.canvas);
+
+           let ctx = cav.context2D;
+           let spr1 = new GMLSprite();
+           spr1.makeShape(0,0,200,200,"#ff6600","#003300");//颜色的色值需要优化
+           spr1.x = 100;
+           spr1.y = 100;
+           spr1.scaleX = 0.5;
+           spr1.scaleY = 0.5;
+           let spr2 = new GMLSprite();
+           spr2.makeShape(0,0,100,100,"#f30000","#f30000");
+           spr2.x = 50;
+           spr2.y = 50;
+           spr2.scaleX = 0.5;
+           spr2.scaleY = 0.5
+
+//
+           spr1.addChild(spr2);
+           spr1.drawInContext(ctx,spr1.x,spr1.y,1,1);
+
+       }
+
+
     </script>
 </head>
-<body onload="autoFocus()">
-<div id="loginform">
-    <h1 style="font-size:1.5em;padding:20px;">输入密码</h1>
-    <form action="${pageContext.request.contextPath}/" method="post">
-        <input id="password" type="password" name="password">
-        <input type="submit" value="提交">
-    </form>
-</div>
+<body onload="onGloaded()">
+<!--<div id="loginform">-->
+    <!--<h1 style="font-size:1.5em;padding:20px;">输入密码</h1>-->
+    <!--<form action="${pageContext.request.contextPath}/" method="post">-->
+        <!--<input id="password" type="password" name="password">-->
+        <!--<input type="submit" value="提交">-->
+    <!--</form>-->
+<!--</div>-->
+
+
 </body>
 </html>
