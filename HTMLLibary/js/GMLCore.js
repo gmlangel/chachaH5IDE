@@ -299,8 +299,10 @@ class GMLDisplay extends BaseEventDispatcher{
 class GMLShape extends GMLDisplay{
     constructor(){
         super();
-        this._fColor = 0;//填充色RGBA颜色  #FF6600FF
-        this._sColor = 0;//笔触色RGBA颜色  #FF6600FF
+        this._fColor = 0;//uint32 类型 填充色RGBA颜色  0xFF6600FF
+        this._sColor = 0;//uint32 类型 笔触色RGBA颜色  0xFF6600FF
+        this._fColorStr = "#000000ff";//颜色的字符串形式
+        this._sColorStr = "#000000ff";//颜色的字符串形式
     }
 
     makeShape(_x,_y,_w,_h,_fillColor,_strokeColor){
@@ -316,22 +318,25 @@ class GMLShape extends GMLDisplay{
         return this._fColor;
     }
 
-    set fColor(color){
-        this._fColor = color;
+    set fColor(uint32Color){
+        this._fColor = uint32Color;
+        //之所以不这么写是因为按位运算uint32会丢精度"rgba("+ (uint32Color >> 24) +","+ ((uint32Color >> 16) & 0x00FF) +","+ ((uint32Color >> 8) & 0x0000FF) +","+ (uint32Color & 0x0000ffFF) +")";//重新计算颜色字符串
+        this._fColorStr = "#" + uint32Color.toString(16)
     }
 
     get sColor(){
         return this._sColor;
     }
 
-    set sColor(color){
-        this._sColor = color;
+    set sColor(uint32Color){
+        this._sColor = uint32Color;
+        this._sColorStr = "#" + uint32Color.toString(16)
     }
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
        // console.log("内部",offsetX,offsetY)
-        ctx.strokeStyle = this.sColor;
-        ctx.fillStyle = this.fColor;
+        ctx.strokeStyle = this._fColorStr;
+        ctx.fillStyle = this._sColorStr;
         ctx.fillRect(offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY);
         ctx.strokeRect(offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY);
     }
