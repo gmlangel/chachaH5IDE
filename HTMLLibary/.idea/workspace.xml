@@ -36,8 +36,8 @@
       <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33628318">
-              <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.82300884">
+              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -46,12 +46,11 @@
       <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="242" column="8" selection-start-line="242" selection-start-column="8" selection-end-line="242" selection-end-column="8" />
+            <state vertical-scroll-proportion="-10.925926">
+              <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#BaseObject#0" expanded="false" />
-                <element signature="n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -63,8 +62,6 @@
                 <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-                <element signature="n#GMLShape#0" expanded="false" />
-                <element signature="n#BaseEvent#0" expanded="false" />
                 <element signature="n#TimeLine#0" expanded="false" />
               </folding>
             </state>
@@ -84,9 +81,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/GMLCore.js" />
         <option value="$PROJECT_DIR$/js/AppDelegate.js" />
-        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -289,7 +286,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -301,8 +297,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -325,7 +319,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -337,8 +330,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -361,7 +352,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -373,8 +363,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -397,7 +385,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -409,8 +396,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -433,7 +418,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -445,8 +429,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -469,7 +451,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -481,8 +462,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -505,7 +484,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -517,8 +495,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -541,7 +517,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -553,8 +528,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -577,7 +550,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -589,8 +561,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -613,7 +583,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -625,8 +594,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -649,7 +616,6 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -661,8 +627,6 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -709,14 +673,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+          <folding>
+            <marker date="1513247611000" expanded="true" signature="1843:1893" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DOMEvents.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33277026">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="242" column="8" selection-start-line="242" selection-start-column="8" selection-end-line="242" selection-end-column="8" />
+        <state vertical-scroll-proportion="-10.925926">
+          <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -728,27 +709,15 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125">
-          <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding>
-            <marker date="1513247611000" expanded="true" signature="1843:1893" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33628318">
-          <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.82300884">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding />
         </state>
       </provider>

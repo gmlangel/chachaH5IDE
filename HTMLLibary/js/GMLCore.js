@@ -291,6 +291,9 @@ class GMLDisplay extends BaseEventDispatcher{
         this._parent = null;//父容器显示对象的引用
         //this._rootParent = null;//根容器显示对象的引用   之所以注释掉,是因为感觉没什么用
 
+        //以下用于做鼠标点击检测
+        this._rectVect = [0,0,0,0];//[x,y,w,h]
+
     }
 
     get width(){
@@ -386,6 +389,12 @@ class GMLDisplay extends BaseEventDispatcher{
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
     }
 
+    /**
+     * 鼠标检测
+     * */
+    hitTestPoint(_mouseX,_mouseY){
+        return null;
+    }
 }
 
 /**
@@ -432,8 +441,19 @@ class GMLShape extends GMLDisplay{
        // console.log("内部",offsetX,offsetY)
         ctx.strokeStyle = this._fColorStr;
         ctx.fillStyle = this._sColorStr;
-        ctx.fillRect(offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY);
-        ctx.strokeRect(offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY);
+        this._rectVect = [offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY];
+        ctx.fillRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+        ctx.strokeRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+    }
+
+    /**
+     * 鼠标检测
+     * */
+    hitTestPoint(_mouseX,_mouseY){
+        if(_mouseX >= this._rectVect[0] && _mouseX <= this._rectVect[0] + this._rectVect[2] && _mouseY >= this._rectVect[1] && _mouseY <= this._rectVect[1] + this._rectVect[3])
+            return this;
+        else
+            return null;
     }
 }
 
@@ -502,6 +522,7 @@ class GMLSprite extends GMLDisplay{
         let tOffsetY = offsetY + this._y * offsetScaleY;
         let tOffsetScaleX = offsetScaleX * this._scaleX;
         let tOffsetScaleY = offsetScaleY * this._scaleY;
+        this._rectVect = [tOffsetX,tOffsetY,this.width * tOffsetScaleX,this.height * tOffsetScaleY]
         //绘制自身
         this._contentNode.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
         //绘制子对象
@@ -509,6 +530,35 @@ class GMLSprite extends GMLDisplay{
             //console.log("外部",tOffsetX,tOffsetY)
             item.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
         });
+    }
+
+    /**
+     * 鼠标检测
+     * */
+    hitTestPoint(_mouseX,_mouseY){
+        let result = null;
+        //先检测子级
+        let j = this._children.length;
+        //从界面视图的最顶层看是逐层向下检测
+        for(let i=j- 1;i>=0;i--)
+        {
+            let item = this._children[i];
+            result = item.hitTestPoint(_mouseX,_mouseY);
+            if(result)
+                break;//检测到了,就跳出循环
+        }
+
+        if(!result)
+        {
+            //如果子视图未检测到点击,则再检测自己
+            if(_mouseX >= this._rectVect[0] && _mouseX <= this._rectVect[0] + this._rectVect[2] && _mouseY >= this._rectVect[1] && _mouseY <= this._rectVect[1] + this._rectVect[3])
+                result = this;
+            else if(this._contentNode.hitTestPoint(_mouseX,_mouseY)){
+                result = this;
+            }
+        }
+        return result;
+
     }
 }
 

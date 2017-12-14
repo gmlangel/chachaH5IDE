@@ -33,21 +33,36 @@ class AppDelegate{
             //spr3.x += 2;
             BaseNotificationCenter.main().postNotify(NotifyStruct.onKeyUp,evt);
         })
+
+        window.addEventListener("mousedown",function(evt){
+            let arg = {"x":evt.x - 10,"y":evt.y};//arg 之所以evt.x向左偏移10px,是因为主canvas并没有在html的0,0点,而是10,0点
+            //BaseNotificationCenter.main().postNotify(NotifyStruct.onMouseDown,arg);
+            //鼠标检测
+            let disPlayItem = AppDelegate.app()._rootSprite.hitTestPoint(arg.x,arg.y);
+            if(disPlayItem) {
+                disPlayItem.dispatchEvent(new BaseEvent("mousedown"));//向其派发鼠标按下事件
+            }
+        })
+
         //测试用
         let spr1 = new GMLSprite();
+        spr1.name = "s1"
         spr1.makeShape(0,0,500,500,0xff6600ff,0xff6600ff);
         this._rootSprite.addChild(spr1);
-        spr1.x = 10;
+        spr1.x = 0;
 
         let spr2 = new GMLSprite();
+        spr2.name = "s2"
         spr2.makeShape(0,0,100,100,0xf06000ff,0xf06000ff);
         this._rootSprite.addChild(spr2);
         spr2.x = 120;
 
         let spr3 = new GMLSprite();
+        spr3.name = "s3"
         spr3.makeShape(0,0,100,100,0x006600ff,0x006600ff);
         this._rootSprite.addChild(spr3);
         spr3.x = 230;
+
         //添加键盘控制的位移动画
         BaseNotificationCenter.main().addObserver(spr3,NotifyStruct.onKeyDown,function(evt){
             let kecode = evt.keyCode;
@@ -69,7 +84,14 @@ class AppDelegate{
             }
         });
 
+        //添加用于测试的点击事件
+        spr3.addEventListener("mousedown",function(evt){
+            console.log(evt.gCurrentTarget)
+        })
 
+        //BaseNotificationCenter.main().addObserver(AppDelegate.,NotifyStruct.onMouseDown,function(arg){
+        //
+        //});
 
 
         //spr3.addEventListener("onkeyup",function(){
@@ -123,6 +145,13 @@ class NotifyStruct{
      * */
     static get onKeyUp(){
         return "NotifyStruct.onKeyUp";
+    }
+
+    /**
+     * 鼠标按下
+     * */
+    static get onMouseDown(){
+        return "NotifyStruct.onMouseDown";
     }
 
     constructor(){
