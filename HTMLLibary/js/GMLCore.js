@@ -131,6 +131,100 @@ class BaseEventDispatcher extends BaseObject{
     }
 }
 
+/**
+ * 通知中心
+ * */
+class BaseNotificationCenter extends BaseObject{
+    static main() {
+        if (!window.gmlNotificationCenter)
+            window.gmlNotificationCenter = new BaseNotificationCenter();
+        return window.gmlNotificationCenter;
+    }
+
+    constructor(){
+        super();
+        this._notifyMap = new Map();
+    }
+
+    /**
+     * 触发通知监听
+     * */
+    postNotify(key,argObject){
+        if(this._notifyMap.has(key)){
+            let arr = this._notifyMap.get(key)
+            for (let mp of arr){
+                for(let item of mp.entries())
+                {
+                    item[1].call(item[0],argObject)
+                }
+            }
+        }
+    }
+
+    /**
+     * 添加通知监听
+     * @param observer 被监听对象
+     * @param key 监听的类型
+     * @param execFunc被监听对象所拥有的public类型的处理函数
+     * */
+    addObserver(observer,key,execFunc){
+        if(this._notifyMap.has(key)){
+            let mp = new Map();//创建一个弱引用集合
+            mp.set(observer,execFunc);
+            this._notifyMap.get(key).add(mp);
+        }else{
+            let mp = new Map();//创建一个弱引用集合
+            mp.set(observer,execFunc);
+            this._notifyMap.set(key,new Set([mp]));
+        }
+    }
+
+    /**
+     * 移除指定对象上的指定类型的通知监听
+     * */
+    removeObserver(observer,key){
+        if(this._notifyMap.has(key)){
+            let arr = this._notifyMap.get(key);
+            let tempArr = Array.from(arr).concat()
+            tempArr.forEach(function(mp,idx){
+                if(mp.has(observer))
+                {
+                    arr.delete(mp);
+                    mp.clear();
+                }
+            })
+        }
+    }
+
+    /**
+     * 移除指定key对应的通知监听数组
+     * */
+    removeAllObserverByKey(key){
+        if(this._notifyMap.has(key)){
+            let arr = this._notifyMap.get(key);
+            for(let mp of arr){
+                mp.clear();
+            }
+            arr.clear();
+        }
+    }
+
+    /**
+     * 移除全部的通知监听
+     * */
+    removeAllObserver(){
+        let keys = this._notifyMap.keys();
+        for(let key of keys){
+            let arr = this._notifyMap.get(key);
+            for(let mp of arr){
+                mp.clear();
+            }
+            arr.clear();
+        }
+        this._notifyMap.clear();
+    }
+}
+
 
 //显示对象类型声明----------------begin-------------------------
 /**
@@ -264,7 +358,7 @@ class GMLDisplay extends BaseEventDispatcher{
     }
     set alpha(n){
         this._alpha = n < 0 ? 0 : n;
-        this._alpha = n > 1 ? 1 : n;
+        this._alpha = this._alpha > 1 ? 1 : this._alpha;
     }
     get hidden(){
         return this._hidden;
@@ -293,6 +387,7 @@ class GMLDisplay extends BaseEventDispatcher{
     }
 
 }
+
 /**
  * 色块类
  * */
@@ -433,4 +528,85 @@ class BaseEvent extends Event{
         this.gCurrentTarget = null;
     }
 }
+//事件相关类型声明------------------end------------------
 
+
+
+//动画相关类型声明------------------begin------------------
+/**
+ * 时间轴  默认帧频为每秒30帧
+ * */
+class TimeLine extends BaseObject{
+
+    //静态变量 主动画时间轴
+    static mainTimeLine(){
+        if(!window.mainTimeLine)
+            window.mainTimeLine = new TimeLine();
+        return window.mainTimeLine;
+    }
+
+    constructor(){
+        super();
+        this._frameRate = 30;//帧频
+        this._timekuadu = 1000.0/this._frameRate;//帧频跨度, 类内部使用,用于计算是否执行帧频函数
+        this._currentTimeStep = 0;
+        this._aniID = 0;//动画函数ID
+        this._isPause = false;
+    }
+
+    get frameRate(){
+        return this._frameRate;
+    }
+    /**
+     * 设置帧频
+     * */
+    set frameRate(n){
+        this._frameRate = n < 0 ? 0 : n;
+        this._frameRate = this._frameRate > 50 ? 50 : this._frameRate;
+        this._timekuadu = 1000.0/this._frameRate;//重新计算帧频跨度
+    }
+
+    /**
+     * 开始时间轴
+     * */
+    start(frameFunc){
+        this._currentTimeStep = 0;
+        TimeLine.mainTimeLine()._isPause = false;
+        if(frameFunc && typeof(frameFunc) === "function")
+        {
+            this.frameFunc = frameFunc;
+            this._aniID = window.requestAnimationFrame(TimeLine.mainTimeLine().updateTimeLine)
+        }
+    }
+
+    /**
+     * 帧频函数
+     * */
+    updateTimeLine(timeStep){
+        if(!TimeLine.mainTimeLine()._isPause)
+        {
+            //判断是否应该执行具体的帧频函数, 判断条件为为否达到帧频跨度
+            if(timeStep - TimeLine.mainTimeLine()._currentTimeStep >= TimeLine.mainTimeLine()._timekuadu){
+                TimeLine.mainTimeLine()._currentTimeStep = timeStep;
+                TimeLine.mainTimeLine().frameFunc();
+            }/*else{
+                console.log("判断成功");
+            }*/
+
+            //没停止或者暂停,就继续播放下一帧
+            TimeLine.mainTimeLine()._aniID = window.requestAnimationFrame(TimeLine.mainTimeLine().updateTimeLine)
+        }else{
+            //停止动画
+            window.cancelAnimationFrame(TimeLine.mainTimeLine()._aniID);
+        }
+    }
+
+    /**
+     * 停止时间轴
+     * */
+    stop(){
+        TimeLine.mainTimeLine().isPause = true;
+    }
+}
+
+//动画相关类型声明------------------end------------------
