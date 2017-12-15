@@ -439,11 +439,12 @@ class GMLShape extends GMLDisplay{
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
        // console.log("内部",offsetX,offsetY)
-        ctx.strokeStyle = this._fColorStr;
-        ctx.fillStyle = this._sColorStr;
+        ctx.fillStyle = this._fColorStr;
         this._rectVect = [offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY];
         ctx.fillRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
-        ctx.strokeRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+        //暂时屏蔽绘制边框,因为绘制边框,图像会变虚
+        //ctx.strokeStyle = this._sColorStr;
+        //ctx.strokeRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
     }
 
     /**
@@ -559,6 +560,35 @@ class GMLSprite extends GMLDisplay{
         }
         return result;
 
+    }
+}
+
+
+/**
+ * 图像类
+ * */
+class GMLImage extends GMLDisplay{
+    constructor(){
+        super();
+    }
+
+    drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
+        // console.log("内部",offsetX,offsetY)
+        ctx.strokeStyle = this._fColorStr;
+        ctx.fillStyle = this._sColorStr;
+        this._rectVect = [offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY];
+        ctx.fillRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+        ctx.strokeRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+    }
+
+    /**
+     * 鼠标检测
+     * */
+    hitTestPoint(_mouseX,_mouseY){
+        if(_mouseX >= this._rectVect[0] && _mouseX <= this._rectVect[0] + this._rectVect[2] && _mouseY >= this._rectVect[1] && _mouseY <= this._rectVect[1] + this._rectVect[3])
+            return this;
+        else
+            return null;
     }
 }
 

@@ -47,7 +47,7 @@ class AppDelegate{
         //测试用
         let spr1 = new GMLSprite();
         spr1.name = "s1"
-        spr1.makeShape(0,0,500,500,0xff6600ff,0xff6600ff);
+        spr1.makeShape(0,0,500,500,0xff6600ff,0x000000ff);
         this._rootSprite.addChild(spr1);
         spr1.x = 0;
 
@@ -99,9 +99,6 @@ class AppDelegate{
         //})
     }
 
-    test(arg){
-        console.log(this,arg);
-    }
 
     /**
      * 时间轴更新动画函数
@@ -123,6 +120,9 @@ class AppDelegate{
         this._mainCanvas.height = h;
     }
 
+    /**
+     * 停止
+     * */
     stop(){
         TimeLine.mainTimeLine().stop();
     }

@@ -36,9 +36,11 @@
       <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82300884">
-              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.44247788">
+              <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+              <folding>
+                <element signature="n#NotifyStruct#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -46,11 +48,13 @@
       <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.925926">
-              <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
+            <state vertical-scroll-proportion="-8.62963">
+              <caret line="444" column="31" selection-start-line="444" selection-start-column="31" selection-end-line="444" selection-end-column="31" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#BaseObject#0" expanded="false" />
+                <element signature="n#GMLCanvas#0" expanded="false" />
+                <element signature="n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -62,8 +66,19 @@
                 <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+                <element signature="n#GMLSprite#0" expanded="false" />
                 <element signature="n#TimeLine#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HTML5.js" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.962963">
+              <caret line="1056" column="44" selection-start-line="1056" selection-start-column="35" selection-end-line="1056" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,8 +97,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/GMLCore.js" />
         <option value="$PROJECT_DIR$/js/AppDelegate.js" />
+        <option value="$PROJECT_DIR$/js/GMLCore.js" />
       </list>
     </option>
   </component>
@@ -286,6 +301,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -297,6 +314,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -319,6 +337,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -330,6 +350,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -352,6 +373,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -363,6 +386,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -385,6 +409,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -396,6 +422,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -418,6 +445,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -429,6 +458,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -451,6 +481,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -462,6 +494,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -484,6 +517,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -495,6 +530,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -517,6 +553,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -528,6 +566,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -550,6 +589,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -561,6 +602,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -583,6 +625,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -594,6 +638,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -616,6 +661,8 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -627,6 +674,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
@@ -665,14 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33274338">
-          <caret line="1161" column="40" selection-start-line="1161" selection-start-column="35" selection-end-line="1161" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.125">
@@ -693,11 +733,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.925926">
-          <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
+        <state vertical-scroll-proportion="-8.62963">
+          <caret line="444" column="31" selection-start-line="444" selection-start-column="31" selection-end-line="444" selection-end-column="31" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#width#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#height#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#scaleX#0;n#GMLDisplay#0" expanded="false" />
@@ -709,16 +751,27 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#parent#0;n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#TimeLine#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/HTML5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.962963">
+          <caret line="1056" column="44" selection-start-line="1056" selection-start-column="35" selection-end-line="1056" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82300884">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.44247788">
+          <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+          <folding>
+            <element signature="n#NotifyStruct#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
