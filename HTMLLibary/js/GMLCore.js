@@ -568,17 +568,50 @@ class GMLSprite extends GMLDisplay{
  * 图像类
  * */
 class GMLImage extends GMLDisplay{
-    constructor(){
+    /**
+     * @param _src 图像地址
+     * @param _zhuaquRect 要在原图像上截取图像的区域
+     * */
+    constructor(_src,_zhuaquRect){
         super();
+        this.img = null;
+        this.zhuaquRect = [0,0,0,0];//_zhuaquRect ||
+        if(_zhuaquRect && _zhuaquRect.constructor === Array && _zhuaquRect.length == 4){
+            this.zhuaquRect = _zhuaquRect;
+        }
+        //加载图像
+        ResourceManager.main().getImgByURL(_src,this,this.onImgLoadEnd);
+    }
+
+    /**
+     * 当图像加载完毕所执行的回调处理
+     * */
+    onImgLoadEnd(_img){
+        this.img = _img;
+        this.width = this.img.width;
+        this.height = this.img.height;
     }
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
-        // console.log("内部",offsetX,offsetY)
-        ctx.strokeStyle = this._fColorStr;
-        ctx.fillStyle = this._sColorStr;
-        this._rectVect = [offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY];
-        ctx.fillRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
-        ctx.strokeRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+        if(this.img)
+        {
+            //ctx.drawImage()
+            //9个参数时  第一个是原图像img,  第2至第5共4个参数是在原图上截取指定区域的图像,  第6至第9共4个参数是将截取好的图像绘制到ctx画布的指定区域并且自动拉伸缩放.
+            //3个参数时  第一个是原图像img,  第2至第3共2个参数是将原图像绘制到ctx的指定坐标,宽高为img的原始宽高.
+            //5个参数时  第一个是原图像img,  第2至第5共4个参数是将原图像绘制到ctx的区域内,并自动拉伸.
+            if(this.zhuaquRect[2] > 0 && this.zhuaquRect[3] > 0)
+            {
+                this._width = this.zhuaquRect[2];//用截取宽度 代替宽度
+                this._height = this.zhuaquRect[3];//用截取高度 代替高度
+                this._rectVect = [offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY];
+                //有截取尺寸,则按9参数来绘制
+                ctx.drawImage(this.img,this.zhuaquRect[0],this.zhuaquRect[1],this.zhuaquRect[2],this.zhuaquRect[3],this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+            }else{
+                //没有截取尺寸,则按5参数来绘制
+                this._rectVect = [offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY];
+                ctx.drawImage(this.img,this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+            }
+        }
     }
 
     /**
@@ -690,3 +723,77 @@ class TimeLine extends BaseObject{
 }
 
 //动画相关类型声明------------------end------------------
+
+
+/**
+ * 资源加载类
+ * */
+class ResourceManager extends BaseObject{
+    static main(){
+        if(!window.resourceManager)
+            window.resourceManager = new ResourceManager();
+        return window.resourceManager;
+    }
+    constructor(){
+        super();
+        this._imgMap = new Map();
+        this._waitLoadimgMap = new Map();
+    }
+
+    getImgByURL(url,observer,callBackFunc){
+        let tempUrl = url || "";
+        if(typeof(callBackFunc) == "function" && observer && tempUrl != ""){
+            //判断资源是否存在,存在则直接返回
+            if(this._imgMap.has(tempUrl))
+            {
+                let img = this._imgMap.get(tempUrl);
+                callBackFunc.call(observer,img)
+            }else{
+                if(ResourceManager.main()._waitLoadimgMap.has(tempUrl))
+                {
+                    let tempSet = ResourceManager.main()._waitLoadimgMap.get(tempUrl)
+                    tempSet.add({"observer":observer,"callBackFunc":callBackFunc});
+                    //重复的项不要重复进行img load操作
+                    return;
+                }else{
+                    ResourceManager.main()._waitLoadimgMap.set(tempUrl,new Set([{"observer":observer,"callBackFunc":callBackFunc}]))
+                }
+                //不存在则加载
+                let limg = new Image();
+                //加载成功的监听
+                limg.onload = function(evt){
+                    //当图像加载完毕,则遍历ResourceManager.main()._waitLoadimgMap集合,向所有注册过这个图像资源的对象执行回调函数.
+                    let resultImg = evt.target;
+                    ResourceManager.main()._imgMap.set(resultImg.imgKey,resultImg);//将图像添加到资源字典
+                    //遍历集合
+                    let tSet = ResourceManager.main()._waitLoadimgMap.get(resultImg.imgKey)
+                    tSet.forEach(function(value,key){
+                        let obs = value["observer"];
+                        let cb = value["callBackFunc"];
+                        cb.call(obs,resultImg);//执行回调
+                        delete value["observer"];
+                        delete value["callBackFunc"]
+                    })
+                    tSet.clear();
+                    ResourceManager.main()._waitLoadimgMap.delete(resultImg.imgKey)
+                }
+                //加载失败的监听
+                limg.onunload = function(evt){
+                    //图像加载失败,执行一系列的释放操作
+                    let resultImg = evt.target;
+                    //遍历集合
+                    let tSet = ResourceManager.main()._waitLoadimgMap.get(resultImg.imgKey)
+                    tSet.forEach(function(value,key){
+                        delete value["observer"];
+                        delete value["callBackFunc"]
+                    })
+                    tSet.clear();
+                    ResourceManager.main()._waitLoadimgMap.delete(resultImg.imgKey)
+                }
+
+                limg.src = tempUrl;
+                limg.imgKey = tempUrl;
+            }
+        }
+    }
+}

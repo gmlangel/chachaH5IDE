@@ -35,7 +35,7 @@ class AppDelegate{
         })
 
         window.addEventListener("mousedown",function(evt){
-            let arg = {"x":evt.x - 10,"y":evt.y};//arg 之所以evt.x向左偏移10px,是因为主canvas并没有在html的0,0点,而是10,0点
+            let arg = {"x":evt.x - 10,"y":evt.y - 10};//arg 之所以evt.x向左偏移10px,是因为主canvas并没有在html的0,0点,而是10,10点
             //BaseNotificationCenter.main().postNotify(NotifyStruct.onMouseDown,arg);
             //鼠标检测
             let disPlayItem = AppDelegate.app()._rootSprite.hitTestPoint(arg.x,arg.y);
@@ -88,6 +88,24 @@ class AppDelegate{
         spr3.addEventListener("mousedown",function(evt){
             console.log(evt.gCurrentTarget)
         })
+
+
+        for(let i=0;i<50;i++)
+        {
+            let img = new GMLImage("./resource/bg.png",[50,50,300,300]);
+            img.name = "img_" + i;
+            img.scaleX = 0.5;
+            img.scaleY = 0.5;
+            this._rootSprite.addChild(img);
+            img.x = Math.random() * 800;
+            img.y = Math.random() * 600;
+            img.addEventListener("mousedown",function(evt){
+                console.log(evt.gCurrentTarget.name)
+            })
+        }
+
+
+
 
         //BaseNotificationCenter.main().addObserver(AppDelegate.,NotifyStruct.onMouseDown,function(arg){
         //
