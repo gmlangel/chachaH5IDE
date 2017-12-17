@@ -286,6 +286,8 @@ class GMLDisplay extends BaseEventDispatcher{
         this._rotateY = 0;//沿y轴旋转的角度
         this._alpha = 1;//不透明度
         this._hidden = false;//是否隐藏
+        this._itiwX = 0;//Internal to its way内部对其方式,横向的值  取值0-1之间.默认0  为左上角为基点.假如为1的话,则右上角为基点
+        this._itiwY = 0;//Internal to its way内部对其方式,纵向的值  取值0-1之间.默认0  为左上角为基点.假如为1的话,则最下角为基点
 
 
         this._parent = null;//父容器显示对象的引用
@@ -294,6 +296,24 @@ class GMLDisplay extends BaseEventDispatcher{
         //以下用于做鼠标点击检测
         this._rectVect = [0,0,0,0];//[x,y,w,h]
 
+
+    }
+    get itiwX(){
+        return this._itiwX;
+    }
+
+    set itiwX(n){
+        this._itiwX = n < 0 ? 0 : n;
+        this._itiwX = this._itiwX > 1 ? 1 : this._itiwX;
+    }
+
+    get itiwY(){
+        return this._itiwY;
+    }
+
+    set itiwY(n){
+        this._itiwY = n < 0 ? 0 : n;
+        this._itiwY = this._itiwY > 1 ? 1 : this._itiwY;
     }
 
     get width(){
@@ -440,7 +460,16 @@ class GMLShape extends GMLDisplay{
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
        // console.log("内部",offsetX,offsetY)
         ctx.fillStyle = this._fColorStr;
-        this._rectVect = [offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY];
+        this._rectVect = [
+            offsetX + this.x * offsetScaleX,
+            offsetY + this.y * offsetScaleY,
+            this.width * offsetScaleX * this.scaleX,
+            this.height * offsetScaleY * this.scaleY
+        ];
+        //按照内部对其方式进行位置偏移计算
+        this._rectVect[0] -= this._rectVect[2] * this._itiwX;
+        this._rectVect[1] -= this._rectVect[3] * this._itiwY;
+        //开始绘制
         ctx.fillRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
         //暂时屏蔽绘制边框,因为绘制边框,图像会变虚
         //ctx.strokeStyle = this._sColorStr;
@@ -468,6 +497,24 @@ class GMLSprite extends GMLDisplay{
         this._contentNode = new GMLShape();
     }
 
+    get itiwX(){
+        return this._contentNode.itiwX;
+    }
+
+    set itiwX(n){
+        super.itiwX = n;
+        this._contentNode.itiwX = n;
+    }
+
+    get itiwY(){
+        return this._contentNode.itiwY;
+    }
+
+    set itiwY(n){
+        super.itiwY = n;
+        this._contentNode.itiwY = n;
+    }
+
     makeShape(_x,_y,_w,_h,_fillColor,_strokeColor){
         this._contentNode.makeShape(_x,_y,_w,_h,_fillColor,_strokeColor);
     }
@@ -484,13 +531,15 @@ class GMLSprite extends GMLDisplay{
      * */
     addChild(_child){
         if(_child && _child instanceof GMLDisplay){
-            let idx = this._children.indexOf(_child);
-            if(idx > -1){
-                //有相同元素,则先移除
-                this._children.splice(idx,1)
+            //从原有父级上移除
+            if(_child.parent)
+            {
+                _child.parent.removeChild(_child);
             }
+
             //将之放置到数组末尾
             this._children.push(_child);
+            _child.parent = this;
         }
     }
 
@@ -501,11 +550,12 @@ class GMLSprite extends GMLDisplay{
         if(idx < 0 || idx > this._children.length)
             return;
         if(_child && _child instanceof GMLDisplay){
-            let idx = this._children.indexOf(_child);
-            if(idx > -1){
-                //有相同元素,则先移除
-                this._children.splice(idx,1)
+            //从原有父级上移除
+            if(_child.parent)
+            {
+                _child.parent.removeChild(_child);
             }
+
             if(idx == this._children.length)
             {
                 //将之放置到数组末尾
@@ -514,6 +564,29 @@ class GMLSprite extends GMLDisplay{
                 //将之插入到数组中的指定索引
                 this._children.splice(idx,0,_child);
             }
+            _child.parent = this;
+        }
+    }
+
+    /**
+     * 移除一个子对象
+     * */
+    removeChild(_child){
+        let idx = this._children.indexOf(_child);
+        if(idx > -1){
+            //有相同元素,则移除
+            this._children.splice(idx,1)
+        }
+        _child.parent = null;
+    }
+
+    /**
+     * 批量移除子对象
+     * */
+    removeChildren(){
+        while(this._children.length){
+            let chi = this._children.shift();
+            chi.parent = null;
         }
     }
 
@@ -603,12 +676,28 @@ class GMLImage extends GMLDisplay{
             {
                 this._width = this.zhuaquRect[2];//用截取宽度 代替宽度
                 this._height = this.zhuaquRect[3];//用截取高度 代替高度
-                this._rectVect = [offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY];
+                this._rectVect = [
+                    offsetX + this.x * offsetScaleX,
+                    offsetY + this.y * offsetScaleY,
+                    this.width * offsetScaleX * this.scaleX,
+                    this.height * offsetScaleY * this.scaleY
+                ];
+                //按照内部对其方式进行位置偏移计算
+                this._rectVect[0] -= this._rectVect[2] * this._itiwX;
+                this._rectVect[1] -= this._rectVect[3] * this._itiwY;
                 //有截取尺寸,则按9参数来绘制
                 ctx.drawImage(this.img,this.zhuaquRect[0],this.zhuaquRect[1],this.zhuaquRect[2],this.zhuaquRect[3],this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
             }else{
                 //没有截取尺寸,则按5参数来绘制
-                this._rectVect = [offsetX + this.x * offsetScaleX,offsetY + this.y * offsetScaleY,this.width * offsetScaleX * this.scaleX,this.height * offsetScaleY * this.scaleY];
+                this._rectVect = [
+                    offsetX + this.x * offsetScaleX,
+                    offsetY + this.y * offsetScaleY,
+                    this.width * offsetScaleX * this.scaleX,
+                    this.height * offsetScaleY * this.scaleY
+                ];
+                //按照内部对其方式进行位置偏移计算
+                this._rectVect[0] -= this._rectVect[2] * this._itiwX;
+                this._rectVect[1] -= this._rectVect[3] * this._itiwY;
                 ctx.drawImage(this.img,this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
             }
         }

@@ -90,20 +90,27 @@ class AppDelegate{
         })
 
 
-        for(let i=0;i<50;i++)
+        for(let i=0;i<1;i++)
         {
             let img = new GMLImage("./resource/bg.png",[50,50,300,300]);
+
             img.name = "img_" + i;
             img.scaleX = 0.5;
             img.scaleY = 0.5;
-            this._rootSprite.addChild(img);
-            img.x = Math.random() * 800;
-            img.y = Math.random() * 600;
+            img.itiwX = 0.5;
+            img.itiwY = 0.5;
             img.addEventListener("mousedown",function(evt){
                 console.log(evt.gCurrentTarget.name)
             })
+            let sprtt = new GMLSprite()
+            sprtt.makeShape(0,0,300,300,0xf500f5,0xf500f5);
+            sprtt.x = 150;
+            sprtt.y = 150;
+            sprtt.scaleX = 0.5;
+            sprtt.scaleY = 0.5;
+            sprtt.addChildAt(img,0);
+            this._rootSprite.addChild(sprtt);
         }
-
 
 
 
