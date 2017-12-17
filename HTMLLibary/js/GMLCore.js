@@ -708,9 +708,32 @@ class GMLImage extends GMLDisplay{
      * */
     hitTestPoint(_mouseX,_mouseY){
         if(_mouseX >= this._rectVect[0] && _mouseX <= this._rectVect[0] + this._rectVect[2] && _mouseY >= this._rectVect[1] && _mouseY <= this._rectVect[1] + this._rectVect[3])
-            return this;
+        {
+            if(this.img){
+                //点击透明像素时,不能算作被点击
+                let imgx = (_mouseX - this._rectVect[0]) / this._rectVect[2] * this.img.width;//获取相对于原始图像上的X点
+                let imgy = (_mouseY - this._rectVect[1]) / this._rectVect[3] * this.img.height;//获取相对于原始图像上的Y点
+                let resultData = this.img.data.data;//ImageData.data
+                //console.log(this.img.data);
+                if(this.getAlphaByXY(resultData,imgx,imgy,this.img.width * 4) == 0)
+                {
+                    return null
+                }else{
+                    return this;
+                }
+            }else{
+                return null
+            }
+        }
         else
             return null;
+    }
+
+    /**
+     * 获取位图上,指定x,y坐标点的alpha值
+     * */
+    getAlphaByXY(_imgData,_imgX,_imgY,_lineLength){
+        return _imgData[_imgY * _lineLength + _imgX * 4 + 3];
     }
 }
 
@@ -853,7 +876,13 @@ class ResourceManager extends BaseObject{
                 limg.onload = function(evt){
                     //当图像加载完毕,则遍历ResourceManager.main()._waitLoadimgMap集合,向所有注册过这个图像资源的对象执行回调函数.
                     let resultImg = evt.target;
-                    ResourceManager.main()._imgMap.set(resultImg.imgKey,resultImg);//将图像添加到资源字典
+                    //计算resultImg对应的位图数据
+                    let tempcanvas = document.createElement("canvas");
+                    let tempctx = tempcanvas.getContext("2d");
+                    tempctx.drawImage(resultImg,0,0);
+                    resultImg.data = tempctx.getImageData(0,0,resultImg.width,resultImg.height);
+                    //将图像添加到资源字典
+                    ResourceManager.main()._imgMap.set(resultImg.imgKey,resultImg);
                     //遍历集合
                     let tSet = ResourceManager.main()._waitLoadimgMap.get(resultImg.imgKey)
                     tSet.forEach(function(value,key){
@@ -867,7 +896,7 @@ class ResourceManager extends BaseObject{
                     ResourceManager.main()._waitLoadimgMap.delete(resultImg.imgKey)
                 }
                 //加载失败的监听
-                limg.onunload = function(evt){
+                limg.onerror = function(evt){
                     //图像加载失败,执行一系列的释放操作
                     let resultImg = evt.target;
                     //遍历集合
