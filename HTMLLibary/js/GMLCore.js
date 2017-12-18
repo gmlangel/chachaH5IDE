@@ -37,6 +37,45 @@ class BaseObject{
 }
 
 /**
+ * 系统管理类
+ * */
+class OSManager{
+    static get OS(){
+        return "mac";
+    }
+    constructor(){
+
+    }
+}
+
+/*
+* 屏幕管理类
+* **/
+class ScreenManager{
+    static main(){
+        if(!window.gmlscreen)
+            window.gmlscreen = new ScreenManager();
+        return window.gmlscreen;
+    }
+
+    constructor(){
+        this._quilaty = 1;//清晰度, 默认为1倍(对应1倍屏幕)   .如果为2则对应2倍屏幕.最多支持8倍
+    }
+
+    get quilaty(){
+        return this._quilaty
+    }
+
+    set quilaty(n){
+        this._quilaty = n < 0 ? 0 : n;
+        this._quilaty = this._quilaty > 8 ? 8 : this._quilaty;
+        //每次清晰度修改,都会更新一系列相关设置
+        document.body.style.zoom = 1.0 / this._quilaty;
+        window.dispatchEvent(new Event("resize"));
+    }
+}
+
+/**
  * 基础事件派发者
  * Created by guominglong on 2017/4/7.
  */
@@ -249,26 +288,27 @@ class GMLTextFieldAliginEnum{
         return "right"
     }
 
-    /**
-     * 纵向顶部对其
-     * */
-    static get Top(){
-        return "top"
-    }
-
-    /**
-     * 纵向居中对其
-     * */
-    static get Middle(){
-        return "middle"
-    }
-
-    /**
-     * 纵向底部对其
-     * */
-    static get Bottom(){
-        return "bottom"
-    }
+    //注释的原因是因为它可以用 itiwY来实现
+    ///**
+    // * 纵向顶部对其
+    // * */
+    //static get Top(){
+    //    return "top"
+    //}
+    //
+    ///**
+    // * 纵向居中对其
+    // * */
+    //static get Middle(){
+    //    return "middle"
+    //}
+    //
+    ///**
+    // * 纵向底部对其
+    // * */
+    //static get Bottom(){
+    //    return "bottom"
+    //}
 
     constorctor(){
 
@@ -294,14 +334,14 @@ class GMLCanvas extends BaseEventDispatcher{
         return this._width;
     }
     set width(n){
-        this._width = n < 0 ? 0 : n;
+        this._width = (n < 0 ? 0 : n) * ScreenManager.main().quilaty;
         this.canvas.width = this._width + "";
     }
     get height(){
         return this._height;
     }
     set height(n){
-        this._height = n < 0 ? 0 : n;
+        this._height = (n < 0 ? 0 : n) * ScreenManager.main().quilaty;
         this.canvas.height = this._height + "";
     }
 
@@ -510,7 +550,6 @@ class GMLShape extends GMLDisplay{
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
        // console.log("内部",offsetX,offsetY)
         ctx.save();
-        ctx.fillStyle = this._fColorStr;
         this._rectVect = [
             offsetX + this.x * offsetScaleX,
             offsetY + this.y * offsetScaleY,
@@ -520,11 +559,20 @@ class GMLShape extends GMLDisplay{
         //按照内部对其方式进行位置偏移计算
         this._rectVect[0] -= this._rectVect[2] * this._itiwX;
         this._rectVect[1] -= this._rectVect[3] * this._itiwY;
+        let quilaty = ScreenManager.main().quilaty;
         //开始绘制
-        ctx.fillRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
-        //暂时屏蔽绘制边框,因为绘制边框,图像会变虚
-        //ctx.strokeStyle = this._sColorStr;
-        //ctx.strokeRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+        if(this._fColorStr != "#0")
+        {
+            //绘制背景
+            ctx.fillStyle = this._fColorStr;
+            ctx.fillRect(this._rectVect[0]*quilaty,this._rectVect[1]*quilaty,this._rectVect[2]*quilaty,this._rectVect[3]*quilaty);
+        }
+        if(this._sColorStr != "#0")
+        {
+            //绘制边框
+            ctx.strokeStyle = this._sColorStr;
+            ctx.strokeRect(this._rectVect[0]*quilaty,this._rectVect[1]*quilaty,this._rectVect[2]*quilaty,this._rectVect[3]*quilaty);
+        }
         ctx.restore();
     }
 
@@ -739,7 +787,8 @@ class GMLImage extends GMLDisplay{
                 this._rectVect[0] -= this._rectVect[2] * this._itiwX;
                 this._rectVect[1] -= this._rectVect[3] * this._itiwY;
                 //有截取尺寸,则按9参数来绘制
-                ctx.drawImage(this.img,this.zhuaquRect[0],this.zhuaquRect[1],this.zhuaquRect[2],this.zhuaquRect[3],this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+                let quilaty = ScreenManager.main().quilaty;
+                ctx.drawImage(this.img,this.zhuaquRect[0],this.zhuaquRect[1],this.zhuaquRect[2],this.zhuaquRect[3],this._rectVect[0] * quilaty,this._rectVect[1] * quilaty,this._rectVect[2] * quilaty,this._rectVect[3] * quilaty);
             }else{
                 //没有截取尺寸,则按5参数来绘制
                 this._rectVect = [
@@ -751,7 +800,8 @@ class GMLImage extends GMLDisplay{
                 //按照内部对其方式进行位置偏移计算
                 this._rectVect[0] -= this._rectVect[2] * this._itiwX;
                 this._rectVect[1] -= this._rectVect[3] * this._itiwY;
-                ctx.drawImage(this.img,this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+                let quilaty = ScreenManager.main().quilaty;
+                ctx.drawImage(this.img,this._rectVect[0] * quilaty,this._rectVect[1] * quilaty,this._rectVect[2] * quilaty,this._rectVect[3] * quilaty);
             }
         }
         ctx.restore();
@@ -801,10 +851,45 @@ class GMLStaticTextField extends GMLDisplay{
         this._text = "";//文本内容
         this._hAliginment = GMLTextFieldAliginEnum.Left;//文本横向对其方式  默认为左对其
         this._vAliginment = GMLTextFieldAliginEnum.Top;//文本纵向对其方式  默认为顶部对其
-        this._backgroundShape = null;//背景
+        this._backgroundShape = new GMLShape();//背景
         this._fontColor = "#000000ff";//笔触颜色
         this._fontSize = 20;//字体大小
         this._fontName = "微软雅黑";//字体名称
+        this.isBold = false;//是否为粗体
+        this._resultText = [];//最终绘制到画布的文本
+        this._isTextChanged = false;//文本是否更改  取决于width, _fontSize,_fontName,_text是否更改
+    }
+    get width(){
+        return this._width;
+    }
+
+    set width(n){
+        super.width = n;
+        this._isTextChanged = true;
+    }
+    get fontColor(){
+        return this._fontColor;
+    }
+    set fontColor(uint32Color){
+        this._fontColor = "#" + uint32Color.toString(16);
+    }
+
+    get fontSize(){
+        return this._fontSize;
+    }
+
+    set fontSize(n){
+        this._fontSize = n < 0 ? 0 : n;
+        this._isTextChanged = true;
+    }
+
+    get fontName(){
+        return this._fontName;
+    }
+
+    set fontName(str){
+        this._fontName = str || "微软雅黑";
+        this._isTextChanged = true;
     }
 
     get text(){
@@ -813,6 +898,7 @@ class GMLStaticTextField extends GMLDisplay{
 
     set text(str){
         this._text = (str || "").toString();
+        this._isTextChanged = true;
     }
 
     get hAliginment(){
@@ -864,20 +950,44 @@ class GMLStaticTextField extends GMLDisplay{
         let tOffsetY = offsetY + this._y * offsetScaleY;
         let tOffsetScaleX = offsetScaleX * this._scaleX;
         let tOffsetScaleY = offsetScaleY * this._scaleY;
-        this._rectVect = [tOffsetX,tOffsetY,this.width * tOffsetScaleX,this.height * tOffsetScaleY]
-        //按照内部对其方式进行位置偏移计算
-        this._rectVect[0] -= this._rectVect[2] * this._itiwX;
-        this._rectVect[1] -= this._rectVect[3] * this._itiwY;
+
+
         ////画背景
         //if(this._backgroundShape){
         //    this._backgroundShape.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
         //}
 
-        //画内容
-        //ctx.textAlign = this._hAliginment;
-        ctx.font = (this._fontSize * tOffsetScaleX) + "px " + this._fontName;
-       // ctx.fillStyle = this._fontColor;
-        ctx.fillText(this._text,150,150);
+        let quilaty = ScreenManager.main().quilaty;
+        //设置文本样式
+        ctx.textAlign = this._hAliginment;
+        ctx.font = (this._fontSize * tOffsetScaleX * quilaty) + "px " + this._fontName + " " + (this.isBold ? "bold" : "solid");
+        ctx.fillStyle = this._fontColor;
+        if(this._isTextChanged){
+            //如果内容有更改,则重新计算_resultText
+            this.reCountResultText(ctx);
+            this._isTextChanged = false;
+        }
+        let tempYOffset = 0;
+        if(OSManager.OS == "mac")
+        {
+            tempYOffset += (this._fontSize + 2) * tOffsetScaleX * quilaty;//mac 系统绘制文本是以最下角为0,0点绘制的,所以需要有一个初始化Y偏移,否则看不到第一行文本.. 2px为行间距
+        }
+        let lineYOffset = (this._fontSize + 2) * tOffsetScaleX * quilaty;//行高偏移值
+        let j = this._resultText.length;
+        this._height = (OSManager.OS == "mac" && j > 0) ? (this._fontSize + 2) * (j + 1) : (this._fontSize + 2) * j;//根据行数,算出真实文本高度
+        this._rectVect = [tOffsetX,tOffsetY,this.width * tOffsetScaleX,this.height * tOffsetScaleY]
+        //按照内部对其方式进行位置偏移计算
+        this._rectVect[0] -= this._rectVect[2] * this._itiwX;
+        this._rectVect[1] -= this._rectVect[3] * this._itiwY;
+        let xJIzhun = this._rectVect[0];//文本对其的绘制基准点
+        if(this._hAliginment == GMLTextFieldAliginEnum.Center)
+            xJIzhun = this._rectVect[0] + this._rectVect[2]/2;
+        else if(this._hAliginment == GMLTextFieldAliginEnum.Right)
+            xJIzhun = this._rectVect[0] + this._rectVect[2];
+        for(let i=0;i<j;i++){
+            //绘制文本
+            ctx.fillText(this._resultText[i],xJIzhun*quilaty,this._rectVect[1]*quilaty+tempYOffset+i*lineYOffset);
+        }
         ctx.restore();
     }
 
@@ -889,6 +999,27 @@ class GMLStaticTextField extends GMLDisplay{
             return this;
         else
             return null;
+    }
+
+    reCountResultText(ctx){
+        this._resultText = [];
+        let str = this._text;
+        let lineWidth = 0;
+        var lastSubStrIndex= 0;
+        for(let i=0;i<str.length;i++){
+            lineWidth+=ctx.measureText(str[i]).width;
+            if(lineWidth>this._width || str[i] == "\n"){//减去initX,防止边界出现的问题
+                let tempStr = str.substring(lastSubStrIndex,i).replace("\n","");
+                this._resultText.push(tempStr);
+                lineWidth=0;
+                lastSubStrIndex=i;
+                continue;//原来是没有这个continue的,是我自己加的
+            }
+            if(i==str.length-1){
+                let tempStr = str.substring(lastSubStrIndex,i+1).replace("\n","");
+                this._resultText.push(tempStr);
+            }
+        }
     }
 }
 

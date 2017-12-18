@@ -18,6 +18,9 @@ class AppDelegate{
      * 启动
      * */
     start(){
+        //设置清晰度为2倍屏
+        ScreenManager.main().quilaty = 1;
+
         //将画布添加至document
         document.body.appendChild(this._mainCanvas.canvas);
         this._mainCanvas.canvas.style.zIndex = 0;
@@ -50,13 +53,13 @@ class AppDelegate{
         //测试用
         let spr1 = new GMLSprite();
         spr1.name = "s1"
-        spr1.makeShape(0,0,500,500,0xff6600ff,0x000000ff);
+        spr1.makeShape(0,0,500,500,0xff660080,0x00000000);
         this._rootSprite.addChild(spr1);
         spr1.x = 0;
 
         let spr2 = new GMLSprite();
         spr2.name = "s2"
-        spr2.makeShape(0,0,100,100,0xf06000ff,0xf06000ff);
+        spr2.makeShape(0,0,100,100,0xf0600080,0x00000000);
         this._rootSprite.addChild(spr2);
         spr2.x = 120;
 
@@ -89,7 +92,17 @@ class AppDelegate{
 
         ////添加用于测试的点击事件
         //spr3.addEventListener("mousedown",function(evt){
-        //    console.log(evt.gCurrentTarget)
+        //    console.log(evt.gCurrentTarget.name)
+        //})
+        //
+        ////添加用于测试的点击事件
+        //spr2.addEventListener("mousedown",function(evt){
+        //    console.log(evt.gCurrentTarget.name)
+        //})
+        //
+        ////添加用于测试的点击事件
+        //spr1.addEventListener("mousedown",function(evt){
+        //    console.log(evt.gCurrentTarget.name)
         //})
 
 
@@ -131,11 +144,17 @@ class AppDelegate{
             });
         }
 
+        当ScreenManager  的 quilaty 不为1的时候, textF._的reCountResultText算法有问题
         let textF = new GMLStaticTextField()
-        textF.width = 200;
+        textF.isBold = true;
+        textF.fontSize = 10;
+        textF.width = 100;
         textF.height = 25;
+        textF.itiwY = 0.5;
+        textF.itiwX = 1;
+        textF.hAliginment = GMLTextFieldAliginEnum.Right;
         this._rootSprite.addChild(textF);
-        textF.text = "我是中国人\r\n我是中国人\n我是中国人";
+        textF.text = "我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人";
         textF.x = 150;
         textF.y = 150;
 
