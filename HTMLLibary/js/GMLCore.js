@@ -36,7 +36,6 @@ class BaseObject{
     }
 }
 
-
 /**
  * 基础事件派发者
  * Created by guominglong on 2017/4/7.
@@ -222,6 +221,57 @@ class BaseNotificationCenter extends BaseObject{
             arr.clear();
         }
         this._notifyMap.clear();
+    }
+}
+
+/**
+ *  文本对其方式 枚举
+ * */
+class GMLTextFieldAliginEnum{
+    /**
+     * 横向居中
+     * */
+    static get Center(){
+        return "center"
+    }
+
+    /**
+     * 横向左对其
+     * */
+    static get Left(){
+        return "left"
+    }
+
+    /**
+     * 横向右对其
+     * */
+    static get Right(){
+        return "right"
+    }
+
+    /**
+     * 纵向顶部对其
+     * */
+    static get Top(){
+        return "top"
+    }
+
+    /**
+     * 纵向居中对其
+     * */
+    static get Middle(){
+        return "middle"
+    }
+
+    /**
+     * 纵向底部对其
+     * */
+    static get Bottom(){
+        return "bottom"
+    }
+
+    constorctor(){
+
     }
 }
 
@@ -459,6 +509,7 @@ class GMLShape extends GMLDisplay{
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
        // console.log("内部",offsetX,offsetY)
+        ctx.save();
         ctx.fillStyle = this._fColorStr;
         this._rectVect = [
             offsetX + this.x * offsetScaleX,
@@ -474,6 +525,7 @@ class GMLShape extends GMLDisplay{
         //暂时屏蔽绘制边框,因为绘制边框,图像会变虚
         //ctx.strokeStyle = this._sColorStr;
         //ctx.strokeRect(this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
+        ctx.restore();
     }
 
     /**
@@ -666,6 +718,7 @@ class GMLImage extends GMLDisplay{
     }
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
+        ctx.save();
         if(this.img)
         {
             //ctx.drawImage()
@@ -701,6 +754,7 @@ class GMLImage extends GMLDisplay{
                 ctx.drawImage(this.img,this._rectVect[0],this._rectVect[1],this._rectVect[2],this._rectVect[3]);
             }
         }
+        ctx.restore();
     }
 
     /**
@@ -737,7 +791,106 @@ class GMLImage extends GMLDisplay{
     }
 }
 
+/**
+ * 静态文本类
+ * */
+class GMLStaticTextField extends GMLDisplay{
 
+    constructor(){
+        super();
+        this._text = "";//文本内容
+        this._hAliginment = GMLTextFieldAliginEnum.Left;//文本横向对其方式  默认为左对其
+        this._vAliginment = GMLTextFieldAliginEnum.Top;//文本纵向对其方式  默认为顶部对其
+        this._backgroundShape = null;//背景
+        this._fontColor = "#000000ff";//笔触颜色
+        this._fontSize = 20;//字体大小
+        this._fontName = "微软雅黑";//字体名称
+    }
+
+    get text(){
+        return this._text;
+    }
+
+    set text(str){
+        this._text = (str || "").toString();
+    }
+
+    get hAliginment(){
+        return this._hAliginment;
+    }
+
+    set hAliginment(_enum){
+        this._hAliginment = _enum;
+    }
+
+    get vAliginment(){
+        return this._vAliginment;
+    }
+
+    set vAliginment(_enum){
+        this._vAliginment = _enum;
+    }
+
+    get itiwX(){
+        return this._backgroundShape.itiwX;
+    }
+
+    set itiwX(n){
+        super.itiwX = n;
+        this._backgroundShape.itiwX = n;
+    }
+
+    get itiwY(){
+        return this._backgroundShape.itiwY;
+    }
+
+    set itiwY(n){
+        super.itiwY = n;
+        this._backgroundShape.itiwY = n;
+    }
+
+    /**
+     * 创建背景
+     * */
+    makeBackground(_x,_y,_w,_h,_fillColor,_strokeColor){
+        if(this._backgroundShape == null)
+            this._backgroundShape = new GMLShape();
+        this._backgroundShape.makeShape(_x,_y,_w,_h,_fillColor,_strokeColor)
+    }
+
+    drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
+        ctx.save();
+        let tOffsetX = offsetX + this._x * offsetScaleX;
+        let tOffsetY = offsetY + this._y * offsetScaleY;
+        let tOffsetScaleX = offsetScaleX * this._scaleX;
+        let tOffsetScaleY = offsetScaleY * this._scaleY;
+        this._rectVect = [tOffsetX,tOffsetY,this.width * tOffsetScaleX,this.height * tOffsetScaleY]
+        //按照内部对其方式进行位置偏移计算
+        this._rectVect[0] -= this._rectVect[2] * this._itiwX;
+        this._rectVect[1] -= this._rectVect[3] * this._itiwY;
+        ////画背景
+        //if(this._backgroundShape){
+        //    this._backgroundShape.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
+        //}
+
+        //画内容
+        //ctx.textAlign = this._hAliginment;
+        ctx.font = (this._fontSize * tOffsetScaleX) + "px " + this._fontName;
+       // ctx.fillStyle = this._fontColor;
+        ctx.fillText(this._text,150,150);
+        ctx.restore();
+    }
+
+    /**
+     * 鼠标检测
+     * */
+    hitTestPoint(_mouseX,_mouseY){
+        if(_mouseX >= this._rectVect[0] && _mouseX <= this._rectVect[0] + this._rectVect[2] && _mouseY >= this._rectVect[1] && _mouseY <= this._rectVect[1] + this._rectVect[3])
+            return this;
+        else
+            return null;
+    }
+}
 
 //显示对象类型声明----------------end--------------------------
 
