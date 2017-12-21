@@ -39,19 +39,27 @@ class BaseObject{
 class GTool{
 
     static covertUint32toColorStr(uint32Color){
-        //之所以不这么写是因为按位运算uint32会丢精度,以下计算模拟按位运算
-        let r = parseInt(uint32Color / 0xffffff);
-        r = r < 0 ? 0 : r;
-        r = r > 255 ? 255 : r;
-        let g = (uint32Color & 0x00ff0000) >> 16;
-        let b = (uint32Color & 0x0000ff00) >> 8;
-        let a = uint32Color & 0x000000ff;
-        let result = "#"
-        result = result + (r < 0x1f ? "0" + r.toString(16): r.toString(16));
-        result = result + (g < 0x1f ? "0" + g.toString(16) : g.toString(16));
-        result = result + (b < 0x1f ? "0" + b.toString(16) : b.toString(16));
-        result = result + (a < 0x1f ? "0" + r.toString(16) : a.toString(16));
-        return result;
+        ////精确写法
+        ////之所以不这么写是因为按位运算uint32会丢精度,以下计算模拟按位运算
+        //let r = parseInt(uint32Color / 0xffffff);
+        //r = r < 0 ? 0 : r;
+        //r = r > 255 ? 255 : r;
+        //let g = (uint32Color & 0x00ff0000) >> 16;
+        //let b = (uint32Color & 0x0000ff00) >> 8;
+        //let a = uint32Color & 0x000000ff;
+        //let result = "#"
+        //result = result + (r < 0x1f ? "0" + r.toString(16): r.toString(16));
+        //result = result + (g < 0x1f ? "0" + g.toString(16) : g.toString(16));
+        //result = result + (b < 0x1f ? "0" + b.toString(16) : b.toString(16));
+        //result = result + (a < 0x1f ? "0" + r.toString(16) : a.toString(16));
+        //return result;
+
+        //简易写法
+        let tempResult = uint32Color.toString(16);
+        while(tempResult.length < 8){
+            tempResult = "0" + tempResult;
+        }
+        return "#" + tempResult;
     }
 }
 
