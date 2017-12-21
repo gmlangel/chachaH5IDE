@@ -36,6 +36,25 @@ class BaseObject{
     }
 }
 
+class GTool{
+
+    static covertUint32toColorStr(uint32Color){
+        //之所以不这么写是因为按位运算uint32会丢精度,以下计算模拟按位运算
+        let r = parseInt(uint32Color / 0xffffff);
+        r = r < 0 ? 0 : r;
+        r = r > 255 ? 255 : r;
+        let g = (uint32Color & 0x00ff0000) >> 16;
+        let b = (uint32Color & 0x0000ff00) >> 8;
+        let a = uint32Color & 0x000000ff;
+        let result = "#"
+        result = result + (r < 0x1f ? "0" + r.toString(16): r.toString(16));
+        result = result + (g < 0x1f ? "0" + g.toString(16) : g.toString(16));
+        result = result + (b < 0x1f ? "0" + b.toString(16) : b.toString(16));
+        result = result + (a < 0x1f ? "0" + r.toString(16) : a.toString(16));
+        return result;
+    }
+}
+
 /**
  * 系统管理类
  * */
@@ -534,8 +553,7 @@ class GMLShape extends GMLDisplay{
 
     set fColor(uint32Color){
         this._fColor = uint32Color;
-        //之所以不这么写是因为按位运算uint32会丢精度"rgba("+ (uint32Color >> 24) +","+ ((uint32Color >> 16) & 0x00FF) +","+ ((uint32Color >> 8) & 0x0000FF) +","+ (uint32Color & 0x0000ffFF) +")";//重新计算颜色字符串
-        this._fColorStr = "#" + uint32Color.toString(16)
+        this._fColorStr = GTool.covertUint32toColorStr(uint32Color)
     }
 
     get sColor(){
@@ -544,7 +562,7 @@ class GMLShape extends GMLDisplay{
 
     set sColor(uint32Color){
         this._sColor = uint32Color;
-        this._sColorStr = "#" + uint32Color.toString(16)
+        this._sColorStr = GTool.covertUint32toColorStr(uint32Color);
     }
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
@@ -850,15 +868,57 @@ class GMLStaticTextField extends GMLDisplay{
         super();
         this._text = "";//文本内容
         this._hAliginment = GMLTextFieldAliginEnum.Left;//文本横向对其方式  默认为左对其
-        this._vAliginment = GMLTextFieldAliginEnum.Top;//文本纵向对其方式  默认为顶部对其
         this._backgroundShape = new GMLShape();//背景
-        this._fontColor = "#000000ff";//笔触颜色
+        this._fontColor = 0x000000ff;//笔触颜色
+        this._fontColorStr = "#000000ff"
         this._fontSize = 20;//字体大小
         this._fontName = "微软雅黑";//字体名称
         this.isBold = false;//是否为粗体
         this._resultText = [];//最终绘制到画布的文本
         this._isTextChanged = false;//文本是否更改  取决于width, _fontSize,_fontName,_text是否更改
+        this._hasBorder = false;//是否有边框
+        this._borderColor = 0;//边框默认颜色
+        this._hasBackground = false;//是否有背景
+        this._backgroundColor = 0;//背景默认颜色
     }
+    get hasBorder(){
+        return this._hasBorder;
+    }
+
+    set hasBorder(b){
+        this._hasBorder = !!b;
+        if(this._hasBorder && this._borderColor == 0)
+            this.borderColor = 0x000000ff;//默认为黑色不透明边框
+    }
+
+    get hasBackground(){
+        return this._hasBackground;
+    }
+
+    set hasBackground(b){
+        this._hasBackground = !!b;
+        if(this._hasBackground && this._backgroundColor == 0)
+            this.backgroundColor = 0xffffffff;//默认为白色不透明背景
+    }
+
+    get borderColor(){
+        return this._borderColor;
+    }
+
+    set borderColor(uint32Color){
+        this._borderColor = uint32Color;
+        this._backgroundShape.sColor = uint32Color;
+    }
+
+    get backgroundColor(){
+        return this._backgroundColor;
+    }
+
+    set backgroundColor(uint32Color){
+        this._backgroundColor = uint32Color;
+        this._backgroundShape.fColor = uint32Color;
+    }
+
     get width(){
         return this._width;
     }
@@ -871,7 +931,8 @@ class GMLStaticTextField extends GMLDisplay{
         return this._fontColor;
     }
     set fontColor(uint32Color){
-        this._fontColor = "#" + uint32Color.toString(16);
+        this._fontColor = uint32Color;
+        this._fontColorStr = GTool.covertUint32toColorStr(uint32Color);
     }
 
     get fontSize(){
@@ -909,13 +970,6 @@ class GMLStaticTextField extends GMLDisplay{
         this._hAliginment = _enum;
     }
 
-    get vAliginment(){
-        return this._vAliginment;
-    }
-
-    set vAliginment(_enum){
-        this._vAliginment = _enum;
-    }
 
     get itiwX(){
         return this._backgroundShape.itiwX;
@@ -935,33 +989,34 @@ class GMLStaticTextField extends GMLDisplay{
         this._backgroundShape.itiwY = n;
     }
 
-    /**
-     * 创建背景
-     * */
-    makeBackground(_x,_y,_w,_h,_fillColor,_strokeColor){
-        if(this._backgroundShape == null)
-            this._backgroundShape = new GMLShape();
-        this._backgroundShape.makeShape(_x,_y,_w,_h,_fillColor,_strokeColor)
+    get width(){
+        return super.width;
     }
 
+    set width(n){
+        super.width = n;
+        this._backgroundShape.width = n;
+    }
+
+    get height(){
+        return super.height;
+    }
+
+    set height(n){
+        super.height = n;
+        this._backgroundShape.height = n;
+    }
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
         ctx.save();
         let tOffsetX = offsetX + this._x * offsetScaleX;
         let tOffsetY = offsetY + this._y * offsetScaleY;
         let tOffsetScaleX = offsetScaleX * this._scaleX;
         let tOffsetScaleY = offsetScaleY * this._scaleY;
-
-
-        ////画背景
-        //if(this._backgroundShape){
-        //    this._backgroundShape.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
-        //}
-
         let quilaty = ScreenManager.main().quilaty;
         //设置文本样式
         ctx.textAlign = this._hAliginment;
-        ctx.font = (this._fontSize * tOffsetScaleX * quilaty) + "px " + this._fontName + " " + (this.isBold ? "bold" : "solid");
-        ctx.fillStyle = this._fontColor;
+        ctx.font = (this._fontSize * tOffsetScaleX * quilaty)+ "px " + this._fontName + " " + (this.isBold ? "bold" : "solid");
+        ctx.fillStyle = this._fontColorStr;
         if(this._isTextChanged){
             //如果内容有更改,则重新计算_resultText
             this.reCountResultText(ctx);
@@ -970,11 +1025,14 @@ class GMLStaticTextField extends GMLDisplay{
         let tempYOffset = 0;
         if(OSManager.OS == "mac")
         {
-            tempYOffset += (this._fontSize + 2) * tOffsetScaleX * quilaty;//mac 系统绘制文本是以最下角为0,0点绘制的,所以需要有一个初始化Y偏移,否则看不到第一行文本.. 2px为行间距
+            tempYOffset += ((this._fontSize + 2) * tOffsetScaleX * quilaty);//mac 系统绘制文本是以最下角为0,0点绘制的,所以需要有一个初始化Y偏移,否则看不到第一行文本.. 2px为行间距
         }
         let lineYOffset = (this._fontSize + 2) * tOffsetScaleX * quilaty;//行高偏移值
         let j = this._resultText.length;
-        this._height = (OSManager.OS == "mac" && j > 0) ? (this._fontSize + 2) * (j + 1) : (this._fontSize + 2) * j;//根据行数,算出真实文本高度
+        this.height = (this._fontSize + 4) * j;//根据行数,算出真实文本高度
+        //画背景
+        this._backgroundShape.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
+
         this._rectVect = [tOffsetX,tOffsetY,this.width * tOffsetScaleX,this.height * tOffsetScaleY]
         //按照内部对其方式进行位置偏移计算
         this._rectVect[0] -= this._rectVect[2] * this._itiwX;
@@ -1006,12 +1064,16 @@ class GMLStaticTextField extends GMLDisplay{
         let str = this._text;
         let lineWidth = 0;
         var lastSubStrIndex= 0;
+        let tempCharWidth = 0;
+        let maxW = this._width * ScreenManager.main().quilaty;
         for(let i=0;i<str.length;i++){
-            lineWidth+=ctx.measureText(str[i]).width;
-            if(lineWidth>this._width || str[i] == "\n"){//减去initX,防止边界出现的问题
+            tempCharWidth = ctx.measureText(str[i]).width;
+            lineWidth+= tempCharWidth;
+            if(lineWidth>maxW || str[i] == "\n"){
                 let tempStr = str.substring(lastSubStrIndex,i).replace("\n","");
+
                 this._resultText.push(tempStr);
-                lineWidth=0;
+                lineWidth=tempCharWidth;
                 lastSubStrIndex=i;
                 continue;//原来是没有这个continue的,是我自己加的
             }
@@ -1019,7 +1081,9 @@ class GMLStaticTextField extends GMLDisplay{
                 let tempStr = str.substring(lastSubStrIndex,i+1).replace("\n","");
                 this._resultText.push(tempStr);
             }
+
         }
+
     }
 }
 

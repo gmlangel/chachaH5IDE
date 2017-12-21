@@ -19,7 +19,7 @@ class AppDelegate{
      * */
     start(){
         //设置清晰度为2倍屏
-        ScreenManager.main().quilaty = 1;
+        ScreenManager.main().quilaty = 2;
 
         //将画布添加至document
         document.body.appendChild(this._mainCanvas.canvas);
@@ -49,17 +49,22 @@ class AppDelegate{
                 disPlayItem.dispatchEvent(new BaseEvent("mousedown"));//向其派发鼠标按下事件
             }
         })
+        function  b(t){
+            return t.toString(16);
+        }
+
+
 
         //测试用
         let spr1 = new GMLSprite();
         spr1.name = "s1"
-        spr1.makeShape(0,0,500,500,0xff660080,0x00000000);
+        spr1.makeShape(0,0,500,500,0x0f660080,0);
         this._rootSprite.addChild(spr1);
         spr1.x = 0;
 
         let spr2 = new GMLSprite();
         spr2.name = "s2"
-        spr2.makeShape(0,0,100,100,0xf0600080,0x00000000);
+        spr2.makeShape(0,0,100,100,0xff660080,0);
         this._rootSprite.addChild(spr2);
         spr2.x = 120;
 
@@ -144,18 +149,19 @@ class AppDelegate{
             });
         }
 
-        当ScreenManager  的 quilaty 不为1的时候, textF._的reCountResultText算法有问题
+        //当ScreenManager  的 quilaty 不为1的时候, textF._的reCountResultText算法有问题
         let textF = new GMLStaticTextField()
-        textF.isBold = true;
-        textF.fontSize = 10;
+        textF.hasBackground = true;
+        textF.hasBorder = true;
+        textF.borderColor = 0xff6600ff;
+        textF.backgroundColor = 0x0000ffff;
+        textF.fontSize = 20;
+        textF.fontColor = 0xff0000ff;
         textF.width = 100;
         textF.height = 25;
-        textF.itiwY = 0.5;
-        textF.itiwX = 1;
-        textF.hAliginment = GMLTextFieldAliginEnum.Right;
         this._rootSprite.addChild(textF);
-        textF.text = "我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人我是中国人";
-        textF.x = 150;
+        textF.text = "我是中国人我是中国人我是中国人我是中国人我是中国人";
+        textF.x = 100;
         textF.y = 150;
 
 
