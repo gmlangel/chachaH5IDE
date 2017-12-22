@@ -40,7 +40,7 @@ class BaseObject{
  * 基础场景管理类
  * */
 class BaseScene extends BaseObject{
-    static main() {
+    static get main() {
         if (!window.gmlbaseScene)
             window.gmlbaseScene = new BaseScene();
         return window.gmlbaseScene;
@@ -49,6 +49,8 @@ class BaseScene extends BaseObject{
         super();
         this._mainCanvas = new GMLCanvas();//主画布
         this._rootSprite = new GMLSprite();//根显示容器
+        this._currentDrawIndex = 0;//全局图层绘制索引,用于鼠标点击检测
+        this._defaultOverDisItem = null;//鼠标移入时的响应可视化对象
     }
 
     start(){
@@ -63,18 +65,18 @@ class BaseScene extends BaseObject{
         this.addSystemEvents();
 
         //开始时间轴
-        TimeLine.mainTimeLine().start(this.updateAnimation);
+        TimeLine.main.start(this.updateAnimation);
     }
 
     get frameRate(){
-        return TimeLine.mainTimeLine().frameRate;
+        return TimeLine.main.frameRate;
     }
 
     /**
      * 设置帧频
      * */
     set frameRate(n){
-        TimeLine.mainTimeLine().frameRate = n;
+        TimeLine.main.frameRate = n;
     }
 
 
@@ -82,66 +84,163 @@ class BaseScene extends BaseObject{
      * 私有函数,添加系统事件检测
      * */
     addSystemEvents(){
+        //截获右键点击事件
+        document.oncontextmenu = this._onRightClick;
         //添加系统级的通知监听
         window.addEventListener("keydown",function(evt){
-            BaseNotificationCenter.main().postNotify(NotifyStruct.onKeyDown,evt);
+            BaseNotificationCenter.main.postNotify(NotifyStruct.onKeyDown,evt);
         })
         window.addEventListener("keyup",function(evt){
             //spr3.x += 2;
-            BaseNotificationCenter.main().postNotify(NotifyStruct.onKeyUp,evt);
+            BaseNotificationCenter.main.postNotify(NotifyStruct.onKeyUp,evt);
         })
 
         window.addEventListener("mousedown",function(evt){
-            let arg = {"x":evt.x,"y":evt.y};//arg 之所以evt.x向左偏移10px,是因为主canvas并没有在html的0,0点,而是10,10点
-            //BaseNotificationCenter.main().postNotify(NotifyStruct.onMouseDown,arg);
-            //鼠标检测
-            let disPlayItem = BaseScene.main()._rootSprite.hitTestPoint(arg.x,arg.y);
-            if(disPlayItem) {
-                disPlayItem.dispatchEvent(new BaseEvent("mousedown"));//向其派发鼠标按下事件
-            }
+            //执行鼠标down检测
+            BaseScene.main._mouseHitTestAndDispatch(evt,GMLMouseEvent.Down);
+        })
+
+        window.addEventListener("mouseup",function(evt){
+            //执行鼠标up检测
+            BaseScene.main._mouseHitTestAndDispatch(evt,GMLMouseEvent.Up);
+        })
+
+        window.addEventListener("click",function(evt){
+            //执行鼠标click检测
+            BaseScene.main._mouseHitTestAndDispatch(evt,GMLMouseEvent.Click);
+        })
+
+        window.addEventListener("dblclick",function(evt){
+            //执行鼠标doubleClick检测
+            BaseScene.main._mouseHitTestAndDispatch(evt,GMLMouseEvent.DoubleClick);
         })
 
         window.addEventListener("mousemove",function(evt){
-            let arg = {"x":evt.x,"y":evt.y};//arg 之所以evt.x向左偏移10px,是因为主canvas并没有在html的0,0点,而是10,10点
-            //BaseNotificationCenter.main().postNotify(NotifyStruct.onMouseDown,arg);
-            //鼠标检测
-            let disPlayItem = BaseScene.main()._rootSprite.hitTestPoint(arg.x,arg.y);
+            //let arg = {"x":evt.x,"y":evt.y};//arg 之所以evt.x向左偏移10px,是因为主canvas并没有在html的0,0点,而是10,10点
+            ////鼠标over,out检测
+            let disPlayItem = BaseScene.main._mouseHitTest(evt,GMLMouseEvent.Over);
+            let item = BaseScene.main._defaultOverDisItem;
             if(disPlayItem) {
-                if(window.defalutdisPlayItem)
+                if(item)
                 {
-                    if(disPlayItem==window.defalutdisPlayItem)
+                    if(disPlayItem==item)
                     {
                         return;
                     }
-                    window.defalutdisPlayItem.scaleX = window.defalutdisPlayItem.scaleY = 1;
-                    disPlayItem.scaleX = disPlayItem.scaleY = 5;
-                    window.defalutdisPlayItem = disPlayItem;
-                    disPlayItem.dispatchEvent(new BaseEvent("mouseover"));//向其派发鼠标按下事件
+                    BaseScene.main._defaultOverDisItem = null;
+                    let outNe = new GMLMouseEvent(GMLMouseEvent.Out,{globelX:evt.x,globelY:evt.y});
+                    item.dispatchEvent(outNe);//向其派发鼠标Out事件
+
+                    BaseScene.main._defaultOverDisItem = disPlayItem;
+                    let overNe = new GMLMouseEvent(GMLMouseEvent.Over,{globelX:evt.x,globelY:evt.y});
+                    disPlayItem.dispatchEvent(overNe);//向其派发鼠标Over事件
                 }else{
-                    disPlayItem.scaleX = disPlayItem.scaleY = 5;
-                    window.defalutdisPlayItem = disPlayItem;
-                    disPlayItem.dispatchEvent(new BaseEvent("mouseover"));//向其派发鼠标按下事件
+                    BaseScene.main._defaultOverDisItem = disPlayItem;
+                    let ne2 = new GMLMouseEvent(GMLMouseEvent.Over,{globelX:evt.x,globelY:evt.y});
+                    disPlayItem.dispatchEvent(ne2);//向其派发鼠标Over事件
                 }
             }else{
-                if(window.defalutdisPlayItem){
-                    window.defalutdisPlayItem.scaleX = window.defalutdisPlayItem.scaleY = 1;
-                    window.defalutdisPlayItem.dispatchEvent(new BaseEvent("mouseout"));//向其派发鼠标按下事件
-                    window.defalutdisPlayItem = null;
+                if(item){
+                    BaseScene.main._defaultOverDisItem = null;
+                    let ne = new GMLMouseEvent(GMLMouseEvent.Out,{globelX:evt.x,globelY:evt.y});
+                    item.dispatchEvent(ne);//向其派发鼠标移出事件
                 }
             }
+
+            //鼠标move事件派发
+            BaseScene.main._mouseHitTestAndDispatch(evt,GMLMouseEvent.Move);
         })
+
+        window.addEventListener("mouseout",function(evt){
+            if(BaseScene.main._defaultOverDisItem){
+                let ne = new GMLMouseEvent(GMLMouseEvent.Out,{globelX:evt.x,globelY:evt.y});
+                BaseScene.main._defaultOverDisItem.dispatchEvent(ne)//向指定对象派发mouseout事件
+            }
+        });
+    }
+
+    /**
+     * 比较两个可视化对象,谁的层级更高,则返回谁
+     * */
+    _compareDisplayObj(preDisplayItem,currentDisplayItem){
+        if(currentDisplayItem._zIndex >= preDisplayItem._zIndex)
+            return currentDisplayItem;
+        else
+            return preDisplayItem;
+    }
+
+    /**
+     * 鼠标检测
+     * return 检测结果GMLDispaly对象或者 null
+     * */
+    _mouseHitTest(evt,type){
+        let tempResultDisplayObj = null;
+        let observerSet = BaseNotificationCenter.main.getObserversByKey(type);
+        let argX = evt.x;
+        let argY = evt.y;
+        if(observerSet){
+            //遍历set 循环进行点检测
+            observerSet.forEach(function(mp,key){
+                for(let item of mp.entries())
+                {
+                    let obs = item[0];
+                    if(obs && obs instanceof GMLDisplay)
+                    {
+                        //进行点检测
+                        let hitItem = obs.hitTestPoint(argX,argY);
+                        if(hitItem){
+                            if(tempResultDisplayObj)
+                            {
+                                //与上一次检测到的item进行比较, 谁的层级更高,则谁触发相应事件
+                                tempResultDisplayObj = BaseScene.main._compareDisplayObj(tempResultDisplayObj,obs);
+                            }else{
+                                //直接赋值
+                                tempResultDisplayObj = obs;
+                            }
+                        }
+                    }
+                }
+            })
+        }
+        return tempResultDisplayObj;
+    }
+
+    /**
+     * 鼠标检测,并派发事件
+     * */
+    _mouseHitTestAndDispatch(evt,type){
+        let tempResultDisplayObj = BaseScene.main._mouseHitTest(evt,type);
+        if(tempResultDisplayObj){
+            let ne = new GMLMouseEvent(type,{globelX:evt.x,globelY:evt.y});
+            tempResultDisplayObj.dispatchEvent(ne);//向指定对象派发事件
+            //console.log(tempResultDisplayObj.name);
+        }
+    }
+
+    /**
+     * 自定义右键点击事件
+     * */
+    _onRightClick(evt){
+        //注意,这里的this指代的是document
+
+        //点检测,并向监听者派发事件
+        BaseScene.main._mouseHitTestAndDispatch(evt,GMLMouseEvent.RightClick);
+        //执行自己的鼠标右键点击操作,比如显示自定义菜单
+
+        return false;//屏蔽屏幕源生的右键菜单
     }
 
     /**
      * 时间轴更新动画函数
      * */
     updateAnimation(){
+        BaseScene.main._currentDrawIndex = 0;
         //这里的this 是一个undefined 因为他是window.requestAnimationFrame 的一个回调函数
-        let ctx = BaseScene.main()._mainCanvas.context2D;
+        let ctx = BaseScene.main._mainCanvas.context2D;
         //先清空
-        ctx.clearRect(0,0,BaseScene.main()._mainCanvas.width,BaseScene.main()._mainCanvas.height);
+        ctx.clearRect(0,0,BaseScene.main._mainCanvas.width,BaseScene.main._mainCanvas.height);
         //再重绘
-        BaseScene.main()._rootSprite.drawInContext(ctx,0,0,1,1);//跟容器必须绘制在ctx的0,0位置且 缩放必须为1倍
+        BaseScene.main._rootSprite.drawInContext(ctx,0,0,1,1);//跟容器必须绘制在ctx的0,0位置且 缩放必须为1倍
     }
 
     /**
@@ -156,42 +255,42 @@ class BaseScene extends BaseObject{
      * 停止
      * */
     stop(){
-        TimeLine.mainTimeLine().stop();
+        TimeLine.main.stop();
     }
 
     /**
      * 添加可视对象到子可视化对象数组中的最后一位
      * */
     addChild(_child){
-        BaseScene.main()._rootSprite.addChild(_child)
+        BaseScene.main._rootSprite.addChild(_child)
     }
 
     /**
      * 添加可视对象到子可视化对象数组中的最后一位
      * */
     addChildAt(_child,idx){
-        BaseScene.main()._rootSprite.addChildAt(_child,idx)
+        BaseScene.main._rootSprite.addChildAt(_child,idx)
     }
 
     /**
      * 移除一个子对象
      * */
     removeChild(_child){
-        BaseScene.main()._rootSprite.removeChild(_child);
+        BaseScene.main._rootSprite.removeChild(_child);
     }
 
     /**
      * 批量移除子对象
      * */
     removeChildren(){
-        BaseScene.main()._rootSprite.removeChildren();
+        BaseScene.main._rootSprite.removeChildren();
     }
 
     /**
      * 获取所有子成员
      * */
     children(){
-        return BaseScene.main()._rootSprite.children();
+        return BaseScene.main._rootSprite.children();
     }
 
 
@@ -202,6 +301,7 @@ class BaseScene extends BaseObject{
  * Created by guominglong on 2017/4/7.
  */
 class BaseEventDispatcher extends BaseObject{
+
     constructor(){
         super();
         this.eventNode = document.createElement("div");
@@ -231,6 +331,13 @@ class BaseEventDispatcher extends BaseObject{
         if(!evtType){
             return;
         }
+        //let arr = [MouseEvent.Click,MouseEvent.RightClick,MouseEvent.DoubleClick,MouseEvent.Down,MouseEvent.Up,MouseEvent.Over,MouseEvent.Out,MouseEvent.Move]
+        //if(arr.indexOf(evtType) > 0)
+        //{
+        //    //针对鼠标点击事件,做特殊处理,以使其正常响应
+        //    BaseNotificationCenter.main.addObserver(this,evtType,function(){});//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+        //}
+
         if(this.events.has(evtType)){
             //如果添加过监听,就追加
             this.events.get(evtType).add(execFunc)
@@ -255,7 +362,9 @@ class BaseEventDispatcher extends BaseObject{
             //如果添加过监听,就追加
             let evtSet = this.events.get(evtType);
             evtSet.forEach((value,key) => {
-                if(value == execFunc)evtSet.delete(value)
+                if(value == execFunc){
+                    evtSet.delete(value)//移除事件监听
+                }
             })
                 //如果监听函数数组的长度为0,代表不再需要用map来维护,直接删除
                 if(evtSet.size == 0){
@@ -295,7 +404,7 @@ class BaseEventDispatcher extends BaseObject{
  * 通知中心
  * */
 class BaseNotificationCenter extends BaseObject{
-    static main() {
+    static get main() {
         if (!window.gmlNotificationCenter)
             window.gmlNotificationCenter = new BaseNotificationCenter();
         return window.gmlNotificationCenter;
@@ -322,6 +431,19 @@ class BaseNotificationCenter extends BaseObject{
     }
 
     /**
+     * 根据监听key获取监听者数组
+     * @return Set([Map])
+     * */
+    getObserversByKey(key){
+        if(this._notifyMap.has(key)){
+            return this._notifyMap.get(key)
+        }
+        else{
+            return null;
+        }
+    }
+
+    /**
      * 添加通知监听
      * @param observer 被监听对象
      * @param key 监听的类型
@@ -329,11 +451,11 @@ class BaseNotificationCenter extends BaseObject{
      * */
     addObserver(observer,key,execFunc){
         if(this._notifyMap.has(key)){
-            let mp = new Map();//创建一个弱引用集合
+            let mp = new Map();
             mp.set(observer,execFunc);
             this._notifyMap.get(key).add(mp);
         }else{
-            let mp = new Map();//创建一个弱引用集合
+            let mp = new Map();
             mp.set(observer,execFunc);
             this._notifyMap.set(key,new Set([mp]));
         }
@@ -456,14 +578,14 @@ class GMLCanvas extends BaseEventDispatcher{
         return this._width;
     }
     set width(n){
-        this._width = (n < 0 ? 0 : n) * ScreenManager.main().quilaty;
+        this._width = (n < 0 ? 0 : n) * ScreenManager.main.quilaty;
         this.canvas.width = this._width + "";
     }
     get height(){
         return this._height;
     }
     set height(n){
-        this._height = (n < 0 ? 0 : n) * ScreenManager.main().quilaty;
+        this._height = (n < 0 ? 0 : n) * ScreenManager.main.quilaty;
         this.canvas.height = this._height + "";
     }
 
@@ -508,6 +630,7 @@ class GMLDisplay extends BaseEventDispatcher{
         //以下用于做鼠标点击检测
         this._rectVect = [0,0,0,0];//[x,y,w,h]
 
+        this._zIndex = 0;//GMLDisplay被绘制到ctx的顺序,用于点检测计算
 
     }
     get itiwX(){
@@ -670,6 +793,9 @@ class GMLShape extends GMLDisplay{
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
        // console.log("内部",offsetX,offsetY)
+        //设置绘制的顺序,用于进行鼠标点检测
+        this._zIndex = BaseScene.main._currentDrawIndex;
+        BaseScene.main._currentDrawIndex++;
         ctx.save();
         this._rectVect = [
             offsetX + this.x * offsetScaleX,
@@ -680,7 +806,7 @@ class GMLShape extends GMLDisplay{
         //按照内部对其方式进行位置偏移计算
         this._rectVect[0] -= this._rectVect[2] * this._itiwX;
         this._rectVect[1] -= this._rectVect[3] * this._itiwY;
-        let quilaty = ScreenManager.main().quilaty;
+        let quilaty = ScreenManager.main.quilaty;
         //开始绘制
         if(this._fColorStr != "#0")
         {
@@ -695,6 +821,7 @@ class GMLShape extends GMLDisplay{
             ctx.strokeRect(this._rectVect[0]*quilaty,this._rectVect[1]*quilaty,this._rectVect[2]*quilaty,this._rectVect[3]*quilaty);
         }
         ctx.restore();
+
     }
 
     /**
@@ -813,6 +940,9 @@ class GMLSprite extends GMLDisplay{
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
 
+        //设置绘制的顺序,用于进行鼠标点检测
+        this._zIndex = BaseScene.main._currentDrawIndex;
+        BaseScene.main._currentDrawIndex++;
         let tOffsetX = offsetX + this._x * offsetScaleX;
         let tOffsetY = offsetY + this._y * offsetScaleY;
         let tOffsetScaleX = offsetScaleX * this._scaleX;
@@ -874,7 +1004,7 @@ class GMLImage extends GMLDisplay{
             this.zhuaquRect = _zhuaquRect;
         }
         //加载图像
-        ResourceManager.main().getImgByURL(_src,this,this.onImgLoadEnd);
+        ResourceManager.main.getImgByURL(_src,this,this.onImgLoadEnd);
     }
     get scaleX(){
         return super.scaleX;
@@ -903,6 +1033,9 @@ class GMLImage extends GMLDisplay{
     }
 
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
+        //设置绘制的顺序,用于进行鼠标点检测
+        this._zIndex = BaseScene.main._currentDrawIndex;
+        BaseScene.main._currentDrawIndex++;
         ctx.save();
         if(this.img)
         {
@@ -924,7 +1057,7 @@ class GMLImage extends GMLDisplay{
                 this._rectVect[0] -= this._rectVect[2] * this._itiwX;
                 this._rectVect[1] -= this._rectVect[3] * this._itiwY;
                 //有截取尺寸,则按9参数来绘制
-                let quilaty = ScreenManager.main().quilaty;
+                let quilaty = ScreenManager.main.quilaty;
                 ctx.drawImage(this.img,this.zhuaquRect[0],this.zhuaquRect[1],this.zhuaquRect[2],this.zhuaquRect[3],this._rectVect[0] * quilaty,this._rectVect[1] * quilaty,this._rectVect[2] * quilaty,this._rectVect[3] * quilaty);
             }else{
                 //没有截取尺寸,则按5参数来绘制
@@ -937,7 +1070,7 @@ class GMLImage extends GMLDisplay{
                 //按照内部对其方式进行位置偏移计算
                 this._rectVect[0] -= this._rectVect[2] * this._itiwX;
                 this._rectVect[1] -= this._rectVect[3] * this._itiwY;
-                let quilaty = ScreenManager.main().quilaty;
+                let quilaty = ScreenManager.main.quilaty;
                 ctx.drawImage(this.img,this._rectVect[0] * quilaty,this._rectVect[1] * quilaty,this._rectVect[2] * quilaty,this._rectVect[3] * quilaty);
             }
         }
@@ -1142,12 +1275,15 @@ class GMLStaticTextField extends GMLDisplay{
         this._isTextChanged = true;
     }
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
+        //设置绘制的顺序,用于进行鼠标点检测
+        this._zIndex = BaseScene.main._currentDrawIndex;
+        BaseScene.main._currentDrawIndex++;
         ctx.save();
         let tOffsetX = offsetX + this._x * offsetScaleX;
         let tOffsetY = offsetY + this._y * offsetScaleY;
         let tOffsetScaleX = offsetScaleX * this._scaleX;
         let tOffsetScaleY = offsetScaleY * this._scaleY;
-        let quilaty = ScreenManager.main().quilaty;
+        let quilaty = ScreenManager.main.quilaty;
         //设置文本样式
         ctx.textAlign = this._hAliginment;
         ctx.font = (this._fontSize * tOffsetScaleX * quilaty)+ "px " + this._fontName + " " + (this.isBold ? "bold" : "solid");
@@ -1200,7 +1336,7 @@ class GMLStaticTextField extends GMLDisplay{
         let lineWidth = 0;
         var lastSubStrIndex= 0;
         let tempCharWidth = 0;
-        let maxW = this._width * ScreenManager.main().quilaty * this._scaleX;
+        let maxW = this._width * ScreenManager.main.quilaty * this._scaleX;
         for(let i=0;i<str.length;i++){
             tempCharWidth = ctx.measureText(str[i]).width;
             lineWidth+= tempCharWidth;
@@ -1236,6 +1372,64 @@ class BaseEvent extends Event{
         this.gCurrentTarget = null;
     }
 }
+
+/**
+ * 鼠标事件
+ * */
+class GMLMouseEvent extends BaseEvent{
+    static get Click(){
+        return "GMLMouseEvent.Click"
+    }
+
+    static get RightClick(){
+        return "GMLMouseEvent.RightClick"
+    }
+
+    static get Down(){
+        return "GMLMouseEvent.down"
+    }
+
+    static get Up(){
+        return "GMLMouseEvent.up"
+    }
+
+    static get Move(){
+        return "GMLMouseEvent.move"
+    }
+
+    static get Over(){
+        return "GMLMouseEvent.over"
+    }
+
+    static get Out(){
+        return "GMLMouseEvent.out"
+    }
+
+    static get DoubleClick(){
+        return "GMLMouseEvent.doubleclick"
+    }
+
+    constructor(type,data=null,...eventInitDict){
+        super(type,data,...eventInitDict);
+    }
+}
+
+/**
+ * 键盘事件
+ * */
+class GMLKeyBoardEvent extends BaseEvent{
+    static get KeyDown(){
+        return "GMLKeyBoardEvent.KeyDown"
+    }
+
+    static get KeyUp(){
+        return "GMLKeyBoardEvent.KeyUp"
+    }
+
+    constructor(type,data=null,...eventInitDict){
+        super(type,data,...eventInitDict);
+    }
+}
 //事件相关类型声明------------------end------------------
 
 
@@ -1247,7 +1441,7 @@ class BaseEvent extends Event{
 class TimeLine extends BaseObject{
 
     //静态变量 主动画时间轴
-    static mainTimeLine(){
+    static get main(){
         if(!window.mainTimeLine)
             window.mainTimeLine = new TimeLine();
         return window.mainTimeLine;
@@ -1279,11 +1473,11 @@ class TimeLine extends BaseObject{
      * */
     start(frameFunc){
         this._currentTimeStep = 0;
-        TimeLine.mainTimeLine()._isPause = false;
+        TimeLine.main._isPause = false;
         if(frameFunc && typeof(frameFunc) === "function")
         {
             this.frameFunc = frameFunc;
-            this._aniID = window.requestAnimationFrame(TimeLine.mainTimeLine().updateTimeLine)
+            this._aniID = window.requestAnimationFrame(TimeLine.main.updateTimeLine)
         }
     }
 
@@ -1291,21 +1485,21 @@ class TimeLine extends BaseObject{
      * 帧频函数
      * */
     updateTimeLine(timeStep){
-        if(!TimeLine.mainTimeLine()._isPause)
+        if(!TimeLine.main._isPause)
         {
             //判断是否应该执行具体的帧频函数, 判断条件为为否达到帧频跨度
-            if(timeStep - TimeLine.mainTimeLine()._currentTimeStep >= TimeLine.mainTimeLine()._timekuadu){
-                TimeLine.mainTimeLine()._currentTimeStep = timeStep;
-                TimeLine.mainTimeLine().frameFunc();
+            if(timeStep - TimeLine.main._currentTimeStep >= TimeLine.main._timekuadu){
+                TimeLine.main._currentTimeStep = timeStep;
+                TimeLine.main.frameFunc();
             }/*else{
                 console.log("判断成功");
             }*/
 
             //没停止或者暂停,就继续播放下一帧
-            TimeLine.mainTimeLine()._aniID = window.requestAnimationFrame(TimeLine.mainTimeLine().updateTimeLine)
+            TimeLine.main._aniID = window.requestAnimationFrame(TimeLine.main.updateTimeLine)
         }else{
             //停止动画
-            window.cancelAnimationFrame(TimeLine.mainTimeLine()._aniID);
+            window.cancelAnimationFrame(TimeLine.main._aniID);
         }
     }
 
@@ -1313,7 +1507,7 @@ class TimeLine extends BaseObject{
      * 停止时间轴
      * */
     stop(){
-        TimeLine.mainTimeLine().isPause = true;
+        TimeLine.main.isPause = true;
     }
 }
 
@@ -1324,7 +1518,7 @@ class TimeLine extends BaseObject{
  * 资源加载类
  * */
 class ResourceManager extends BaseObject{
-    static main(){
+    static get main(){
         if(!window.resourceManager)
             window.resourceManager = new ResourceManager();
         return window.resourceManager;
@@ -1344,20 +1538,20 @@ class ResourceManager extends BaseObject{
                 let img = this._imgMap.get(tempUrl);
                 callBackFunc.call(observer,img)
             }else{
-                if(ResourceManager.main()._waitLoadimgMap.has(tempUrl))
+                if(ResourceManager.main._waitLoadimgMap.has(tempUrl))
                 {
-                    let tempSet = ResourceManager.main()._waitLoadimgMap.get(tempUrl)
+                    let tempSet = ResourceManager.main._waitLoadimgMap.get(tempUrl)
                     tempSet.add({"observer":observer,"callBackFunc":callBackFunc});
                     //重复的项不要重复进行img load操作
                     return;
                 }else{
-                    ResourceManager.main()._waitLoadimgMap.set(tempUrl,new Set([{"observer":observer,"callBackFunc":callBackFunc}]))
+                    ResourceManager.main._waitLoadimgMap.set(tempUrl,new Set([{"observer":observer,"callBackFunc":callBackFunc}]))
                 }
                 //不存在则加载
                 let limg = new Image();
                 //加载成功的监听
                 limg.onload = function(evt){
-                    //当图像加载完毕,则遍历ResourceManager.main()._waitLoadimgMap集合,向所有注册过这个图像资源的对象执行回调函数.
+                    //当图像加载完毕,则遍历ResourceManager.main._waitLoadimgMap集合,向所有注册过这个图像资源的对象执行回调函数.
                     let resultImg = evt.target;
                     //计算resultImg对应的位图数据
                     let tempcanvas = document.createElement("canvas");
@@ -1365,9 +1559,9 @@ class ResourceManager extends BaseObject{
                     tempctx.drawImage(resultImg,0,0);
                     resultImg.data = tempctx.getImageData(0,0,resultImg.width,resultImg.height);
                     //将图像添加到资源字典
-                    ResourceManager.main()._imgMap.set(resultImg.imgKey,resultImg);
+                    ResourceManager.main._imgMap.set(resultImg.imgKey,resultImg);
                     //遍历集合
-                    let tSet = ResourceManager.main()._waitLoadimgMap.get(resultImg.imgKey)
+                    let tSet = ResourceManager.main._waitLoadimgMap.get(resultImg.imgKey)
                     tSet.forEach(function(value,key){
                         let obs = value["observer"];
                         let cb = value["callBackFunc"];
@@ -1376,20 +1570,20 @@ class ResourceManager extends BaseObject{
                         delete value["callBackFunc"]
                     })
                     tSet.clear();
-                    ResourceManager.main()._waitLoadimgMap.delete(resultImg.imgKey)
+                    ResourceManager.main._waitLoadimgMap.delete(resultImg.imgKey)
                 }
                 //加载失败的监听
                 limg.onerror = function(evt){
                     //图像加载失败,执行一系列的释放操作
                     let resultImg = evt.target;
                     //遍历集合
-                    let tSet = ResourceManager.main()._waitLoadimgMap.get(resultImg.imgKey)
+                    let tSet = ResourceManager.main._waitLoadimgMap.get(resultImg.imgKey)
                     tSet.forEach(function(value,key){
                         delete value["observer"];
                         delete value["callBackFunc"]
                     })
                     tSet.clear();
-                    ResourceManager.main()._waitLoadimgMap.delete(resultImg.imgKey)
+                    ResourceManager.main._waitLoadimgMap.delete(resultImg.imgKey)
                 }
 
                 limg.src = tempUrl;
@@ -1445,7 +1639,7 @@ class OSManager{
  * 屏幕管理类
  * **/
 class ScreenManager{
-    static main(){
+    static get main(){
         if(!window.gmlscreen)
             window.gmlscreen = new ScreenManager();
         return window.gmlscreen;

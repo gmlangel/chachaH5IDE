@@ -3,14 +3,14 @@
  * Created by guominglong on 2017/12/13.
  */
 class AppDelegate{
-    static app(){
+    static get app(){
         if(!window.app)
             window.app = new AppDelegate();
         return window.app;
     }
 
     constructor(){
-        this.scene = BaseScene.main();
+        this.scene = BaseScene.main;
     }
 
     /**
@@ -18,7 +18,7 @@ class AppDelegate{
      * */
     start(){
         //设置清晰度为2倍屏
-        ScreenManager.main().quilaty = 2;
+        ScreenManager.main.quilaty = 2;
 
         //启动场景
         this.scene.start();
@@ -48,7 +48,7 @@ class AppDelegate{
         this.scene.addChild(spr3)
 
         ////添加键盘控制的位移动画
-        //BaseNotificationCenter.main().addObserver(spr3,NotifyStruct.onKeyDown,function(evt){
+        //BaseNotificationCenter.main.addObserver(spr3,NotifyStruct.onKeyDown,function(evt){
         //    let kecode = evt.keyCode;
         //    switch(kecode){
         //        case 32:spr3.scaleX = spr3.scaleY = 1.3;break;
@@ -59,7 +59,7 @@ class AppDelegate{
         //    }
         //});
         //
-        //BaseNotificationCenter.main().addObserver(spr3,NotifyStruct.onKeyUp,function(evt){
+        //BaseNotificationCenter.main.addObserver(spr3,NotifyStruct.onKeyUp,function(evt){
         //    let kecode = evt.keyCode;
         //    switch(kecode){
         //        case 32:
@@ -104,7 +104,7 @@ class AppDelegate{
             this.scene.addChild(sprtt);
             this.scene.addChild(img);
             //添加键盘控制的位移动画
-            BaseNotificationCenter.main().addObserver(sprtt,NotifyStruct.onKeyDown,function(evt){
+            BaseNotificationCenter.main.addObserver(sprtt,NotifyStruct.onKeyDown,function(evt){
                 let kecode = evt.keyCode;
                 switch(kecode){
                     case 32:sprtt.scaleX = sprtt.scaleY = 1.3;break;
@@ -115,7 +115,7 @@ class AppDelegate{
                 }
             });
 
-            BaseNotificationCenter.main().addObserver(sprtt,NotifyStruct.onKeyUp,function(evt){
+            BaseNotificationCenter.main.addObserver(sprtt,NotifyStruct.onKeyUp,function(evt){
                 let kecode = evt.keyCode;
                 switch(kecode){
                     case 32:
@@ -149,7 +149,7 @@ class AppDelegate{
         //        tempi = 0;
         //    }
         //},50);
-        //BaseNotificationCenter.main().addObserver(AppDelegate.,NotifyStruct.onMouseDown,function(arg){
+        //BaseNotificationCenter.main.addObserver(AppDelegate.,NotifyStruct.onMouseDown,function(arg){
         //
         //});
 
@@ -164,14 +164,14 @@ class AppDelegate{
      * 尺寸变更
      * */
     resize(w,h){
-        BaseScene.main().resize(w,h)
+        BaseScene.main.resize(w,h)
     }
 
     /**
      * 停止
      * */
     stop(){
-        BaseScene.main().stop();
+        BaseScene.main.stop();
     }
 }
 

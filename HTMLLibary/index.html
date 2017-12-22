@@ -30,12 +30,12 @@
 //        }
 
        window.onload = function(){
-           AppDelegate.app().start();
-           AppDelegate.app().resize(window.innerWidth,window.innerHeight);
+           AppDelegate.app.start();
+           AppDelegate.app.resize(window.innerWidth,window.innerHeight);
        }
 
        window.addEventListener("resize",function(){
-           AppDelegate.app().resize(window.innerWidth,window.innerHeight);
+           AppDelegate.app.resize(window.innerWidth,window.innerHeight);
        })
 
 
