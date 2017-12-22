@@ -33,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.259259">
-              <caret line="166" column="34" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.65486723">
+              <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
               <folding>
                 <element signature="n#NotifyStruct#0" expanded="false" />
               </folding>
@@ -55,16 +55,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.86371684">
-              <caret line="337" column="43" selection-start-line="337" selection-start-column="43" selection-end-line="337" selection-end-column="43" />
+            <state vertical-scroll-proportion="-17.518518">
+              <caret line="350" column="7" selection-start-line="350" selection-start-column="7" selection-end-line="350" selection-end-column="7" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#2794#4407#0" expanded="false" />
-                <element signature="e#4466#4724#0" expanded="false" />
+                <element signature="n#BaseNotificationCenter#0" expanded="false" />
                 <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+                <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
                 <element signature="n#GMLCanvas#0" expanded="false" />
                 <element signature="n#GMLDisplay#0" expanded="false" />
                 <element signature="n#GMLShape#0" expanded="false" />
@@ -98,11 +98,14 @@
                 <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
                 <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
                 <element signature="n#BaseEvent#0" expanded="false" />
+                <element signature="n#TimeLine#0" expanded="false" />
                 <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
                 <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+                <element signature="n#ResourceManager#0" expanded="false" />
                 <element signature="n#GTool#0" expanded="false" />
                 <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
                 <element signature="n#OSManager#0" expanded="false" />
+                <element signature="n#ScreenManager#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -123,8 +126,8 @@
       <list>
         <option value="$PROJECT_DIR$/testfoder/index.html" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/AppDelegate.js" />
         <option value="$PROJECT_DIR$/js/GMLCore.js" />
+        <option value="$PROJECT_DIR$/js/AppDelegate.js" />
       </list>
     </option>
   </component>
@@ -375,9 +378,9 @@
           <caret line="1010" column="36" selection-start-line="1010" selection-start-column="30" selection-end-line="1010" selection-end-column="36" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -411,11 +414,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -462,9 +468,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -498,11 +504,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -549,9 +558,9 @@
           <caret line="419" column="3" selection-start-line="419" selection-start-column="3" selection-end-line="419" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -585,11 +594,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -610,9 +622,9 @@
           <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -646,11 +658,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -671,9 +686,9 @@
           <caret line="141" column="13" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -707,11 +722,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -732,9 +750,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -768,11 +786,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -793,9 +814,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -829,11 +850,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -854,9 +878,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -890,11 +914,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -915,9 +942,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -951,11 +978,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -976,9 +1006,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -1012,11 +1042,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1037,9 +1070,9 @@
           <caret line="4" column="16" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="16" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -1073,11 +1106,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1098,9 +1134,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -1134,11 +1170,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1159,9 +1198,9 @@
           <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -1195,11 +1234,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1220,9 +1262,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -1256,11 +1298,14 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1330,25 +1375,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.259259">
-          <caret line="166" column="34" selection-start-line="166" selection-start-column="34" selection-end-line="166" selection-end-column="34" />
-          <folding>
-            <element signature="n#NotifyStruct#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86371684">
-          <caret line="337" column="43" selection-start-line="337" selection-start-column="43" selection-end-line="337" selection-end-column="43" />
+        <state vertical-scroll-proportion="-17.518518">
+          <caret line="350" column="7" selection-start-line="350" selection-start-column="7" selection-end-line="350" selection-end-column="7" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2794#4407#0" expanded="false" />
-            <element signature="e#4466#4724#0" expanded="false" />
+            <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
             <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
@@ -1382,11 +1417,24 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65486723">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="n#NotifyStruct#0" expanded="false" />
           </folding>
         </state>
       </provider>

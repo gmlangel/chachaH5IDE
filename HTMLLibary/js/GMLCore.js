@@ -331,12 +331,12 @@ class BaseEventDispatcher extends BaseObject{
         if(!evtType){
             return;
         }
-        //let arr = [MouseEvent.Click,MouseEvent.RightClick,MouseEvent.DoubleClick,MouseEvent.Down,MouseEvent.Up,MouseEvent.Over,MouseEvent.Out,MouseEvent.Move]
-        //if(arr.indexOf(evtType) > 0)
-        //{
-        //    //针对鼠标点击事件,做特殊处理,以使其正常响应
-        //    BaseNotificationCenter.main.addObserver(this,evtType,function(){});//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
-        //}
+        let arr = GMLMouseEvent.AllEventsArr;
+        if(arr.indexOf(evtType) > -1)
+        {
+            //针对鼠标点击事件,做特殊处理,以使其正常响应
+            BaseNotificationCenter.main.addObserver(this,evtType,function(){});//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+        }
 
         if(this.events.has(evtType)){
             //如果添加过监听,就追加
@@ -362,9 +362,7 @@ class BaseEventDispatcher extends BaseObject{
             //如果添加过监听,就追加
             let evtSet = this.events.get(evtType);
             evtSet.forEach((value,key) => {
-                if(value == execFunc){
-                    evtSet.delete(value)//移除事件监听
-                }
+                if(value == execFunc)evtSet.delete(value)//移除事件监听
             })
                 //如果监听函数数组的长度为0,代表不再需要用map来维护,直接删除
                 if(evtSet.size == 0){
@@ -372,6 +370,13 @@ class BaseEventDispatcher extends BaseObject{
                 }
         }
         this.eventNode.removeEventListener(evtType,execFunc,useCapture)
+
+        let arr = GMLMouseEvent.AllEventsArr;
+        if(arr.indexOf(evtType) > -1)
+        {
+            //针对鼠标点击事件,做特殊处理,以使其正常被移除
+            BaseNotificationCenter.main.removeObserver(this,evtType);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+        }
     }
 
     /**
@@ -389,6 +394,13 @@ class BaseEventDispatcher extends BaseObject{
             })
             //清空函数数组
             funcSet.clear();
+
+            let arr = GMLMouseEvent.AllEventsArr;
+            if(arr.indexOf(key) > -1)
+            {
+                //针对鼠标点击事件,做特殊处理,以使其正常被移除
+                BaseNotificationCenter.main.removeObserver(mySelf,key);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+            }
         })
         //清空map
         this.events.clear();
@@ -1407,6 +1419,25 @@ class GMLMouseEvent extends BaseEvent{
 
     static get DoubleClick(){
         return "GMLMouseEvent.doubleclick"
+    }
+
+    /**
+     * 获取所有鼠标事件的事件类型集合
+     * */
+    static get AllEventsArr(){
+        if(!window.AllEventsArr){
+            window.AllEventsArr = [
+                GMLMouseEvent.Click,
+                GMLMouseEvent.RightClick,
+                GMLMouseEvent.DoubleClick,
+                GMLMouseEvent.Down,
+                GMLMouseEvent.Up,
+                GMLMouseEvent.Over,
+                GMLMouseEvent.Out,
+                GMLMouseEvent.Move
+            ];
+        }
+        return window.AllEventsArr;
     }
 
     constructor(type,data=null,...eventInitDict){

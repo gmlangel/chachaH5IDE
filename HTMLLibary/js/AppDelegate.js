@@ -46,42 +46,15 @@ class AppDelegate{
         this.scene.addChild(spr1)
         this.scene.addChild(spr2)
         this.scene.addChild(spr3)
+        function b(evt){
+            console.log(evt.gCurrentTarget.name);
+        }
+        spr1.addEventListener(GMLMouseEvent.Click,b)
+        spr1.addEventListener(GMLMouseEvent.Click,b)
+        spr1.addEventListener(GMLMouseEvent.Click,b)
+        spr1.addEventListener(GMLMouseEvent.Click,b)
+        spr1.removeEventListener(GMLMouseEvent.Click,b);
 
-        ////添加键盘控制的位移动画
-        //BaseNotificationCenter.main.addObserver(spr3,NotifyStruct.onKeyDown,function(evt){
-        //    let kecode = evt.keyCode;
-        //    switch(kecode){
-        //        case 32:spr3.scaleX = spr3.scaleY = 1.3;break;
-        //        case 37:spr3.x -= 5;break;
-        //        case 39:spr3.x += 5;break;
-        //        case 38:spr3.y -= 5;break;
-        //        case 40:spr3.y += 5;break;
-        //    }
-        //});
-        //
-        //BaseNotificationCenter.main.addObserver(spr3,NotifyStruct.onKeyUp,function(evt){
-        //    let kecode = evt.keyCode;
-        //    switch(kecode){
-        //        case 32:
-        //            spr3.scaleX = spr3.scaleY = 1;
-        //            break;
-        //    }
-        //});
-
-        ////添加用于测试的点击事件
-        //spr3.addEventListener("mousedown",function(evt){
-        //    console.log(evt.gCurrentTarget.name)
-        //})
-        //
-        ////添加用于测试的点击事件
-        //spr2.addEventListener("mousedown",function(evt){
-        //    console.log(evt.gCurrentTarget.name)
-        //})
-        //
-        ////添加用于测试的点击事件
-        //spr1.addEventListener("mousedown",function(evt){
-        //    console.log(evt.gCurrentTarget.name)
-        //})
 
 
         for(let i=0;i<1;i++)
@@ -91,9 +64,7 @@ class AppDelegate{
             img.name = "img_" + i;
             img.itiwX = 0.5;
             img.itiwY = 0.5;
-            img.addEventListener("mousedown",function(evt){
-                console.log(evt.gCurrentTarget.name)
-            })
+
             img.x = img.y = 300;
             let sprtt = new GMLSprite()
             sprtt.makeShape(0,0,300,300,0xf500f5,0xf500f5);
@@ -103,26 +74,26 @@ class AppDelegate{
 
             this.scene.addChild(sprtt);
             this.scene.addChild(img);
-            //添加键盘控制的位移动画
-            BaseNotificationCenter.main.addObserver(sprtt,NotifyStruct.onKeyDown,function(evt){
-                let kecode = evt.keyCode;
-                switch(kecode){
-                    case 32:sprtt.scaleX = sprtt.scaleY = 1.3;break;
-                    case 37:sprtt.x -= 2;break;
-                    case 39:sprtt.x += 2;break;
-                    case 38:sprtt.y -= 2;break;
-                    case 40:sprtt.y += 2;break;
-                }
-            });
-
-            BaseNotificationCenter.main.addObserver(sprtt,NotifyStruct.onKeyUp,function(evt){
-                let kecode = evt.keyCode;
-                switch(kecode){
-                    case 32:
-                        sprtt.scaleX = sprtt.scaleY = 1;
-                        break;
-                }
-            });
+            ////添加键盘控制的位移动画
+            //BaseNotificationCenter.main.addObserver(sprtt,NotifyStruct.onKeyDown,function(evt){
+            //    let kecode = evt.keyCode;
+            //    switch(kecode){
+            //        case 32:sprtt.scaleX = sprtt.scaleY = 1.3;break;
+            //        case 37:sprtt.x -= 2;break;
+            //        case 39:sprtt.x += 2;break;
+            //        case 38:sprtt.y -= 2;break;
+            //        case 40:sprtt.y += 2;break;
+            //    }
+            //});
+            //
+            //BaseNotificationCenter.main.addObserver(sprtt,NotifyStruct.onKeyUp,function(evt){
+            //    let kecode = evt.keyCode;
+            //    switch(kecode){
+            //        case 32:
+            //            sprtt.scaleX = sprtt.scaleY = 1;
+            //            break;
+            //    }
+            //});
         }
 
         ////当ScreenManager  的 quilaty 不为1的时候, textF._的reCountResultText算法有问题
@@ -149,14 +120,7 @@ class AppDelegate{
         //        tempi = 0;
         //    }
         //},50);
-        //BaseNotificationCenter.main.addObserver(AppDelegate.,NotifyStruct.onMouseDown,function(arg){
-        //
-        //});
 
-
-        //spr3.addEventListener("onkeyup",function(){
-        //
-        //})
     }
 
 
