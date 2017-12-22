@@ -33,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7347973">
-              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+            <state vertical-scroll-proportion="-7.7777777">
+              <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
               <folding>
                 <element signature="n#NotifyStruct#0" expanded="false" />
               </folding>
@@ -55,19 +55,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.62963">
-              <caret line="1128" column="0" selection-start-line="1128" selection-start-column="0" selection-end-line="1128" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.7292035">
+              <caret line="438" column="0" selection-start-line="438" selection-start-column="0" selection-end-line="438" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#BaseObject#0" expanded="false" />
-                <element signature="n#GTool#0" expanded="false" />
-                <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-                <element signature="n#OSManager#0" expanded="false" />
-                <element signature="n#ScreenManager#0" expanded="false" />
+                <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+                <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
                 <element signature="n#BaseEventDispatcher#0" expanded="false" />
+                <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
                 <element signature="n#BaseNotificationCenter#0" expanded="false" />
                 <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
                 <element signature="n#GMLCanvas#0" expanded="false" />
@@ -83,7 +91,7 @@
                 <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
                 <element signature="n#GMLShape#0" expanded="false" />
-                <element signature="n#GMLSprite#0" expanded="false" />
+                <element signature="n#GMLImage#0" expanded="false" />
                 <element signature="n#GMLStaticTextField#0" expanded="false" />
                 <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
                 <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -111,9 +119,13 @@
                 <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
                 <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
                 <element signature="n#BaseEvent#0" expanded="false" />
-                <element signature="n#TimeLine#0" expanded="false" />
+                <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+                <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
                 <element signature="n#ResourceManager#0" expanded="false" />
                 <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+                <element signature="n#GTool#0" expanded="false" />
+                <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+                <element signature="n#OSManager#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -134,8 +146,8 @@
       <list>
         <option value="$PROJECT_DIR$/testfoder/index.html" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/GMLCore.js" />
         <option value="$PROJECT_DIR$/js/AppDelegate.js" />
+        <option value="$PROJECT_DIR$/js/GMLCore.js" />
       </list>
     </option>
   </component>
@@ -387,11 +399,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -407,7 +427,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -435,9 +455,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -485,11 +509,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -505,7 +537,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -533,9 +565,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -583,11 +619,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -603,7 +647,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -631,9 +675,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -655,11 +703,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -675,7 +731,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -703,9 +759,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -727,11 +787,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -747,7 +815,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -775,9 +843,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -799,11 +871,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -819,7 +899,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -847,9 +927,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -871,11 +955,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -891,7 +983,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -919,9 +1011,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -943,11 +1039,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -963,7 +1067,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -991,9 +1095,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1015,11 +1123,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -1035,7 +1151,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -1063,9 +1179,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1087,11 +1207,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -1107,7 +1235,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -1135,9 +1263,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1159,11 +1291,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -1179,7 +1319,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -1207,9 +1347,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1231,11 +1375,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -1251,7 +1403,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -1279,9 +1431,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1303,11 +1459,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -1323,7 +1487,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -1351,9 +1515,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1375,11 +1543,19 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -1395,7 +1571,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -1423,9 +1599,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1495,18 +1675,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.7777777">
+          <caret line="46" column="33" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="33" />
+          <folding>
+            <element signature="n#NotifyStruct#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.62963">
-          <caret line="1128" column="0" selection-start-line="1128" selection-start-column="0" selection-end-line="1128" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.7292035">
+          <caret line="438" column="0" selection-start-line="438" selection-start-column="0" selection-end-line="438" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#OSManager#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addSystemEvents#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#updateAnimation#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#resize#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#stop#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#addChildAt#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChild#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#removeChildren#0;n#BaseScene#0" expanded="false" />
+            <element signature="n#!!block;n#children#0;n#BaseScene#0" expanded="false" />
             <element signature="n#BaseEventDispatcher#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
@@ -1522,7 +1720,7 @@
             <element signature="n#!!block;n#rotateY#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#!!block;n#alpha#0;n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
             <element signature="n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
@@ -1550,19 +1748,13 @@
             <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
             <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
             <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#!!block;n#getImgByURL#0;n#ResourceManager#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7347973">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding>
-            <element signature="n#NotifyStruct#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>

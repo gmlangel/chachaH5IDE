@@ -36,70 +36,165 @@ class BaseObject{
     }
 }
 
-class GTool{
-
-    static covertUint32toColorStr(uint32Color){
-        ////精确写法
-        ////之所以不这么写是因为按位运算uint32会丢精度,以下计算模拟按位运算
-        //let r = parseInt(uint32Color / 0xffffff);
-        //r = r < 0 ? 0 : r;
-        //r = r > 255 ? 255 : r;
-        //let g = (uint32Color & 0x00ff0000) >> 16;
-        //let b = (uint32Color & 0x0000ff00) >> 8;
-        //let a = uint32Color & 0x000000ff;
-        //let result = "#"
-        //result = result + (r < 0x1f ? "0" + r.toString(16): r.toString(16));
-        //result = result + (g < 0x1f ? "0" + g.toString(16) : g.toString(16));
-        //result = result + (b < 0x1f ? "0" + b.toString(16) : b.toString(16));
-        //result = result + (a < 0x1f ? "0" + r.toString(16) : a.toString(16));
-        //return result;
-
-        //简易写法
-        let tempResult = uint32Color.toString(16);
-        while(tempResult.length < 8){
-            tempResult = "0" + tempResult;
-        }
-        return "#" + tempResult;
-    }
-}
-
 /**
- * 系统管理类
+ * 基础场景管理类
  * */
-class OSManager{
-    static get OS(){
-        return "mac";
+class BaseScene extends BaseObject{
+    static main() {
+        if (!window.gmlbaseScene)
+            window.gmlbaseScene = new BaseScene();
+        return window.gmlbaseScene;
     }
     constructor(){
-
-    }
-}
-
-/*
-* 屏幕管理类
-* **/
-class ScreenManager{
-    static main(){
-        if(!window.gmlscreen)
-            window.gmlscreen = new ScreenManager();
-        return window.gmlscreen;
+        super();
+        this._mainCanvas = new GMLCanvas();//主画布
+        this._rootSprite = new GMLSprite();//根显示容器
     }
 
-    constructor(){
-        this._quilaty = 1;//清晰度, 默认为1倍(对应1倍屏幕)   .如果为2则对应2倍屏幕.最多支持8倍
+    start(){
+        //将画布添加至document
+        document.body.appendChild(this._mainCanvas.canvas);
+        this._mainCanvas.canvas.style.zIndex = 0;
+        this._mainCanvas.canvas.style.position = "absolute"
+        this._mainCanvas.canvas.style.left = "0px";
+        this._mainCanvas.canvas.style.top = "0px";
+
+        //添加系统事件检测
+        this.addSystemEvents();
+
+        //开始时间轴
+        TimeLine.mainTimeLine().start(this.updateAnimation);
     }
 
-    get quilaty(){
-        return this._quilaty
+    get frameRate(){
+        return TimeLine.mainTimeLine().frameRate;
     }
 
-    set quilaty(n){
-        this._quilaty = n < 0 ? 0 : n;
-        this._quilaty = this._quilaty > 8 ? 8 : this._quilaty;
-        //每次清晰度修改,都会更新一系列相关设置
-        document.body.style.zoom = 1.0 / this._quilaty;
-        window.dispatchEvent(new Event("resize"));
+    /**
+     * 设置帧频
+     * */
+    set frameRate(n){
+        TimeLine.mainTimeLine().frameRate = n;
     }
+
+
+    /**
+     * 私有函数,添加系统事件检测
+     * */
+    addSystemEvents(){
+        //添加系统级的通知监听
+        window.addEventListener("keydown",function(evt){
+            BaseNotificationCenter.main().postNotify(NotifyStruct.onKeyDown,evt);
+        })
+        window.addEventListener("keyup",function(evt){
+            //spr3.x += 2;
+            BaseNotificationCenter.main().postNotify(NotifyStruct.onKeyUp,evt);
+        })
+
+        window.addEventListener("mousedown",function(evt){
+            let arg = {"x":evt.x,"y":evt.y};//arg 之所以evt.x向左偏移10px,是因为主canvas并没有在html的0,0点,而是10,10点
+            //BaseNotificationCenter.main().postNotify(NotifyStruct.onMouseDown,arg);
+            //鼠标检测
+            let disPlayItem = BaseScene.main()._rootSprite.hitTestPoint(arg.x,arg.y);
+            if(disPlayItem) {
+                disPlayItem.dispatchEvent(new BaseEvent("mousedown"));//向其派发鼠标按下事件
+            }
+        })
+
+        window.addEventListener("mousemove",function(evt){
+            let arg = {"x":evt.x,"y":evt.y};//arg 之所以evt.x向左偏移10px,是因为主canvas并没有在html的0,0点,而是10,10点
+            //BaseNotificationCenter.main().postNotify(NotifyStruct.onMouseDown,arg);
+            //鼠标检测
+            let disPlayItem = BaseScene.main()._rootSprite.hitTestPoint(arg.x,arg.y);
+            if(disPlayItem) {
+                if(window.defalutdisPlayItem)
+                {
+                    if(disPlayItem==window.defalutdisPlayItem)
+                    {
+                        return;
+                    }
+                    window.defalutdisPlayItem.scaleX = window.defalutdisPlayItem.scaleY = 1;
+                    disPlayItem.scaleX = disPlayItem.scaleY = 5;
+                    window.defalutdisPlayItem = disPlayItem;
+                    disPlayItem.dispatchEvent(new BaseEvent("mouseover"));//向其派发鼠标按下事件
+                }else{
+                    disPlayItem.scaleX = disPlayItem.scaleY = 5;
+                    window.defalutdisPlayItem = disPlayItem;
+                    disPlayItem.dispatchEvent(new BaseEvent("mouseover"));//向其派发鼠标按下事件
+                }
+            }else{
+                if(window.defalutdisPlayItem){
+                    window.defalutdisPlayItem.scaleX = window.defalutdisPlayItem.scaleY = 1;
+                    window.defalutdisPlayItem.dispatchEvent(new BaseEvent("mouseout"));//向其派发鼠标按下事件
+                    window.defalutdisPlayItem = null;
+                }
+            }
+        })
+    }
+
+    /**
+     * 时间轴更新动画函数
+     * */
+    updateAnimation(){
+        //这里的this 是一个undefined 因为他是window.requestAnimationFrame 的一个回调函数
+        let ctx = BaseScene.main()._mainCanvas.context2D;
+        //先清空
+        ctx.clearRect(0,0,BaseScene.main()._mainCanvas.width,BaseScene.main()._mainCanvas.height);
+        //再重绘
+        BaseScene.main()._rootSprite.drawInContext(ctx,0,0,1,1);//跟容器必须绘制在ctx的0,0位置且 缩放必须为1倍
+    }
+
+    /**
+     * 尺寸变更
+     * */
+    resize(w,h){
+        this._mainCanvas.width = w;
+        this._mainCanvas.height = h;
+    }
+
+    /**
+     * 停止
+     * */
+    stop(){
+        TimeLine.mainTimeLine().stop();
+    }
+
+    /**
+     * 添加可视对象到子可视化对象数组中的最后一位
+     * */
+    addChild(_child){
+        BaseScene.main()._rootSprite.addChild(_child)
+    }
+
+    /**
+     * 添加可视对象到子可视化对象数组中的最后一位
+     * */
+    addChildAt(_child,idx){
+        BaseScene.main()._rootSprite.addChildAt(_child,idx)
+    }
+
+    /**
+     * 移除一个子对象
+     * */
+    removeChild(_child){
+        BaseScene.main()._rootSprite.removeChild(_child);
+    }
+
+    /**
+     * 批量移除子对象
+     * */
+    removeChildren(){
+        BaseScene.main()._rootSprite.removeChildren();
+    }
+
+    /**
+     * 获取所有子成员
+     * */
+    children(){
+        return BaseScene.main()._rootSprite.children();
+    }
+
+
 }
 
 /**
@@ -1301,5 +1396,74 @@ class ResourceManager extends BaseObject{
                 limg.imgKey = tempUrl;
             }
         }
+    }
+}
+
+/**
+ * 工具类
+ * */
+class GTool{
+
+    static covertUint32toColorStr(uint32Color){
+        ////精确写法
+        ////之所以不这么写是因为按位运算uint32会丢精度,以下计算模拟按位运算
+        //let r = parseInt(uint32Color / 0xffffff);
+        //r = r < 0 ? 0 : r;
+        //r = r > 255 ? 255 : r;
+        //let g = (uint32Color & 0x00ff0000) >> 16;
+        //let b = (uint32Color & 0x0000ff00) >> 8;
+        //let a = uint32Color & 0x000000ff;
+        //let result = "#"
+        //result = result + (r < 0x1f ? "0" + r.toString(16): r.toString(16));
+        //result = result + (g < 0x1f ? "0" + g.toString(16) : g.toString(16));
+        //result = result + (b < 0x1f ? "0" + b.toString(16) : b.toString(16));
+        //result = result + (a < 0x1f ? "0" + r.toString(16) : a.toString(16));
+        //return result;
+
+        //简易写法
+        let tempResult = uint32Color.toString(16);
+        while(tempResult.length < 8){
+            tempResult = "0" + tempResult;
+        }
+        return "#" + tempResult;
+    }
+}
+
+/**
+ * 系统管理类
+ * */
+class OSManager{
+    static get OS(){
+        return "mac";
+    }
+    constructor(){
+
+    }
+}
+
+/*
+ * 屏幕管理类
+ * **/
+class ScreenManager{
+    static main(){
+        if(!window.gmlscreen)
+            window.gmlscreen = new ScreenManager();
+        return window.gmlscreen;
+    }
+
+    constructor(){
+        this._quilaty = 1;//清晰度, 默认为1倍(对应1倍屏幕)   .如果为2则对应2倍屏幕.最多支持8倍
+    }
+
+    get quilaty(){
+        return this._quilaty
+    }
+
+    set quilaty(n){
+        this._quilaty = n < 0 ? 0 : n;
+        this._quilaty = this._quilaty > 8 ? 8 : this._quilaty;
+        //每次清晰度修改,都会更新一系列相关设置
+        document.body.style.zoom = 1.0 / this._quilaty;
+        window.dispatchEvent(new Event("resize"));
     }
 }
