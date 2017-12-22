@@ -542,8 +542,8 @@ class GMLShape extends GMLDisplay{
         super();
         this._fColor = 0;//uint32 类型 填充色RGBA颜色  0xFF6600FF
         this._sColor = 0;//uint32 类型 笔触色RGBA颜色  0xFF6600FF
-        this._fColorStr = "#000000ff";//颜色的字符串形式
-        this._sColorStr = "#000000ff";//颜色的字符串形式
+        this._fColorStr = "#00000000";//颜色的字符串形式
+        this._sColorStr = "#00000000";//颜色的字符串形式
     }
 
     makeShape(_x,_y,_w,_h,_fillColor,_strokeColor){
@@ -781,6 +781,22 @@ class GMLImage extends GMLDisplay{
         //加载图像
         ResourceManager.main().getImgByURL(_src,this,this.onImgLoadEnd);
     }
+    get scaleX(){
+        return super.scaleX;
+    }
+
+    set scaleX(n){
+        super.scaleX = n;
+    }
+
+
+    get scaleY(){
+        return super.scaleY;
+    }
+
+    set scaleY(n){
+        super.scaleY = n;
+    }
 
     /**
      * 当图像加载完毕所执行的回调处理
@@ -843,27 +859,35 @@ class GMLImage extends GMLDisplay{
                 //点击透明像素时,不能算作被点击
                 let imgx = (_mouseX - this._rectVect[0]) / this._rectVect[2] * this.img.width;//获取相对于原始图像上的X点
                 let imgy = (_mouseY - this._rectVect[1]) / this._rectVect[3] * this.img.height;//获取相对于原始图像上的Y点
+                // console.log(_mouseX,this._rectVect[0],this._rectVect[2])
                 let resultData = this.img.data.data;//ImageData.data
                 //console.log(this.img.data);
                 if(this.getAlphaByXY(resultData,imgx,imgy,this.img.width * 4) == 0)
                 {
+                    //console.log(_mouseX,this._rectVect[0],this._rectVect[2])
                     return null
                 }else{
                     return this;
                 }
+
             }else{
                 return null
             }
         }
-        else
+        else{
             return null;
+        }
+
     }
 
     /**
      * 获取位图上,指定x,y坐标点的alpha值
      * */
     getAlphaByXY(_imgData,_imgX,_imgY,_lineLength){
-        return _imgData[_imgY * _lineLength + _imgX * 4 + 3];
+        let ty = parseInt(_imgY);
+        let tx = parseInt(_imgX);
+        let tlen = parseInt(_lineLength);
+        return _imgData[ty * tlen + tx * 4 + 3];
     }
 }
 
@@ -1014,6 +1038,14 @@ class GMLStaticTextField extends GMLDisplay{
         super.height = n;
         this._backgroundShape.height = n;
     }
+
+    get scaleX(){
+        return super.scaleX
+    }
+    set scaleX(n){
+        super.scaleX = n;
+        this._isTextChanged = true;
+    }
     drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
         ctx.save();
         let tOffsetX = offsetX + this._x * offsetScaleX;
@@ -1073,7 +1105,7 @@ class GMLStaticTextField extends GMLDisplay{
         let lineWidth = 0;
         var lastSubStrIndex= 0;
         let tempCharWidth = 0;
-        let maxW = this._width * ScreenManager.main().quilaty;
+        let maxW = this._width * ScreenManager.main().quilaty * this._scaleX;
         for(let i=0;i<str.length;i++){
             tempCharWidth = ctx.measureText(str[i]).width;
             lineWidth+= tempCharWidth;
