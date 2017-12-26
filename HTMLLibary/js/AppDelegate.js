@@ -47,13 +47,11 @@ class AppDelegate{
         this.scene.addChild(spr2)
         this.scene.addChild(spr3)
         function b(evt){
-            console.log(evt.gCurrentTarget.name);
+            console.log(evt.gCurrentTarget.name,evt.type);
         }
-        spr1.addEventListener(GMLMouseEvent.Click,b)
-        spr1.addEventListener(GMLMouseEvent.Click,b)
-        spr1.addEventListener(GMLMouseEvent.Click,b)
-        spr1.addEventListener(GMLMouseEvent.Click,b)
-        spr1.removeEventListener(GMLMouseEvent.Click,b);
+        function onkd(evt){
+            console.log(evt.data.keyCode);
+        }
 
 
 

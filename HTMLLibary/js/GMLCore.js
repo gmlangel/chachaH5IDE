@@ -88,11 +88,10 @@ class BaseScene extends BaseObject{
         document.oncontextmenu = this._onRightClick;
         //添加系统级的通知监听
         window.addEventListener("keydown",function(evt){
-            BaseNotificationCenter.main.postNotify(NotifyStruct.onKeyDown,evt);
+            BaseScene.main._postKeyEvents(GMLKeyBoardEvent.KeyDown,evt);
         })
         window.addEventListener("keyup",function(evt){
-            //spr3.x += 2;
-            BaseNotificationCenter.main.postNotify(NotifyStruct.onKeyUp,evt);
+            BaseScene.main._postKeyEvents(GMLKeyBoardEvent.KeyUp,evt);
         })
 
         window.addEventListener("mousedown",function(evt){
@@ -157,6 +156,36 @@ class BaseScene extends BaseObject{
                 BaseScene.main._defaultOverDisItem.dispatchEvent(ne)//向指定对象派发mouseout事件
             }
         });
+    }
+
+    /**
+     * 向监听对象发送KeyBoardEvent
+     * */
+    _postKeyEvents(eventTypeStr,evt){
+        let ne = new GMLKeyBoardEvent(
+            eventTypeStr,
+            {
+                "code":evt["code"],
+                "charCode":evt["charCode"],
+                "ctrlKey":evt["ctrlKey"],
+                "currentTarget":evt["currentTarget"],
+                "key":evt["key"],
+                "keyCode":evt["keyCode"],
+                "location":evt["location"],
+                "timeStamp":evt["timeStamp"]
+            }
+        )
+        let observerSet = BaseNotificationCenter.main.getObserversByKey(eventTypeStr);
+        if(observerSet){
+            //遍历set 循环进行点检测
+            observerSet.forEach(function(mp,key){
+                for(let item of mp.entries())
+                {
+                    let obs = item[0];
+                    obs.dispatchEvent(ne);
+                }
+            })
+        }
     }
 
     /**
@@ -331,7 +360,13 @@ class BaseEventDispatcher extends BaseObject{
         if(!evtType){
             return;
         }
-        let arr = GMLMouseEvent.AllEventsArr;
+        let arr = GMLMouseEvent.AllEventsArr;//鼠标相关事件
+        if(arr.indexOf(evtType) > -1)
+        {
+            //针对鼠标点击事件,做特殊处理,以使其正常响应
+            BaseNotificationCenter.main.addObserver(this,evtType,function(){});//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+        }
+        arr = GMLKeyBoardEvent.AllEventsArr;//键盘相关事件
         if(arr.indexOf(evtType) > -1)
         {
             //针对鼠标点击事件,做特殊处理,以使其正常响应
@@ -377,6 +412,12 @@ class BaseEventDispatcher extends BaseObject{
             //针对鼠标点击事件,做特殊处理,以使其正常被移除
             BaseNotificationCenter.main.removeObserver(this,evtType);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
         }
+        arr = GMLKeyBoardEvent.AllEventsArr;
+        if(arr.indexOf(evtType) > -1)
+        {
+            //针对鼠标点击事件,做特殊处理,以使其正常被移除
+            BaseNotificationCenter.main.removeObserver(this,evtType);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+        }
     }
 
     /**
@@ -400,6 +441,12 @@ class BaseEventDispatcher extends BaseObject{
             {
                 //针对鼠标点击事件,做特殊处理,以使其正常被移除
                 BaseNotificationCenter.main.removeObserver(mySelf,key);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+            }
+            arr = GMLKeyBoardEvent.AllEventsArr;
+            if(arr.indexOf(key) > -1)
+            {
+                //针对鼠标点击事件,做特殊处理,以使其正常被移除
+                BaseNotificationCenter.main.removeObserver(this,key);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
             }
         })
         //清空map
@@ -1425,8 +1472,8 @@ class GMLMouseEvent extends BaseEvent{
      * 获取所有鼠标事件的事件类型集合
      * */
     static get AllEventsArr(){
-        if(!window.AllEventsArr){
-            window.AllEventsArr = [
+        if(!window.AllMouseEventsArr){
+            window.AllMouseEventsArr = [
                 GMLMouseEvent.Click,
                 GMLMouseEvent.RightClick,
                 GMLMouseEvent.DoubleClick,
@@ -1437,7 +1484,7 @@ class GMLMouseEvent extends BaseEvent{
                 GMLMouseEvent.Move
             ];
         }
-        return window.AllEventsArr;
+        return window.AllMouseEventsArr;
     }
 
     constructor(type,data=null,...eventInitDict){
@@ -1457,6 +1504,18 @@ class GMLKeyBoardEvent extends BaseEvent{
         return "GMLKeyBoardEvent.KeyUp"
     }
 
+    /**
+     * 获取所有鼠标事件的事件类型集合
+     * */
+    static get AllEventsArr(){
+        if(!window.AllKeyEventsArr){
+            window.AllKeyEventsArr = [
+                GMLKeyBoardEvent.KeyDown,
+                GMLKeyBoardEvent.KeyUp
+            ];
+        }
+        return window.AllKeyEventsArr;
+    }
     constructor(type,data=null,...eventInitDict){
         super(type,data,...eventInitDict);
     }
