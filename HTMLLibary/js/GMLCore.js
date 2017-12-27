@@ -341,7 +341,6 @@ class BaseEventDispatcher extends BaseObject{
 
     constructor(){
         super();
-        this.eventNode = document.createElement("div");
         this.events = new Map();
     }
 
@@ -354,7 +353,15 @@ class BaseEventDispatcher extends BaseObject{
             return;
         }
         evt.gCurrentTarget = this;
-        this.eventNode.dispatchEvent(evt);
+        let funSet = this.events.get(evt.type);
+        if(funSet){
+            let arr = [...funSet];
+            let j = arr.length;
+            for(let i = 0;i<j;i++){
+                let mp = arr[i]
+                mp.get("fun").call(mp.get("obj"),evt)
+            }
+        }
         evt.gCurrentTarget = null;//用完就释放,避免循环引用
     }
 
@@ -362,9 +369,10 @@ class BaseEventDispatcher extends BaseObject{
      * 添加一个事件监听
      * @param evtType 自定义的事件类型(也可以是系统的事件类型)
      * @param execFunc 事件的处理函数
+     * @param thisArg 执行execFunc的对象指针,默认为null,如果为null则在execFunc中调用this 值为BaseEventDispatcher本身
      * @param useCapture 是否在捕获阶段执行,默认为false(在目标阶段和冒泡阶段执行)
      * */
-    addEventListener(evtType,execFunc,useCapture = false){
+    addEventListener(evtType,execFunc,thisArg=null,useCapture = false){
         if(!evtType){
             return;
         }
@@ -381,14 +389,16 @@ class BaseEventDispatcher extends BaseObject{
             BaseNotificationCenter.main.addObserver(this,evtType,function(){});//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
         }
 
+        let mp = new Map();
+        mp.set("obj",thisArg || this);
+        mp.set("fun",execFunc)
         if(this.events.has(evtType)){
             //如果添加过监听,就追加
-            this.events.get(evtType).add(execFunc)
+            this.events.get(evtType).add(mp)
         }else{
             //如果没有添加过监听,就新建监听集合
-            this.events.set(evtType,new Set([execFunc]));
+            this.events.set(evtType,new Set([mp]));
         }
-        this.eventNode.addEventListener(evtType,execFunc,useCapture);
     }
 
     /**
@@ -404,27 +414,31 @@ class BaseEventDispatcher extends BaseObject{
         if(this.events.has(evtType)){
             //如果添加过监听,就追加
             let evtSet = this.events.get(evtType);
-            evtSet.forEach((value,key) => {
-                if(value == execFunc)evtSet.delete(value)//移除事件监听
-            })
-                //如果监听函数数组的长度为0,代表不再需要用map来维护,直接删除
-                if(evtSet.size == 0){
-                    this.events.delete(evtType)
+            let temparr = [...evtSet];
+            temparr.forEach((mp,idx) => {
+                if(mp.get("fun") == execFunc)
+                {
+                    evtSet.delete(mp);//移除事件监听;
+                    mp.clear();
                 }
-        }
-        this.eventNode.removeEventListener(evtType,execFunc,useCapture)
+            })
 
-        let arr = GMLMouseEvent.AllEventsArr;
-        if(arr.indexOf(evtType) > -1)
-        {
-            //针对鼠标点击事件,做特殊处理,以使其正常被移除
-            BaseNotificationCenter.main.removeObserver(this,evtType);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
-        }
-        arr = GMLKeyBoardEvent.AllEventsArr;
-        if(arr.indexOf(evtType) > -1)
-        {
-            //针对鼠标点击事件,做特殊处理,以使其正常被移除
-            BaseNotificationCenter.main.removeObserver(this,evtType);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+            //如果监听函数数组的长度为0,代表不再需要用map来维护,直接删除
+            if(evtSet.size == 0){
+                this.events.delete(evtType)
+                let arr = GMLMouseEvent.AllEventsArr;
+                if(arr.indexOf(evtType) > -1)
+                {
+                    //针对鼠标点击事件,做特殊处理,以使其正常被移除
+                    BaseNotificationCenter.main.removeObserver(this,evtType);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+                }
+                arr = GMLKeyBoardEvent.AllEventsArr;
+                if(arr.indexOf(evtType) > -1)
+                {
+                    //针对keyboard事件,做特殊处理,以使其正常被移除
+                    BaseNotificationCenter.main.removeObserver(this,evtType);//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+                }
+            }
         }
     }
 
@@ -437,9 +451,8 @@ class BaseEventDispatcher extends BaseObject{
         this.events.forEach((value,key)=>{
             //遍历每一个监听类型对应的set函数数组
             let funcSet = value;
-            funcSet.forEach((func,idx)=>{
-                //移除指定的监听事件
-                mySelf.eventNode.removeEventListener(key,func);
+            funcSet.forEach(function(mp,key){
+                mp.clear();
             })
             //清空函数数组
             funcSet.clear();

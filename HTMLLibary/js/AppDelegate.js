@@ -30,7 +30,9 @@ class AppDelegate{
                 spr.x = -65;
                 spr.y = -20;
             }
-            spr.addEventListener(GMLMouseEvent.Down,this.fangxiangMouseDown)
+            spr.addEventListener(GMLMouseEvent.Down,this.fangxiangMouseDown,this)
+            spr.addEventListener(GMLMouseEvent.Down,this.fangxiangMouseDown2,this)
+            spr.removeAllEventListener();
         }
     }
 
@@ -61,16 +63,34 @@ class AppDelegate{
 
         if(evt.gCurrentTarget.name == "fang_0"){
             //向左移动
-            AppDelegate.app.mc_dog.x -= 5;
+            this.mc_dog.x -= 5;
         }else if(evt.gCurrentTarget.name == "fang_1"){
             //向上移动
-            AppDelegate.app.mc_dog.y -= 5;
+            this.mc_dog.y -= 5;
         }else if(evt.gCurrentTarget.name == "fang_2"){
             //向右移动
-            AppDelegate.app.mc_dog.x += 5;
+            this.mc_dog.x += 5;
         }else if(evt.gCurrentTarget.name == "fang_3"){
             //向下移动
-            AppDelegate.app.mc_dog.y += 5;
+            this.mc_dog.y += 5;
+        }
+    }
+
+    fangxiangMouseDown2(evt){
+        console.log(evt.gCurrentTarget.name);
+
+        if(evt.gCurrentTarget.name == "fang_0"){
+            //向左移动
+            this.mc_dog.x -= 5;
+        }else if(evt.gCurrentTarget.name == "fang_1"){
+            //向上移动
+            this.mc_dog.y -= 5;
+        }else if(evt.gCurrentTarget.name == "fang_2"){
+            //向右移动
+            this.mc_dog.x += 5;
+        }else if(evt.gCurrentTarget.name == "fang_3"){
+            //向下移动
+            this.mc_dog.y += 5;
         }
     }
 
