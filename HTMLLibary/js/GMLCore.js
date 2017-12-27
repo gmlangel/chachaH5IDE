@@ -183,17 +183,18 @@ class BaseScene extends BaseObject{
                 "timeStamp":evt["timeStamp"]
             }
         )
-        let observerSet = BaseNotificationCenter.main.getObserversByKey(eventTypeStr);
-        if(observerSet){
-            //遍历set 循环进行点检测
-            observerSet.forEach(function(mp,key){
-                for(let item of mp.entries())
-                {
-                    let obs = item[0];
-                    obs.dispatchEvent(ne);
-                }
-            })
-        }
+        BaseNotificationCenter.main.postNotify(eventTypeStr,ne)
+        //let observerSet = BaseNotificationCenter.main.getObserversByKey(eventTypeStr);
+        //if(observerSet){
+        //    //遍历set 循环进行点检测
+        //    observerSet.forEach(function(mp,key){
+        //        for(let item of mp.entries())
+        //        {
+        //            let obs = item[0];
+        //            obs.dispatchEvent(ne);
+        //        }
+        //    })
+        //}
     }
 
     /**
@@ -271,6 +272,8 @@ class BaseScene extends BaseObject{
      * 时间轴更新动画函数
      * */
     updateAnimation(){
+        let evt = new GMLEvent(GMLEvent.EnterFrame,0)
+        BaseNotificationCenter.main.postNotify(GMLEvent.EnterFrame,evt);
         BaseScene.main._currentDrawIndex = 0;
         //这里的this 是一个undefined 因为他是window.requestAnimationFrame 的一个回调函数
         let ctx = BaseScene.main._mainCanvas.context2D;
@@ -383,10 +386,12 @@ class BaseEventDispatcher extends BaseObject{
             BaseNotificationCenter.main.addObserver(this,evtType,function(){});//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
         }
         arr = GMLKeyBoardEvent.AllEventsArr;//键盘相关事件
-        if(arr.indexOf(evtType) > -1)
+        if(GMLKeyBoardEvent.AllEventsArr.indexOf(evtType) > -1 || GMLEvent.AllEventsArr.indexOf(evtType) > -1)
         {
-            //针对鼠标点击事件,做特殊处理,以使其正常响应
-            BaseNotificationCenter.main.addObserver(this,evtType,function(){});//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+            //针对GMLEvent事件和GMLKeyboardEvent,做特殊处理,以使其正常响应
+            BaseNotificationCenter.main.addObserver(this,evtType,function(evt){
+                this.dispatchEvent(evt)
+            });//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
         }
 
         let mp = new Map();
@@ -1526,7 +1531,7 @@ class GMLKeyBoardEvent extends BaseEvent{
     }
 
     /**
-     * 获取所有鼠标事件的事件类型集合
+     * 获取所有键盘事件的事件类型集合
      * */
     static get AllEventsArr(){
         if(!window.AllKeyEventsArr){
@@ -1541,6 +1546,36 @@ class GMLKeyBoardEvent extends BaseEvent{
         super(type,data,...eventInitDict);
     }
 }
+
+/**
+ * 通用事件
+ * */
+class GMLEvent extends BaseEvent{
+    /**
+     * 帧频事件
+     * */
+    static get EnterFrame(){
+        return "GMLEvent.EnterFrame"
+    }
+
+    /**
+     * 获取所有通用事件的事件类型集合
+     * */
+    static get AllEventsArr(){
+        if(!window.AllGMLEventsArr){
+            window.AllGMLEventsArr = [
+                GMLEvent.EnterFrame
+            ];
+        }
+        return window.AllGMLEventsArr;
+    }
+    constructor(type,data=null,...eventInitDict){
+        super(type,data,...eventInitDict);
+    }
+}
+
+
+
 //事件相关类型声明------------------end------------------
 
 
