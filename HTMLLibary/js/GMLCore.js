@@ -1774,7 +1774,7 @@ class GTool{
  * */
 class OSManager{
     static get OS(){
-        OSManager.main.gOS;
+        return OSManager.main.gOS;
     }
 
     static get main(){

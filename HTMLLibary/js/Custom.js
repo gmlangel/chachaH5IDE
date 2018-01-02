@@ -9,21 +9,45 @@ class Monster extends GMLSprite{
 
     constructor(_nickName,_resourcePath,_conKey){
         super();
+        this.offsetPX = 3;//每帧位移的像素,默认为2px
         this._frames = [];//序列帧数组,每个元素都是GMLImage.
         this._nickName = _nickName;
         this._resourcePath = _resourcePath;
-        this._conKey = _conKey;
-        this._defaultAniType = AniTypeEnum.default;
+
 
         let tb = new GMLStaticTextField();
+        tb.hAliginment = "center";
         tb.width = 200;
-        tb.height = 20;
-        tb.fontColor = 0xff6600ff;
+        tb.height = 12;
+        tb.fontColor = 0xff0000ff;
         tb.fontName = "微软雅黑";
         tb.fontSize = 12;
         tb.text = this._nickName;
         this.tb_nickName = tb;
         this.addChild(this.tb_nickName);
+
+        this._configDic = ConfigManager.main.configDic[_conKey] || {};//动画完整配置
+        tb.itiwX = this.itiwX = parseFloat(this._configDic["itiwX"] || 0)
+        tb.itiwY = this.itiwY = parseFloat(this._configDic["itiwY"] || 0)
+
+        this.changeAniType(AniTypeEnum.default,0,0)
+    }
+
+    changeAniType(aniType,fangxiangX,fangxiangY){
+        if(this._defaultAniType != aniType)
+        {
+            this.fangxiangX = fangxiangX;
+            this.fangxiangY = fangxiangY;
+            this._defaultAniType = aniType;
+            this._currentAniIdx = 0
+            this._currentAniArr = this._configDic[this._defaultAniType] || [];//动画数组
+            this._sumAniCount = this._currentAniArr.length;//总动画帧数
+            if(this._sumAniCount == 0){
+                return;
+            }
+            this.updateImg();
+        }
+
     }
 
     get itiwX(){
@@ -32,10 +56,6 @@ class Monster extends GMLSprite{
 
     set itiwX(n){
         super.itiwX = n;
-        //遍历序列帧数组
-        this._frames.forEach(function(item,idx){
-            item.itiwX = this._itiwX;
-        })
     }
 
     get itiwY(){
@@ -44,10 +64,32 @@ class Monster extends GMLSprite{
 
     set itiwY(n){
         super.itiwY = n;
-        //遍历序列帧数组
-        this._frames.forEach(function(item,idx){
-            item.itiwY = this._itiwY;
-        })
+    }
+
+    drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY){
+
+        if(this._currentAniIdx < this._sumAniCount - 1){
+            this._currentAniIdx++;
+        }else{
+            this._currentAniIdx = 0;
+        }
+        console.log(this._sumAniCount,this._currentAniIdx,this._currentAniIdx < this._sumAniCount - 1);
+        this.updateImg();
+        this.x += this.fangxiangX * this.offsetPX;//每帧横向移动1px
+        this.y += this.fangxiangY * this.offsetPX;//每帧纵向移动1px
+        super.drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY);
+    }
+
+    updateImg(){
+
+        if(this._currentImg)
+            this.removeChild(this._currentImg);
+        let img = new GMLImage(this._resourcePath + this._currentAniArr[this._currentAniIdx])
+        img.itiwX = this.itiwX;
+        img.itiwY = this.itiwY;
+        this.tb_nickName.y = -(img.height * img.itiwY);
+        this._currentImg = img;
+        this.addChildAt(this._currentImg,0);
     }
 
     /**

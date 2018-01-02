@@ -14,6 +14,19 @@ class AppDelegate{
         this.monsterArr = ["./resource/girl1/"];
         this.selfSourcePath = "";//自身形象对应的资源路径
         this.selfKey = "";//自身形象对应的配置文件key
+        this.keyMoveX = 0;
+        this.keyMoveY = 0;
+        this.fangxiangDic={
+            "0,0":AniTypeEnum.default,
+            "0,-1":AniTypeEnum.top,
+            "1,-1":AniTypeEnum.rightTop,
+            "1,0":AniTypeEnum.right,
+            "1,1":AniTypeEnum.rightBottom,
+            "0,1":AniTypeEnum.bottom,
+            "-1,1":AniTypeEnum.leftBottom,
+            "-1,0":AniTypeEnum.left,
+            "-1,-1":AniTypeEnum.leftTop
+        }
     }
 
     /**
@@ -71,6 +84,10 @@ class AppDelegate{
                 }
             })
         })
+
+        //添加时间监听
+        BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyDown,this.ongKeyDown);
+        BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyUp,this.ongKeyUp);
     }
 
     startSelf(){
@@ -79,6 +96,47 @@ class AppDelegate{
         this.selfMonster.y = this.scene.height / 2;
         this.scene.addChild(this.selfMonster);
     }
+
+    ongKeyDown(e){
+        let kc = e.data.keyCode;
+        switch(kc){
+            case 40:this.keyMoveY = 1;this.updateSelfMonster();break;
+            case 38:this.keyMoveY = -1;this.updateSelfMonster();break;
+            case 37:this.keyMoveX = -1;this.updateSelfMonster();break;
+            case 39:this.keyMoveX = 1;this.updateSelfMonster();break;
+            case 83:this.keyMoveY = 1;this.updateSelfMonster();break;
+            case 87:this.keyMoveY = -1;this.updateSelfMonster();break;
+            case 65:this.keyMoveX = -1;this.updateSelfMonster();break;
+            case 68:this.keyMoveX = 1;this.updateSelfMonster();break;
+        }
+
+    }
+
+    ongKeyUp(e){
+        let kc = e.data.keyCode;
+        switch(kc){
+            case 40:this.keyMoveY = 0;this.updateSelfMonster();break;
+            case 38:this.keyMoveY = 0;this.updateSelfMonster();break;
+            case 37:this.keyMoveX = 0;this.updateSelfMonster();break;
+            case 39:this.keyMoveX = 0;this.updateSelfMonster();break;
+            case 83:this.keyMoveY = 0;this.updateSelfMonster();break;
+            case 87:this.keyMoveY = 0;this.updateSelfMonster();break;
+            case 65:this.keyMoveX = 0;this.updateSelfMonster();break;
+            case 68:this.keyMoveX = 0;this.updateSelfMonster();break;
+        }
+    }
+
+    /**
+     * 更新自身怪物动画
+     * */
+    updateSelfMonster(){
+        let key = this.keyMoveX + "," + this.keyMoveY;
+        if(this.selfMonster)
+        {
+            this.selfMonster.changeAniType(this.fangxiangDic[key],this.keyMoveX,this.keyMoveY)
+        }
+    }
+
 
     /**
      * 尺寸变更
