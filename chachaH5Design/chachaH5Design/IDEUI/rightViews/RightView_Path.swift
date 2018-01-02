@@ -43,7 +43,7 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate,NSTe
     /**
      当文件或者文件夹名称被修改
      */
-    func fileNameChanged(_ notify:NSNotification){
+    @objc func fileNameChanged(_ notify:NSNotification){
         if let tb = notify.object as? NSTextField{
             if let cpd = GlobelInfo.instance.currentPD{
                 if tb.stringValue == ""{
@@ -563,7 +563,7 @@ class RightView_Path: GMLView,NSOutlineViewDataSource,NSOutlineViewDelegate,NSTe
     }
     
     func outlineViewSelectionDidChange(_ notification: Notification) {
-        let b = notification.object as! NSView;
+        _ = notification.object as! NSView;
         NSLog("7")
     }
 }

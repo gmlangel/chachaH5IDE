@@ -68,7 +68,7 @@ class RightView2: GMLView {
         return btn;
     }
     
-    func reFillContent(_ sender:Any){
+    @objc func reFillContent(_ sender:Any){
         
     }
     

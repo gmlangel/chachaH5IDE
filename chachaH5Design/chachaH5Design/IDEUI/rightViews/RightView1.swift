@@ -87,7 +87,7 @@ class RightView1: GMLView {
     /**
      显示属性面板
      */
-    func showAttribute(_ sender:Any){
+    @objc func showAttribute(_ sender:Any){
         if currentShowPanel != attributePanel{
             currentShowPanel?.isHidden = true;
             currentShowPanel = attributePanel;
@@ -98,7 +98,7 @@ class RightView1: GMLView {
     /**
      显示文件结构
      */
-    func showWenjianjiegou(_ sender:Any){
+    @objc func showWenjianjiegou(_ sender:Any){
         if currentShowPanel != pathPanel{
             currentShowPanel?.isHidden = true;
             currentShowPanel = pathPanel;

@@ -1,15 +1,46 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
   - pop (1.0.10)
-  - SnapKit (3.0.2)
+  - SnapKit (4.0.0)
 
 DEPENDENCIES:
-  - pop (~> 1.0)
-  - SnapKit (~> 3.0.0)
+  - AFNetworking (~> 3.1.0)
+  - pop (from `https://github.com/facebook/pop.git`, branch `master`)
+  - SnapKit (from `https://github.com/SnapKit/SnapKit.git`, branch `master`)
+
+EXTERNAL SOURCES:
+  pop:
+    :branch: master
+    :git: https://github.com/facebook/pop.git
+  SnapKit:
+    :branch: master
+    :git: https://github.com/SnapKit/SnapKit.git
+
+CHECKOUT OPTIONS:
+  pop:
+    :commit: 2a9440a3ded796625f088a861b6401e63e93f1b6
+    :git: https://github.com/facebook/pop.git
+  SnapKit:
+    :commit: c0f66e42be339f27e727da022518af362cca409b
+    :git: https://github.com/SnapKit/SnapKit.git
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
-  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SnapKit: 4b1c20a79bc7655f2bdefba4f008630681f63fe5
 
-PODFILE CHECKSUM: 0f7d655ca574f211b30692c7d181bc8f776ccb6a
+PODFILE CHECKSUM: d51e3379a605aaae74b481ee1e5882f222740dc0
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0.rc.1

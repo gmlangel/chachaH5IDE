@@ -3,6 +3,7 @@ target 'chachaH5Design' do
   use_frameworks!
 
   # Pods for chacha_Mac
-  pod 'SnapKit', '~> 3.0.0'
-  pod 'pop', '~> 1.0'
+  pod 'AFNetworking', '~> 3.1.0'
+  pod 'SnapKit', :git => "https://github.com/SnapKit/SnapKit.git", :branch => "master"
+  pod 'pop', :git => 'https://github.com/facebook/pop.git', :branch => "master"
 end

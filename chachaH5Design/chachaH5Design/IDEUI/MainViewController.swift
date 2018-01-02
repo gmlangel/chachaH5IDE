@@ -14,10 +14,10 @@ class MainViewController: NSViewController {
         
         //self.view.backgroundColor = NSColor.
         self.view.bgColor = NSColor(cgColor: GMLSkinManager.instance.mainBackgroundColor);
-        NotificationCenter.default.addObserver(self, selector: #selector(onwindowResize), name: NSNotification.Name.NSWindowDidResize, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onwindowResize), name: NSWindow.didResizeNotification, object: nil)
     }
     
-    func onwindowResize(_ notify:NSNotification)
+    @objc func onwindowResize(_ notify:NSNotification)
     {
         if let win = notify.object as? NSWindow{
             (self.view as! GMLView).gml_resize(win.frame.size);
@@ -25,7 +25,7 @@ class MainViewController: NSViewController {
     }
     
     override func viewDidAppear() {
-        if let win = self.view.window,let screen = NSScreen.main(){
+        if let win = self.view.window,let screen = NSScreen.main{
             win.setFrame(screen.visibleFrame, display: true);
         }
     }

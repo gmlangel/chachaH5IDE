@@ -21,6 +21,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         //创建日志
         GMLLog.instance.start();
+        
+        //测试代码，编译H5
+        DispatchQueue.global().async {
+            H5Maker.instance
+        }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

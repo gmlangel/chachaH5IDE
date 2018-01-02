@@ -24,10 +24,29 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.5294118">
-              <caret line="36" column="30" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="30" />
+            <state vertical-scroll-proportion="-6.7647057">
+              <caret line="51" column="47" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
               <folding>
-                <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Custom.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Custom.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="25" column="40" selection-start-line="17" selection-start-column="7" selection-end-line="25" selection-end-column="40" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="n#!!block;n#itiwX#0;n#Monster#0" expanded="false" />
+                <element signature="n#!!block;n#itiwX#1;n#Monster#0" expanded="false" />
+                <element signature="n#!!block;n#itiwY#0;n#Monster#0" expanded="false" />
+                <element signature="n#!!block;n#itiwY#1;n#Monster#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -36,81 +55,9 @@
       <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7345133">
-              <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
-              <folding>
-                <element signature="n#NotifyStruct#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DHTML.js" pinned="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.740741">
-              <caret line="309" column="14" selection-start-line="309" selection-start-column="6" selection-end-line="309" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.38938054">
+              <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.444445">
-              <caret line="396" column="27" selection-start-line="396" selection-start-column="27" selection-end-line="396" selection-end-column="27" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="n#BaseObject#0" expanded="false" />
-                <element signature="e#2873#4486#0" expanded="false" />
-                <element signature="e#4545#4803#0" expanded="false" />
-                <element signature="n#BaseNotificationCenter#0" expanded="false" />
-                <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
-                <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
-                <element signature="n#GMLCanvas#0" expanded="false" />
-                <element signature="n#GMLDisplay#0" expanded="false" />
-                <element signature="n#GMLShape#0" expanded="false" />
-                <element signature="n#GMLSprite#0" expanded="false" />
-                <element signature="n#GMLImage#0" expanded="false" />
-                <element signature="n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#width#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#width#1;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#fontColor#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#fontColor#1;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#fontSize#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#fontSize#1;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#fontName#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#fontName#1;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#text#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#text#1;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#hAliginment#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#hAliginment#1;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#itiwX#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#itiwX#1;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#itiwY#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#itiwY#1;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#width#2;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#width#3;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#height#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#height#1;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#drawInContext#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
-                <element signature="n#BaseEvent#0" expanded="false" />
-                <element signature="n#GMLMouseEvent#0" expanded="false" />
-                <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
-                <element signature="n#GMLEvent#0" expanded="false" />
-                <element signature="n#TimeLine#0" expanded="false" />
-                <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
-                <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-                <element signature="n#ResourceManager#0" expanded="false" />
-                <element signature="n#GTool#0" expanded="false" />
-                <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-                <element signature="n#ScreenManager#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -130,6 +77,7 @@
       <list>
         <option value="$PROJECT_DIR$/testfoder/index.html" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/Custom.js" />
         <option value="$PROJECT_DIR$/js/GMLCore.js" />
         <option value="$PROJECT_DIR$/js/AppDelegate.js" />
       </list>
@@ -230,6 +178,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/resource" />
       <recent name="$PROJECT_DIR$/testfoder" />
     </key>
@@ -345,7 +294,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -354,9 +306,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#NotifyStruct#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -383,13 +333,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -423,13 +373,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -439,7 +387,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -448,9 +399,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="151" column="41" selection-start-line="151" selection-start-column="41" selection-end-line="151" selection-end-column="41" />
-          <folding>
-            <element signature="n#NotifyStruct#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -477,13 +426,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -517,13 +466,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -533,7 +480,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -542,9 +492,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#NotifyStruct#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -571,13 +519,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -611,13 +559,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -627,7 +573,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -639,13 +588,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -679,13 +628,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -695,7 +642,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -707,13 +657,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -747,13 +697,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -763,7 +711,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -775,13 +726,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -815,13 +766,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -831,7 +780,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -843,13 +795,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -883,13 +835,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -899,7 +849,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="29" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -911,13 +864,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -951,13 +904,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -967,7 +918,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -979,13 +933,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -1019,13 +973,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1035,7 +987,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1047,13 +1002,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -1087,13 +1042,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1103,7 +1056,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1115,13 +1071,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -1155,13 +1111,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1171,7 +1125,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1183,13 +1140,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -1223,13 +1180,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1239,7 +1194,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1251,13 +1209,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -1291,13 +1249,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1307,7 +1263,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1319,13 +1278,13 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -1359,13 +1318,11 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1375,7 +1332,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
           <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1418,28 +1378,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/EcmaScript5.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33277026">
+          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.740741">
+        <state vertical-scroll-proportion="0.22654867">
           <caret line="309" column="14" selection-start-line="309" selection-start-column="6" selection-end-line="309" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/jq.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.7647057">
+          <caret line="51" column="47" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="40" selection-start-line="17" selection-start-column="7" selection-end-line="25" selection-end-column="40" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#itiwX#0;n#Monster#0" expanded="false" />
+            <element signature="n#!!block;n#itiwX#1;n#Monster#0" expanded="false" />
+            <element signature="n#!!block;n#itiwY#0;n#Monster#0" expanded="false" />
+            <element signature="n#!!block;n#itiwY#1;n#Monster#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.444445">
-          <caret line="396" column="27" selection-start-line="396" selection-start-column="27" selection-end-line="396" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.9557522">
+          <caret line="64" column="24" selection-start-line="64" selection-start-column="24" selection-end-line="64" selection-end-column="24" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#2873#4486#0" expanded="false" />
-            <element signature="e#4545#4803#0" expanded="false" />
+            <element signature="e#2941#4554#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#BaseEventDispatcher#0" expanded="false" />
             <element signature="n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
             <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
             <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLDisplay#0" expanded="false" />
             <element signature="n#GMLShape#0" expanded="false" />
             <element signature="n#GMLSprite#0" expanded="false" />
             <element signature="n#GMLImage#0" expanded="false" />
@@ -1473,34 +1476,20 @@
             <element signature="n#GMLMouseEvent#0" expanded="false" />
             <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
             <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
             <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#ResourceManager#0" expanded="false" />
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-            <element signature="n#ScreenManager#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5294118">
-          <caret line="36" column="30" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="30" />
-          <folding>
-            <marker date="1513926762000" expanded="true" signature="1837:1887" placeholder="..." />
+            <element signature="n#OSManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7345133">
-          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
-          <folding>
-            <element signature="n#NotifyStruct#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.38938054">
+          <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>

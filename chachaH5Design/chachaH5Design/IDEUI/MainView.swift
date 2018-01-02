@@ -36,7 +36,7 @@ class MainView:GMLView{
         self.addSubview(rightView2);
         
         centerView = CenterView(frame:NSRect(x:leftView.frame.maxX, y: 0, width: rightView1.frame.minX - leftView.frame.maxX, height: offsetH))
-        self.addSubview(centerView, positioned: NSWindowOrderingMode.below, relativeTo: topView);
+        self.addSubview(centerView, positioned: NSWindow.OrderingMode.below, relativeTo: topView);
         centerView.snp.makeConstraints { (make) in
             make.bottom.equalTo(self.snp.bottom);
             make.left.equalTo(leftView.snp.right);
@@ -68,12 +68,12 @@ class MainView:GMLView{
         centerView.updateConstraints();
     }
     
-    func onIDEPanelSideBeginDrag(_ notify:NSNotification){
+    @objc func onIDEPanelSideBeginDrag(_ notify:NSNotification){
         dragType = (notify.object as? String) ?? "";
         NSLog("1:\(dragType)")
     }
     
-    func onIDEPanelSideEndDrag(_ notify:NSNotification){
+    @objc func onIDEPanelSideEndDrag(_ notify:NSNotification){
         dragType = "";
         NSLog("2:\(dragType)")
     }
@@ -85,14 +85,14 @@ class MainView:GMLView{
             tempH = tempH > topView.maxHeight ? topView.maxHeight : tempH;
             tempH = tempH < topView.minHeight ? topView.minHeight : tempH;
             topView.frame.size.height = tempH;
-            NotificationCenter.default.post(name: NSNotification.Name.NSWindowDidResize, object: self.window);
+            NotificationCenter.default.post(name: NSWindow.didResizeNotification, object: self.window);
         }else if dragType == "leftV"{
             //改变左侧工具栏的尺寸
             var tempW = leftView.frame.size.width + event.deltaX;
             tempW = tempW > leftView.maxWidth ? leftView.maxWidth : tempW;
             tempW = tempW < leftView.minWidth ? leftView.minWidth : tempW;
             leftView.frame.size.width = tempW;
-            NotificationCenter.default.post(name: NSNotification.Name.NSWindowDidResize, object: self.window);
+            NotificationCenter.default.post(name: NSWindow.didResizeNotification, object: self.window);
         }else if dragType == "rightV"{
             //改变右侧工具栏的尺寸
             var tempW = rightView1.frame.size.width - event.deltaX;
@@ -100,7 +100,7 @@ class MainView:GMLView{
             tempW = tempW < rightView1.minWidth ? rightView1.minWidth : tempW;
             rightView1.frame.size.width = tempW;
             rightView2.frame.size.width = tempW;
-            NotificationCenter.default.post(name: NSNotification.Name.NSWindowDidResize, object: self.window);
+            NotificationCenter.default.post(name: NSWindow.didResizeNotification, object: self.window);
         }else if dragType == "rightV_mid"{
             var tempH = rightView2.frame.size.height - event.deltaY;
             tempH = tempH < rightView2.minHeight ? rightView2.minHeight : tempH;
@@ -108,7 +108,7 @@ class MainView:GMLView{
             tempH = tempH > maxH ? maxH : tempH;
             rightView2.frame.size.height = tempH;
             rightView1.frame.size.height = self.frame.size.height - topView.frame.size.height - rightView2.frame.size.height;
-            NotificationCenter.default.post(name: NSNotification.Name.NSWindowDidResize, object: self.window);
+            NotificationCenter.default.post(name: NSWindow.didResizeNotification, object: self.window);
         }
     }
     

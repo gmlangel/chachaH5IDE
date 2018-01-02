@@ -34,7 +34,7 @@ class CurrentBtn:NSButton{
     
     fileprivate var type:Int!;
     fileprivate var isDowned:Bool = false;
-    fileprivate var hitTextArea:NSTrackingRectTag?;
+    fileprivate var hitTextArea:NSView.TrackingRectTag?;
     fileprivate var tb:NSTextField!;
     var isgEnabled:Bool = true;
     open var downAction:Selector?;

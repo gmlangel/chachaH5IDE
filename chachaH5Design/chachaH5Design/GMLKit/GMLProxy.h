@@ -23,15 +23,15 @@
 -(void)gml_destroy;
 
 
-/**
- 执行一个没有返回值得同步或者异步函数
- */
--(void)execFun:(SEL __nonnull)exeSel arg:(id __nullable)_arg;
-
-/**
- 执行一个有返回值的函数
- */
--(id __nullable)execHasCallbackFun:(NSString * __nonnull)funcName arg:(id __nullable)_arg;
+///**
+// 执行一个没有返回值得同步或者异步函数
+// */
+//-(void)execFun:(SEL __nonnull)exeSel arg:(id __nullable)_arg;
+//
+///**
+// 执行一个有返回值的函数
+// */
+//-(id __nullable)execHasCallbackFun:(NSString * __nonnull)funcName arg:(id __nullable)_arg;
 @end
 
 

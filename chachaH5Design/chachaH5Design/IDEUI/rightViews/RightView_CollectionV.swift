@@ -39,7 +39,7 @@ class RightView_CollectionV: GMLView {
     override func gml_fillUserInfo(_ userInfo: [AnyHashable : Any]?) {
         //测试代码
         let j = 30;
-        for i:Int in 0 ..< j{
+        for _:Int in 0 ..< j{
             container.addSubview(CollectionItem(frame:NSZeroRect));
         }
         resizeScroll();

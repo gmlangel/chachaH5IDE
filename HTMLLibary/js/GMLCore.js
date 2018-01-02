@@ -53,12 +53,12 @@ class BaseScene extends BaseObject{
         this._defaultOverDisItem = null;//鼠标移入时的响应可视化对象
     }
 
-    width(){
-        return this._mainCanvas.width;
+    get width(){
+        return this._mainCanvas.width / ScreenManager.main.quilaty;
     }
 
-    height(){
-        return this._mainCanvas.height;
+    get height(){
+        return this._mainCanvas.height / ScreenManager.main.quilaty;
     }
 
     start(){
@@ -70,7 +70,7 @@ class BaseScene extends BaseObject{
         this._mainCanvas.canvas.style.top = "0px";
 
         //添加系统事件检测
-        this.addSystemEvents();
+        this._addSystemEvents();
 
         //开始时间轴
         TimeLine.main.start(this.updateAnimation);
@@ -91,7 +91,7 @@ class BaseScene extends BaseObject{
     /**
      * 私有函数,添加系统事件检测
      * */
-    addSystemEvents(){
+    _addSystemEvents(){
         //截获右键点击事件
         document.oncontextmenu = this._onRightClick;
         //添加系统级的通知监听

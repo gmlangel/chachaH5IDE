@@ -8,6 +8,8 @@
 
 import Foundation
 class RootDirectoryProxy: GMLProxy {
+    
+    
     /**
      应用程序根操作路径
      */
@@ -23,6 +25,17 @@ class RootDirectoryProxy: GMLProxy {
      用户新建项目存储路径
      */
     private(set) var projectPath:String = "";
+    
+    /**
+     H5预编译文件的存储路径
+     */
+    private(set) var h5PreBuildingPath:String = "";
+    
+    /**
+     H5 release文件的存储路径
+     */
+    private(set) var h5ReleasePath:String = "";
+    
     static var instance:RootDirectoryProxy{
         get{
             struct RootDirectoryProxyStruct{
@@ -39,7 +52,8 @@ class RootDirectoryProxy: GMLProxy {
             rootDirectoryPath = arr[0] + "/h5Design/";
             logDirectoryPath = rootDirectoryPath.appending("logs/");
             projectPath = rootDirectoryPath.appending("projects/");
-            
+            h5PreBuildingPath = rootDirectoryPath.appending("h5Pre/");
+            h5ReleasePath = rootDirectoryPath.appending("h5release/");
         }
     }
     
@@ -63,6 +77,14 @@ class RootDirectoryProxy: GMLProxy {
         //创建项目目录
         if b {
             b = makeDir(projectPath);
+        }
+        //创建h5预编译目录
+        if b {
+            b = makeDir(h5PreBuildingPath);
+        }
+        //创建h5release目录
+        if b {
+            b = makeDir(h5ReleasePath);
         }
         return b;
     }

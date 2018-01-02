@@ -106,7 +106,7 @@ class CenterView: GMLView {
         return btn;
     }
     
-    func zoomContainerV(_ sender:AnyObject){
+    @objc func zoomContainerV(_ sender:AnyObject){
         
     }
     

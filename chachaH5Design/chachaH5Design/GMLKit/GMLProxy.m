@@ -27,22 +27,22 @@
     _gmlDis = nil;
 }
 
--(void)execFun:(SEL __nonnull)exeSel arg:(id __nullable)_arg{
-    if([self respondsToSelector:exeSel] == true)
-    {
-        if(_arg == nil)
-        {
-            [self performSelector:exeSel];
-        }else{
-            [self performSelector:exeSel withObject:_arg];
-        }
-        
-    }else{
-        NSLog(@"函数%@不存在",NSStringFromSelector(exeSel));
-    }
-}
-
--(id __nullable)execHasCallbackFun:(NSString * __nonnull)funcName arg:(id __nullable)_arg{
-    return nil;
-}
+//-(void)execFun:(SEL __nonnull)exeSel arg:(id __nullable)_arg{
+//    if([self respondsToSelector:exeSel] == true)
+//    {
+//        if(_arg == nil)
+//        {
+//            [self performSelector:exeSel];
+//        }else{
+//            [self performSelector:exeSel withObject:_arg];
+//        }
+//        
+//    }else{
+//        NSLog(@"函数%@不存在",NSStringFromSelector(exeSel));
+//    }
+//}
+//
+//-(id __nullable)execHasCallbackFun:(NSString * __nonnull)funcName arg:(id __nullable)_arg{
+//    return nil;
+//}
 @end
