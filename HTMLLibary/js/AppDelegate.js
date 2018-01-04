@@ -10,6 +10,13 @@ class AppDelegate{
     }
 
     constructor(){
+
+        //初始化背景音
+        this.bgAudio = document.createElement("audio");
+        this.bgAudio.preload = "auto";
+        this.bgAudio.src = "./resource/bg.mp3"
+        document.body.appendChild(this.bgAudio);
+        //初始化场景
         this.scene = BaseScene.main;
         this.container = new GMLSprite();//地图和monster的容器
         this.scene.addChild(this.container);
@@ -46,10 +53,12 @@ class AppDelegate{
     /**
      * 开始游戏
      * */
-    beginGame(_nickName){
+    beginGame(_nickName){HTMLAudioElement
         this.nickName = _nickName.length > 7 ? _nickName.substr(0,7) : _nickName;
         //启动场景
         this.scene.start();
+        this.bgAudio.autoplay = "autoplay";
+        this.bgAudio.loop = "loop";
         //添加背景
         this.bg = new GMLImage("./resource/bg.jpg",[0,0,this.scene.width,this.scene.height]);
         this.scene.addChildAt(this.bg,0);
@@ -103,6 +112,8 @@ class AppDelegate{
                 "timeout":60000,
                 "success":function(data){
                     ConfigManager.main.configDic[data.name] = data
+                    //批量加载资源
+                    AppDelegate.app.loadAllResource(this.pathKey,data);
                     AppDelegate.app.monsterConfigYingShe[this.pathKey] = data.name;
                     offset++;
                     if(offset == j){
@@ -127,6 +138,29 @@ class AppDelegate{
         BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyDown,this.ongKeyDown);
         BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyUp,this.ongKeyUp);
         BaseNotificationCenter.main.addObserver(this,GMLEvent.EnterFrame,this.onenterFrame)
+    }
+
+    /**
+     * 批量加载资源,这个流程在真实生产环境中还需要细分或逻辑调整
+     * */
+    loadAllResource(dirPath,data){
+        let arr = [];
+        arr.push(...data[AniTypeEnum.default])
+        arr.push(...data[AniTypeEnum.left])
+        arr.push(...data[AniTypeEnum.right])
+        arr.push(...data[AniTypeEnum.top])
+        arr.push(...data[AniTypeEnum.bottom])
+        arr.push(...data[AniTypeEnum.leftBottom])
+        arr.push(...data[AniTypeEnum.leftTop])
+        arr.push(...data[AniTypeEnum.rightBottom])
+        arr.push(...data[AniTypeEnum.rightTop])
+        let selfins = AppDelegate.app;
+        arr.forEach(function(item,idx){
+            //console.log(dirPath + item)
+            ResourceManager.main.getImgByURL(dirPath + item,selfins,t);
+        })
+        function t(){}
+
     }
 
     /**

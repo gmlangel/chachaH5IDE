@@ -24,13 +24,13 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.875">
-              <caret line="51" column="47" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
+            <state vertical-scroll-proportion="36.958332">
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+                <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -39,8 +39,8 @@
       <file leaf-file-name="Custom.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Custom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.407408">
-              <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+            <state vertical-scroll-proportion="-12.518518">
+              <caret line="155" column="14" selection-start-line="155" selection-start-column="14" selection-end-line="155" selection-end-column="14" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#!!block;n#itiwY#0;n#Monster#0" expanded="false" />
@@ -50,12 +50,94 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DHTML.js" pinned="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.740741">
+              <caret line="452" column="28" selection-start-line="452" selection-start-column="28" selection-end-line="452" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6778761">
-              <caret line="171" column="13" selection-start-line="171" selection-start-column="13" selection-end-line="171" selection-end-column="13" />
+            <state vertical-scroll-proportion="-180.85185">
+              <caret line="327" column="43" selection-start-line="327" selection-start-column="32" selection-end-line="327" selection-end-column="43" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="con.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resource/boy1/con.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.125">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="con.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resource/boy2/con.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.25">
+              <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6778761">
+              <caret line="1748" column="1" selection-start-line="1748" selection-start-column="1" selection-end-line="1748" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="n#BaseObject#0" expanded="false" />
+                <element signature="e#4613#4871#0" expanded="false" />
+                <element signature="n#BaseEventDispatcher#0" expanded="false" />
+                <element signature="n#BaseNotificationCenter#0" expanded="false" />
+                <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+                <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
+                <element signature="n#GMLCanvas#0" expanded="false" />
+                <element signature="n#GMLShape#0" expanded="false" />
+                <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#width#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#width#1;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#fontColor#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#fontColor#1;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#fontSize#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#fontSize#1;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#fontName#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#fontName#1;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#text#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#text#1;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#hAliginment#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#hAliginment#1;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#itiwX#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#itiwX#1;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#itiwY#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#itiwY#1;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#width#2;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#width#3;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#height#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#height#1;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
+                <element signature="n#BaseEvent#0" expanded="false" />
+                <element signature="n#GMLMouseEvent#0" expanded="false" />
+                <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
+                <element signature="n#GMLEvent#0" expanded="false" />
+                <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+                <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+                <element signature="n#GTool#0" expanded="false" />
+                <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,10 +156,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/testfoder/index.html" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/GMLCore.js" />
         <option value="$PROJECT_DIR$/js/Custom.js" />
+        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/AppDelegate.js" />
+        <option value="$PROJECT_DIR$/js/GMLCore.js" />
       </list>
     </option>
   </component>
@@ -176,8 +258,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/resource" />
+      <recent name="$PROJECT_DIR$/js" />
       <recent name="$PROJECT_DIR$/testfoder" />
     </key>
   </component>
@@ -287,69 +369,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1053" column="7" selection-start-line="1053" selection-start-column="7" selection-end-line="1053" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#BaseObject#0" expanded="false" />
-            <element signature="e#4613#4871#0" expanded="false" />
-            <element signature="n#BaseEventDispatcher#0" expanded="false" />
-            <element signature="n#BaseNotificationCenter#0" expanded="false" />
-            <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
-            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
-            <element signature="n#GMLCanvas#0" expanded="false" />
-            <element signature="n#GMLShape#0" expanded="false" />
-            <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#width#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#width#1;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#fontColor#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#fontColor#1;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#fontSize#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#fontSize#1;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#fontName#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#fontName#1;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#text#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#text#1;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#hAliginment#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#hAliginment#1;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#itiwX#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#itiwX#1;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#itiwY#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#itiwY#1;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#width#2;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#width#3;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#height#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#height#1;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
-            <element signature="n#BaseEvent#0" expanded="false" />
-            <element signature="n#GMLMouseEvent#0" expanded="false" />
-            <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
-            <element signature="n#GMLEvent#0" expanded="false" />
-            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
-            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
-            <element signature="n#GTool#0" expanded="false" />
-            <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -432,7 +451,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -519,7 +538,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -606,7 +625,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -669,7 +688,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -732,7 +751,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -795,7 +814,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -858,7 +877,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -921,7 +940,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -984,7 +1003,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1047,7 +1066,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1110,7 +1129,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1173,7 +1192,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1236,7 +1255,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1299,7 +1318,7 @@
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1339,32 +1358,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22654867">
-          <caret line="309" column="14" selection-start-line="309" selection-start-column="6" selection-end-line="309" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/jq.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.875">
-          <caret line="51" column="47" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1514879808000" expanded="true" signature="2583:2633" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1376,10 +1374,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="36.958332">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1515051280000" expanded="true" signature="2583:2633" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/Custom.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.407408">
-          <caret line="56" column="7" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
+        <state vertical-scroll-proportion="-12.518518">
+          <caret line="155" column="14" selection-start-line="155" selection-start-column="14" selection-end-line="155" selection-end-column="14" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#!!block;n#itiwY#0;n#Monster#0" expanded="false" />
@@ -1388,10 +1399,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-180.85185">
+          <caret line="327" column="43" selection-start-line="327" selection-start-column="32" selection-end-line="327" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource/boy1/con.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.125">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource/boy2/con.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.740741">
+          <caret line="452" column="28" selection-start-line="452" selection-start-column="28" selection-end-line="452" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4476352">
-          <caret line="1124" column="8" selection-start-line="1124" selection-start-column="8" selection-end-line="1124" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.6778761">
+          <caret line="1748" column="1" selection-start-line="1748" selection-start-column="1" selection-end-line="1748" selection-end-column="1" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
@@ -1435,14 +1478,6 @@
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#!!block;n#covertUint32toColorStr#0;n#GTool#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6778761">
-          <caret line="171" column="13" selection-start-line="171" selection-start-column="13" selection-end-line="171" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>

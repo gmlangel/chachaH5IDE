@@ -1741,7 +1741,7 @@ class ResourceManager extends BaseObject{
                     ResourceManager.main._waitLoadimgMap.delete(resultImg.imgKey)
                 }
 
-                limg.src = tempUrl;
+                limg.src = tempUrl+"?t="+(new Date().valueOf());
                 limg.imgKey = tempUrl;
             }
         }
