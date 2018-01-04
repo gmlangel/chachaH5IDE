@@ -11,9 +11,12 @@ class AppDelegate{
 
     constructor(){
         this.scene = BaseScene.main;
-        this.monsterArr = ["./resource/girl1/"];
-        this.selfSourcePath = "";//自身形象对应的资源路径
-        this.selfKey = "";//自身形象对应的配置文件key
+        this.container = new GMLSprite();//地图和monster的容器
+        this.scene.addChild(this.container);
+        this.bg = null;//背景
+        this.allMonster = []
+        this.monsterArr = ["./resource/girl1/","./resource/girl2/","./resource/boy1/","./resource/boy2/"];
+        this.monsterConfigYingShe = {};//资源路径和key的映射
         this.keyMoveX = 0;
         this.keyMoveY = 0;
         this.fangxiangDic={
@@ -27,6 +30,7 @@ class AppDelegate{
             "-1,0":AniTypeEnum.left,
             "-1,-1":AniTypeEnum.leftTop
         }
+
     }
 
     /**
@@ -46,30 +50,64 @@ class AppDelegate{
         this.nickName = _nickName.length > 7 ? _nickName.substr(0,7) : _nickName;
         //启动场景
         this.scene.start();
+        //添加背景
+        this.bg = new GMLImage("./resource/bg.jpg",[0,0,this.scene.width,this.scene.height]);
+        this.scene.addChildAt(this.bg,0);
+        //链接socket
+        this.ws = new WebSocketHandler("ws://localhost:31111",[])
+        this.ws.addEventListener(WebSocketEvent.SOCKET_CLOSE,this.onSocketClose,this)
+        this.ws.addEventListener(WebSocketEvent.SOCKET_DATA,this.onSocketData,this);
+        this.ws.addEventListener(WebSocketEvent.SOCKET_ERROR,this.onSocketError,this)
+        this.ws.addEventListener(WebSocketEvent.SOCKET_CONNECTED,this.onSocketConnected,this)
 
+        setInterval(function(){
+            if(AppDelegate.app.selfMonster && AppDelegate.app.ws.isOpen){
+                let req = {"cmd":0x00FF101E,"seq":0,"uid":AppDelegate.app.selfMonster.uid,"ca":{x:AppDelegate.app.selfMonster.x,y:AppDelegate.app.selfMonster.y}}
+                AppDelegate.app.ws.sendData(JSON.stringify(req))
+            }
+        },30)
+    }
+    onSocketClose(e){
+        console.log("socket断开")
+    }
+    onSocketData(e){
+        this.jiexiData(e.data);
+    }
+
+    onSocketError(e){
+        console.log("socket发生错误");
+    }
+
+    onSocketConnected(e){
+        //开始登陆
+        let req = {"cmd":0x00FF0003,"seq":0,"ln":this.nickName};
+        this.ws.sendData(JSON.stringify(req));
+    }
+
+    /**
+     *
+     * 正式开始*/
+    _trueBegin(){
         //加载所有的资源配置文件
         let j = this.monsterArr.length;
         let offset = 0;
         if(j <= 0){
             return;
         }
-        this.selfSourcePath = this.monsterArr[this.nickName.length % j];
         this.monsterArr.forEach(function(item,idx){
             let conPath = item + "con.json";
             $.ajax({
                 "pathKey":item,
                 "url":conPath,
-                "type":"POST",
-                "timeout":30,
+                "type":"GET",
+                "timeout":60000,
                 "success":function(data){
-                    if(this.pathKey == AppDelegate.app.selfSourcePath){
-                        AppDelegate.app.selfKey = data.name;
-                    }
                     ConfigManager.main.configDic[data.name] = data
+                    AppDelegate.app.monsterConfigYingShe[this.pathKey] = data.name;
                     offset++;
                     if(offset == j){
                         //生成小怪物
-                        //构建自身的游戏形象,并开始游戏的正常流程
+                        //开始游戏的正常流程
                         AppDelegate.app.startSelf();
                     }
                 },
@@ -78,7 +116,7 @@ class AppDelegate{
                     offset++;
                     if(offset == j){
                         //生成小怪物
-                        //构建自身的游戏形象,并开始游戏的正常流程
+                        //并开始游戏的正常流程
                         AppDelegate.app.startSelf();
                     }
                 }
@@ -88,13 +126,174 @@ class AppDelegate{
         //添加时间监听
         BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyDown,this.ongKeyDown);
         BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyUp,this.ongKeyUp);
+        BaseNotificationCenter.main.addObserver(this,GMLEvent.EnterFrame,this.onenterFrame)
+    }
+
+    /**
+     * 帧频事件
+     * */
+    onenterFrame(e){
+        let arr = this.allMonster;
+        let j = arr.length;
+        for(var i = 0;i<j;i++){
+            for(var z = i+1;z<j;z++){
+                if(this.allMonster[i].y > this.allMonster[z].y){
+                    let item = this.allMonster[z];
+                    this.allMonster[z] = this.allMonster[i];
+                    this.allMonster[i] = item;
+                    this.container.swapChild(i,z);
+                }
+            }
+        }
+
+        //移动背景的位置
+        if(this.bg && this.bg.width > 0 && this.bg.height > 0 && this.selfMonster){
+
+            let tx = this.scene.width / 2;
+            let offsetX = tx - this.selfMonster.x - this.container.x;
+            tx = -(this.bg.img.width - this.scene.width)
+            if(this.container.x + offsetX <= tx){
+                this.container.x = tx;
+            }else if(this.container.x + offsetX > 0){
+                this.container.x = 0;
+            }else{
+                this.container.x += offsetX;
+            }
+
+            let ty = this.scene.height / 2;
+            let offsetY = ty - this.selfMonster.y - this.container.y;
+            ty = -(this.bg.img.height - this.scene.height)
+            if(this.container.y + offsetY <= ty){
+                this.container.y = ty;
+            }else if(this.container.y + offsetY > 0){
+                this.container.y = 0;
+            }else{
+                this.container.y += offsetY;
+            }
+            this.bg.zhuaquRect = [-this.container.x,-this.container.y,this.scene.width,this.scene.height]
+        }
+    }
+
+    /**
+     * 解析服务器返回的数据
+     * */
+    jiexiData(data){
+        try{
+            let jsonObj = JSON.parse(data);
+            switch(jsonObj.cmd){
+                case 0x00FF0004:
+                    //登陆信息回调
+                    this.userinfo = jsonObj;//设置全局用户信息
+                    if(jsonObj.code == 0){
+                        //进入教室
+                        let req = {
+                            "cmd":0x00FF0014,
+                            "seq":0,
+                            "rc":"testchanel",
+                            "uid":this.userinfo.uid,
+                            "nn":this.userinfo.nn,
+                            "hi":this.userinfo.hi,
+                            "sex":this.userinfo.sex,
+                            "ca":{x:parseInt(this.scene.width/2+Math.random()*100),y:parseInt(this.scene.height/2+Math.random()*100)},
+                            "rp":this.userinfo.resourcePath
+                        };
+                        this.ws.sendData(JSON.stringify(req));
+                    }else{
+                        console.log("登录失败")
+                    }
+
+                    break;
+                case 0x00FF0007:
+                    //掉线通知
+                    console.log("掉线了");
+                    break;
+                case 0x00FF0015:
+                    //进入教室回调
+                    if(jsonObj.code == 0){
+                        console.log("进入教室成功");
+                        this.allUserArr = jsonObj.ua;
+                        this._trueBegin();
+                    }else{
+                        console.log("进入教室失败");
+                    }
+                    break;
+                case 0x00FF0017:
+                    //其它用户数据变更
+                    let arr = jsonObj.ua;
+                    arr.forEach(function(obj,idx){
+                        if(obj.type == 1){
+                            //新用户进入
+                            AppDelegate.app.userIn(obj)
+                        }else{
+                            //老用户退出
+                            AppDelegate.app.userOut(obj)
+                        }
+                    })
+                    break;
+                case 0x00FF111E:
+                    //更新所有monster的坐标,除了自己
+                    let dic = jsonObj.datas;
+                    let j = this.allMonster.length;
+                    if(j == 0)
+                        return;
+                    let temparr = this.allMonster;
+                    for(var key in dic){
+                        if(key==this.selfMonster.uid)
+                        {
+                            //不更新自己
+                            continue;
+                        }
+
+                        for(let i=0;i<j;i++){
+                            if(key == temparr[i].uid){
+                                //更新其它所有的monster的位置
+                                temparr[i].toEndPoint(dic[key].x,dic[key].y);
+                            }
+                        }
+                    }
+                    break;
+            }
+        }catch(err){
+            console.log("数据不是json",data)
+        }
+    }
+
+    //其它用户进入
+    userIn(item){
+        let nn = item.nn;
+        let sp = item.rp;
+        let sk = AppDelegate.app.monsterConfigYingShe[sp];
+        let mons = new Monster(nn,sp,sk);
+        mons.x = item.ca.x;
+        mons.y = item.ca.y;
+        AppDelegate.app.container.addChild(mons);
+        mons.uid = item.uid;
+        AppDelegate.app.allMonster.push(mons);
+        return mons;
+    }
+
+    //其它用户退出
+    userOut(item){
+        let j = AppDelegate.app.allMonster.length;
+        let arr = AppDelegate.app.allMonster
+        for(var i=0;i<j;i++){
+            let mons =  arr[i]
+            if(mons.uid == item.uid){
+                AppDelegate.app.container.removeChild(mons)
+                arr.splice(i,1);
+                break;
+            }
+        }
     }
 
     startSelf(){
-        this.selfMonster = new Monster(this.nickName,this.selfSourcePath,this.selfKey);
-        this.selfMonster.x = this.scene.width / 2;
-        this.selfMonster.y = this.scene.height / 2;
-        this.scene.addChild(this.selfMonster);
+        this.allUserArr.forEach(function(item,idx){
+            let mons = AppDelegate.app.userIn(item)
+            if(item.uid == AppDelegate.app.userinfo.uid){
+                //是自己
+                AppDelegate.app.selfMonster = mons;
+            }
+        })
     }
 
     ongKeyDown(e){

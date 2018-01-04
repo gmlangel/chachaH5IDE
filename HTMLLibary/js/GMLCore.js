@@ -1002,6 +1002,15 @@ class GMLSprite extends GMLDisplay{
     }
 
     /**
+     * 交换两个元素的索引位置
+     * */
+    swapChild(idx1,idx2){
+        let it = this._children[idx1];
+        this._children[idx1] = this._children[idx2];
+        this._children[idx2] = it;
+    }
+
+    /**
      * 移除一个子对象
      * */
     removeChild(_child){
