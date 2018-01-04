@@ -53,7 +53,7 @@ class AppDelegate{
     /**
      * 开始游戏
      * */
-    beginGame(_nickName){HTMLAudioElement
+    beginGame(_nickName){
         this.nickName = _nickName.length > 7 ? _nickName.substr(0,7) : _nickName;
         //启动场景
         this.scene.start();
@@ -63,7 +63,7 @@ class AppDelegate{
         this.bg = new GMLImage("./resource/bg.jpg",[0,0,this.scene.width,this.scene.height]);
         this.scene.addChildAt(this.bg,0);
         //链接socket
-        this.ws = new WebSocketHandler("ws://localhost:31111",[])
+        this.ws = new WebSocketHandler("ws://39.106.135.11:31111",[])
         this.ws.addEventListener(WebSocketEvent.SOCKET_CLOSE,this.onSocketClose,this)
         this.ws.addEventListener(WebSocketEvent.SOCKET_DATA,this.onSocketData,this);
         this.ws.addEventListener(WebSocketEvent.SOCKET_ERROR,this.onSocketError,this)

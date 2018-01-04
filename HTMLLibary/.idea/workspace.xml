@@ -63,8 +63,8 @@
       <file leaf-file-name="AppDelegate.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-180.85185">
-              <caret line="327" column="43" selection-start-line="327" selection-start-column="32" selection-end-line="327" selection-end-column="43" />
+            <state vertical-scroll-proportion="-3.074074">
+              <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -93,8 +93,8 @@
       <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6778761">
-              <caret line="1748" column="1" selection-start-line="1748" selection-start-column="1" selection-end-line="1748" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.45132744">
+              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#BaseObject#0" expanded="false" />
@@ -158,8 +158,8 @@
         <option value="$PROJECT_DIR$/testfoder/index.html" />
         <option value="$PROJECT_DIR$/js/Custom.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/AppDelegate.js" />
         <option value="$PROJECT_DIR$/js/GMLCore.js" />
+        <option value="$PROJECT_DIR$/js/AppDelegate.js" />
       </list>
     </option>
   </component>
@@ -1355,6 +1355,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33277026">
           <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1399,14 +1400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-180.85185">
-          <caret line="327" column="43" selection-start-line="327" selection-start-column="32" selection-end-line="327" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resource/boy1/con.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.125">
@@ -1431,10 +1424,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.074074">
+          <caret line="55" column="25" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6778761">
-          <caret line="1748" column="1" selection-start-line="1748" selection-start-column="1" selection-end-line="1748" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.45132744">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#BaseObject#0" expanded="false" />
