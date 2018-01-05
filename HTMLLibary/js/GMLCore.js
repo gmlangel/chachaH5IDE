@@ -1388,7 +1388,7 @@ class GMLStaticTextField extends GMLDisplay{
             this._isTextChanged = false;
         }
         let tempYOffset = 0;
-        if(OSManager.OS == "Mac")
+        if(OSManager.OS == "Mac" || OSManager.OS == "IOS")
         {
             tempYOffset += ((this._fontSize + 2) * tOffsetScaleX * quilaty);//mac 系统绘制文本是以最下角为0,0点绘制的,所以需要有一个初始化Y偏移,否则看不到第一行文本.. 2px为行间距
         }

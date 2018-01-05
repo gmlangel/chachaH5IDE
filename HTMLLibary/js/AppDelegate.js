@@ -10,7 +10,6 @@ class AppDelegate{
     }
 
     constructor(){
-
         //初始化背景音
         this.bgAudio = document.createElement("audio");
         this.bgAudio.preload = "auto";
@@ -54,6 +53,80 @@ class AppDelegate{
      * 开始游戏
      * */
     beginGame(_nickName){
+        if(OSManager.OS == "IOS")
+        {
+            window.addEventListener("touchstart",function(evt){
+                if(evt.targetTouches.length >0 && AppDelegate.app.selfMonster){
+                    //方向盘方式
+                    let globelx = AppDelegate.app.selfMonster.x + AppDelegate.app.container.x
+                    let globely = AppDelegate.app.selfMonster.y + AppDelegate.app.container.y
+                    let t = evt.targetTouches[0];
+                    globelx = t.pageX - globelx;
+                    globely = t.pageY - globely;
+                    let jiaodu = Math.atan2(globely,globelx);
+                    jiaodu = jiaodu / Math.PI * 180;
+                    jiaodu = jiaodu < 0 ? 360 + jiaodu : jiaodu;
+                    console.log(jiaodu);
+                    if(jiaodu > 22.5 && jiaodu <= 67.5)
+                    {
+                        //右下
+                        AppDelegate.app.keyMoveX = 1;
+                        AppDelegate.app.keyMoveY = 1;
+                        AppDelegate.app.updateSelfMonster();
+                    }else if(jiaodu > 67.5 && jiaodu <= 112.5){
+                        //下
+                        AppDelegate.app.keyMoveX = 0;
+                        AppDelegate.app.keyMoveY = 1;
+                        AppDelegate.app.updateSelfMonster();
+                    }else if(jiaodu > 112.5 && jiaodu < 157.5){
+                        //左下
+                        AppDelegate.app.keyMoveX = -1;
+                        AppDelegate.app.keyMoveY = 1;
+                        AppDelegate.app.updateSelfMonster();
+                    }
+                    else if(jiaodu > 157.5 && jiaodu < 202.5){
+                        //左
+                        AppDelegate.app.keyMoveX = -1;
+                        AppDelegate.app.keyMoveY = 0;
+                        AppDelegate.app.updateSelfMonster();
+                    }else if(jiaodu > 202.5 && jiaodu < 247.5){
+                        //左上
+                        AppDelegate.app.keyMoveX = -1;
+                        AppDelegate.app.keyMoveY = -1;
+                        AppDelegate.app.updateSelfMonster();
+                    }else if(jiaodu > 247.5 && jiaodu < 292.5){
+                        //上
+                        AppDelegate.app.keyMoveX = 0;
+                        AppDelegate.app.keyMoveY = -1;
+                        AppDelegate.app.updateSelfMonster();
+                    }else if(jiaodu > 292.5 && jiaodu < 337.5){
+                        //右上
+                        AppDelegate.app.keyMoveX = 1;
+                        AppDelegate.app.keyMoveY = -1;
+                        AppDelegate.app.updateSelfMonster();
+                    }else{
+                        //右
+                        AppDelegate.app.keyMoveX = 1;
+                        AppDelegate.app.keyMoveY = 0;
+                        AppDelegate.app.updateSelfMonster();
+                    }
+
+                    ////点击位移方式
+                    //let t = evt.targetTouches[0];
+                    //let localX = -AppDelegate.app.container.x + t.pageX;
+                    //let localY = -AppDelegate.app.container.y + t.pageY;
+                    //AppDelegate.app.selfMonster.toEndPoint(localX,localY)
+                }
+            })
+            window.addEventListener("touchend",function(evt){
+                //方向盘方式
+                AppDelegate.app.keyMoveX = 0;
+                AppDelegate.app.keyMoveY = 0;
+                AppDelegate.app.updateSelfMonster();
+
+            })
+        }
+
         this.nickName = _nickName.length > 7 ? _nickName.substr(0,7) : _nickName;
         //启动场景
         this.scene.start();
