@@ -1668,7 +1668,583 @@ class TimeLine extends BaseObject{
 
 //动画相关类型声明------------------end------------------
 
+//媒体相关类型声明------------------begin------------------
 
+/**
+ * 媒体播放基础类
+ *
+ * 针对ios移动平台  音频不自动播放的解决方案
+ * 1.创建一个audio或者video,不用给src和preload
+ * 2.在用户第一次touchstart到window的时候,调用audio.play()和audio.pause()
+ * 3.之后随时可以调用这个audio对象的实例进行播放,如果想更换音频则直接改变src的值再play();
+ * 4.实际应用的思路是,window.onloaded的时候初始化固定个数的audio实例, 之后留一个audio做为背景音乐的专用通道,其它的做为各种音效的通道
+ * 5.video的原理同上
+ *
+ * 示例代码
+ * window.onload = function(){
+         let arr = ["./resource/bg.mp3","./resource/bg1.mp3","./resource/bg2.mp3","./resource/bg3.mp3"]
+         let currentIdx = 1;
+         let audio = new GMLAudio();
+         audio.mo.width = 200;
+         audio.mo.height = 30;
+         audio.controls = true;
+         document.body.appendChild(audio.mo);
+
+         window.addEventListener("touchstart",function(evt){
+                            audio.mo.play()
+                            audio.mo.pause();
+
+
+                        })
+         setInterval(function(){
+                            let src = arr[currentIdx] + "?t=" + new Date().valueOf();
+                            console.log("要播放的内容=",src)
+                            audio.src = src;
+                            audio.mo.play();
+                            if(currentIdx < arr.length - 1){
+                                currentIdx ++;
+                            }else{
+                                currentIdx = 0;
+                            }
+                        },10000)
+    }
+ * */
+class GMLMedia extends BaseEventDispatcher{
+
+    /**
+     * 初始化
+     * @param _mediaObj 是一个audio或者video实例
+     * */
+    constructor(_mediaObj){
+        super();
+        this.mo = _mediaObj;
+        this.addMediaAboutEvents();
+    }
+
+    /**
+     * 返回表示可用音频轨道的 AudioTrackList 对象。
+     * */
+    get audioTracks(){
+        return this.mo.audioTracks;
+    }
+
+    /**
+     * 设置或返回是否在加载完成后随即播放音频/视频。
+     * */
+    get autoplay(){
+        return this.mo.autoplay;
+    }
+
+    set autoplay(val){
+        this.mo.autoplay = val;
+    }
+
+    /**
+     * 返回表示音频/视频已缓冲部分的 TimeRanges 对象。
+     * */
+    get buffered(){
+        return this.mo.buffered;
+    }
+
+    /**
+     * 返回表示音频/视频当前媒体控制器的 MediaController 对象。
+     * */
+    get controller(){
+        return this.mo.controller;
+    }
+
+    /**
+     * 设置或返回音频/视频是否显示控件（比如播放/暂停等）。
+     * */
+    get controls(){
+        return this.mo.controls;
+    }
+
+    set controls(val){
+        this.mo.controls = val;
+    }
+
+    /**
+     * 设置或返回音频/视频的 CORS 设置。。
+     * */
+    get crossOrigin(){
+        return this.mo.crossOrigin;
+    }
+
+    set crossOrigin(val){
+        this.mo.crossOrigin = val;
+    }
+
+    /**
+     * 返回当前音频/视频的 URL。
+     * */
+    get currentSrc(){
+        return this.mo.currentSrc;
+    }
+
+    /**
+     * 设置或返回音频/视频中的当前播放位置（以秒计）。
+     * */
+    get currentTime(){
+        return this.mo.currentTime;
+    }
+
+    set currentTime(val){
+        this.mo.currentTime = val;
+    }
+
+
+    /**
+     * 设置或返回音频/视频默认是否静音。
+     * */
+    get defaultMuted(){
+        return this.mo.defaultMuted;
+    }
+
+    set defaultMuted(val){
+        this.mo.defaultMuted = val;
+    }
+
+    /**
+     * 设置或返回音频/视频的默认播放速度。
+     * */
+    get defaultPlaybackRate(){
+        return this.mo.defaultPlaybackRate;
+    }
+
+    set defaultPlaybackRate(val){
+        this.mo.defaultPlaybackRate = val;
+    }
+
+    /**
+     * 返回当前音频/视频的长度（以秒计）。
+     * */
+    get duration(){
+        return this.mo.duration;
+    }
+
+    /**
+     * 返回音频/视频的播放是否已结束。
+     * */
+    get ended(){
+        return this.mo.ended;
+    }
+
+    /**
+     * 返回表示音频/视频错误状态的 MediaError 对象。。
+     * */
+    get error(){
+        return this.mo.error;
+    }
+
+    /**
+     * 设置或返回音频/视频是否应在结束时重新播放。。
+     * */
+    get loop(){
+        return this.mo.loop;
+    }
+
+    set loop(val){
+        this.mo.loop = val;
+    }
+
+    /**
+     * 设置或返回音频/视频所属的组合（用于连接多个音频/视频元素）。
+     * */
+    get mediaGroup(){
+        return this.mo.mediaGroup;
+    }
+
+    set mediaGroup(val){
+        this.mo.mediaGroup = val;
+    }
+
+    /**
+     * 设置或返回音频/视频是否静音。
+     * */
+    get muted(){
+        return this.mo.muted;
+    }
+
+    set muted(val){
+        this.mo.muted = val;
+    }
+
+    /**
+     * 返回音频/视频的当前网络状态。
+     * */
+    get networkState(){
+        return this.mo.networkState;
+    }
+
+
+    /**
+     * 设置或返回音频/视频是否暂停。
+     * */
+    get paused(){
+        return this.mo.paused;
+    }
+
+    set paused(val){
+        this.mo.paused = val;
+    }
+
+    /**
+     * 设置或返回音频/视频播放的速度。
+     * */
+    get playbackRate(){
+        return this.mo.playbackRate;
+    }
+
+    set playbackRate(val){
+        this.mo.playbackRate = val;
+    }
+
+    /**
+     * 返回表示音频/视频已播放部分的 TimeRanges 对象。
+     * */
+    get played(){
+        return this.mo.played;
+    }
+
+    /**
+     * 设置或返回音频/视频是否应该在页面加载后进行加载。
+     * */
+    get preload(){
+        return this.mo.preload;
+    }
+
+    set preload(val){
+        this.mo.preload = val;
+    }
+
+    /**
+     * 返回音频/视频当前的就绪状态。
+     * */
+    get readyState(){
+        return this.mo.readyState;
+    }
+
+    /**
+     * 返回表示音频/视频可寻址部分的 TimeRanges 对象。
+     * */
+    get seekable(){
+        return this.mo.seekable;
+    }
+
+    /**
+     * 返回用户是否正在音频/视频中进行查找。
+     * */
+    get seeking(){
+        return this.mo.seeking;
+    }
+
+    /**
+     * 设置或返回音频/视频元素的当前来源。
+     * */
+    get src(){
+        return this.mo.src;
+    }
+
+    set src(val){
+        this.mo.src = val;
+    }
+
+    /**
+     * 返回表示当前时间偏移的 Date 对象。
+     * */
+    get startDate(){
+        return this.mo.startDate;
+    }
+
+    /**
+     * 返回表示可用文本轨道的 TextTrackList 对象。
+     * */
+    get textTracks(){
+        return this.mo.textTracks;
+    }
+
+    /**
+     * 返回表示可用视频轨道的 VideoTrackList 对象。
+     * */
+    get videoTracks(){
+        return this.mo.videoTracks;
+    }
+
+    /**
+     * 设置或返回音频/视频的音量。
+     * */
+    get volume(){
+        return this.mo.volume;
+    }
+
+    set volume(val){
+        this.mo.volume = val;
+    }
+
+    /**
+     * 添加媒体相关的事件监听
+     * */
+    addMediaAboutEvents(){
+        this.mo.addEventListener("abort",this.onabort);
+        this.mo.addEventListener("canplay",this.oncanplay);
+        this.mo.addEventListener("canplaythrough",this.oncanplaythrough);
+        this.mo.addEventListener("durationchange",this.ondurationchange);
+        this.mo.addEventListener("emptied",this.onemptied);
+        this.mo.addEventListener("ended",this.onended);
+        this.mo.addEventListener("error",this.onerror);
+        this.mo.addEventListener("loadeddata",this.onloadeddata);
+        this.mo.addEventListener("loadedmetadata",this.onloadedmetadata);
+        this.mo.addEventListener("loadstart",this.onloadstart);
+        this.mo.addEventListener("pause",this.onpause);
+        this.mo.addEventListener("play",this.onplay);
+        this.mo.addEventListener("playing",this.onplaying);
+        this.mo.addEventListener("progress",this.onprogress);
+        this.mo.addEventListener("ratechange",this.onratechange);
+        this.mo.addEventListener("seeked",this.onseeked);
+        this.mo.addEventListener("seeking",this.onseeking);
+        this.mo.addEventListener("stalled",this.onstalled);
+        this.mo.addEventListener("suspend",this.onsuspend);
+        this.mo.addEventListener("timeupdate",this.ontimeupdate);
+        this.mo.addEventListener("volumechange",this.onvolumechange);
+        this.mo.addEventListener("waiting",this.onwaiting);
+    }
+
+    /**
+     * 当视频由于需要缓冲下一帧而停止时触发。
+     * */
+    onwaiting(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onwaiting");
+    }
+
+    /**
+     * 当音量已更改时触发。
+     * */
+    onvolumechange(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onvolumechange");
+    }
+
+    /**
+     * 当目前的播放位置已更改时触发。
+     * */
+    ontimeupdate(evt){
+        //注意 这里的this 指的是 mo
+        console.log("ontimeupdate");
+    }
+
+    /**
+     * 当浏览器刻意不获取媒体数据时触发。
+     * */
+    onsuspend(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onsuspend");
+    }
+
+    /**
+     * 当浏览器尝试获取媒体数据，但数据不可用时触发。
+     * */
+    onstalled(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onstalled");
+    }
+
+    /**
+     * 当用户开始移动/跳跃到音频/视频中的新位置时触发。
+     * */
+    onseeking(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onseeking");
+    }
+
+    /**
+     * 当用户已移动/跳跃到音频/视频中的新位置时触发。
+     * */
+    onseeked(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onseeked");
+    }
+
+    /**
+     * 当音频/视频的播放速度已更改时触发。
+     * */
+    onratechange(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onratechange");
+    }
+
+    /**
+     * 当浏览器正在下载音频/视频时触发。
+     * */
+    onprogress(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onprogress");
+    }
+
+    /**
+     * 当音频/视频在因缓冲而暂停或停止后已就绪时触发。
+     * */
+    onplaying(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onplaying");
+    }
+
+    /**
+     * 当音频/视频已开始或不再暂停时触发。
+     * */
+    onplay(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onplay");
+    }
+
+    /**
+     * 当音频/视频已暂停时触发。
+     * */
+    onpause(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onpause");
+    }
+
+    /**
+     * 当音频/视频的加载已放弃时触发。
+     * */
+    onabort(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onabort");
+    }
+
+    /**
+     * 当浏览器可以开始播放音频/视频时触发。
+     * */
+    oncanplay(evt){
+        //注意 这里的this 指的是 mo
+        console.log("oncanplay");
+        this.mediaGroup
+    }
+
+    /**
+     * 当浏览器可在不因缓冲而停顿的情况下进行播放时触发
+     * */
+    oncanplaythrough(evt){
+        //注意 这里的this 指的是 mo
+        console.log("oncanplaythrough");
+    }
+
+    /**
+     * 当音频/视频的时长已更改时触发。
+     * */
+    ondurationchange(evt){
+        //注意 这里的this 指的是 mo
+        console.log("ondurationchange");
+    }
+
+    /**
+     * 当目前的播放列表为空时触发。
+     * */
+    onemptied(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onemptied");
+    }
+
+    /**
+     * 当目前的播放列表已结束时触发。
+     * */
+    onended(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onended");
+    }
+
+    /**
+     * 当在音频/视频加载期间发生错误时触发。
+     * */
+    onerror(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onerror");
+    }
+
+    /**
+     * 当浏览器已加载音频/视频的当前帧时触发。
+     * */
+    onloadeddata(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onloadeddata");
+    }
+
+    /**
+     * 当浏览器已加载音频/视频的元数据时触发。
+     * */
+    onloadedmetadata(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onloadedmetadata");
+    }
+
+    /**
+     * 当浏览器开始查找音频/视频时触发。
+     * */
+    onloadstart(evt){
+        //注意 这里的this 指的是 mo
+        console.log("onloadstart");
+    }
+
+    /**
+     * 向音频/视频添加新的文本轨道。
+     * */
+    addTextTrack(){
+        this.mo.addTextTrack(arguments);
+    }
+
+    /**
+     * 检测浏览器是否能播放指定的音频/视频类型。
+     * */
+    canPlayType(){
+        return this.mo.canPlayType(arguments);
+    }
+
+    /**
+     * 重新加载音频/视频元素。
+     * */
+    load(){
+        this.mo.load();
+    }
+
+    /**
+     * 开始播放音频/视频。
+     * */
+    play(){
+        this.mo.play();
+    }
+
+    /**
+     * 暂停当前播放的音频/视频。
+     * */
+    pause(){
+        this.mo.pause();
+    }
+}
+
+/**
+ * 音频类
+ * */
+class GMLAudio extends GMLMedia{
+    constructor(){
+        let audioNode = document.createElement("audio");
+        super(audioNode)
+    }
+}
+
+/**
+ * 视频类
+ * */
+class GMLVideo extends GMLMedia{
+    constructor(){
+        let videonode = document.createElement("video");
+        super(videonode)
+    }
+}
+
+
+//媒体相关类型声明------------------end------------------
 /**
  * 资源加载类
  * */

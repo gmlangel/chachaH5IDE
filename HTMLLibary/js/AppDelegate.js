@@ -11,10 +11,13 @@ class AppDelegate{
 
     constructor(){
         //初始化背景音
-        this.bgAudio = document.createElement("audio");
-        this.bgAudio.preload = "auto";
+        this.bgAudio = new GMLAudio();
+        this.bgAudio.preload = true;
         this.bgAudio.src = "./resource/bg.mp3"
-        document.body.appendChild(this.bgAudio);
+
+
+        console.log(this.bgAudio);
+       // document.body.appendChild(this.bgAudio);
         //初始化场景
         this.scene = BaseScene.main;
         this.container = new GMLSprite();//地图和monster的容器
@@ -130,8 +133,8 @@ class AppDelegate{
         this.nickName = _nickName.length > 7 ? _nickName.substr(0,7) : _nickName;
         //启动场景
         this.scene.start();
-        this.bgAudio.autoplay = "autoplay";
-        this.bgAudio.loop = "loop";
+        this.bgAudio.play();
+        this.bgAudio.loop = true;
         //添加背景
         this.bg = new GMLImage("./resource/bg.jpg",[0,0,this.scene.width,this.scene.height]);
         this.scene.addChildAt(this.bg,0);
