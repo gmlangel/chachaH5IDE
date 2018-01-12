@@ -1179,11 +1179,14 @@ class GMLImage extends GMLDisplay{
         {
             if(this.img){
                 //点击透明像素时,不能算作被点击
-                let imgx = (_mouseX - this._rectVect[0]) / this._rectVect[2] * this.img.width;//获取相对于原始图像上的X点
-                let imgy = (_mouseY - this._rectVect[1]) / this._rectVect[3] * this.img.height;//获取相对于原始图像上的Y点
+                let sourceW = this.zhuaquRect[2];
+                sourceW = sourceW > 0 && sourceW < this.img.width ? sourceW : this.img.width;
+                let sourceH = this.zhuaquRect[3]
+                sourceH = sourceH > 0 && sourceH < this.img.height ? sourceH : this.img.height;
+                let imgx = (_mouseX - this._rectVect[0]) / this._rectVect[2] * sourceW + this.zhuaquRect[0];//获取相对于原始图像上的X点
+                let imgy = (_mouseY - this._rectVect[1]) / this._rectVect[3] * sourceH + this.zhuaquRect[1];//获取相对于原始图像上的Y点
                 // console.log(_mouseX,this._rectVect[0],this._rectVect[2])
                 let resultData = this.img.data.data;//ImageData.data
-                //console.log(this.img.data);
                 if(this.getAlphaByXY(resultData,imgx,imgy,this.img.width * 4) == 0)
                 {
                     //console.log(_mouseX,this._rectVect[0],this._rectVect[2])
@@ -2015,7 +2018,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onwaiting(evt){
         //注意 这里的this 指的是 mo
-        console.log("onwaiting");
+       // console.log("onwaiting");
     }
 
     /**
@@ -2023,7 +2026,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onvolumechange(evt){
         //注意 这里的this 指的是 mo
-        console.log("onvolumechange");
+        //console.log("onvolumechange");
     }
 
     /**
@@ -2031,7 +2034,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     ontimeupdate(evt){
         //注意 这里的this 指的是 mo
-        console.log("ontimeupdate");
+        // console.log("ontimeupdate");
     }
 
     /**
@@ -2039,7 +2042,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onsuspend(evt){
         //注意 这里的this 指的是 mo
-        console.log("onsuspend");
+        // console.log("onsuspend");
     }
 
     /**
@@ -2047,7 +2050,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onstalled(evt){
         //注意 这里的this 指的是 mo
-        console.log("onstalled");
+        // console.log("onstalled");
     }
 
     /**
@@ -2055,7 +2058,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onseeking(evt){
         //注意 这里的this 指的是 mo
-        console.log("onseeking");
+        // console.log("onseeking");
     }
 
     /**
@@ -2063,7 +2066,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onseeked(evt){
         //注意 这里的this 指的是 mo
-        console.log("onseeked");
+        // console.log("onseeked");
     }
 
     /**
@@ -2071,7 +2074,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onratechange(evt){
         //注意 这里的this 指的是 mo
-        console.log("onratechange");
+        // console.log("onratechange");
     }
 
     /**
@@ -2079,7 +2082,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onprogress(evt){
         //注意 这里的this 指的是 mo
-        console.log("onprogress");
+        // console.log("onprogress");
     }
 
     /**
@@ -2087,7 +2090,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onplaying(evt){
         //注意 这里的this 指的是 mo
-        console.log("onplaying");
+        // console.log("onplaying");
     }
 
     /**
@@ -2095,7 +2098,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onplay(evt){
         //注意 这里的this 指的是 mo
-        console.log("onplay");
+        // console.log("onplay");
     }
 
     /**
@@ -2103,7 +2106,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onpause(evt){
         //注意 这里的this 指的是 mo
-        console.log("onpause");
+        // console.log("onpause");
     }
 
     /**
@@ -2119,7 +2122,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     oncanplay(evt){
         //注意 这里的this 指的是 mo
-        console.log("oncanplay");
+        // console.log("oncanplay");
         this.mediaGroup
     }
 
@@ -2128,7 +2131,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     oncanplaythrough(evt){
         //注意 这里的this 指的是 mo
-        console.log("oncanplaythrough");
+        // console.log("oncanplaythrough");
     }
 
     /**
@@ -2144,7 +2147,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onemptied(evt){
         //注意 这里的this 指的是 mo
-        console.log("onemptied");
+        // console.log("onemptied");
     }
 
     /**
@@ -2152,7 +2155,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onended(evt){
         //注意 这里的this 指的是 mo
-        console.log("onended");
+        // console.log("onended");
     }
 
     /**
@@ -2160,7 +2163,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onerror(evt){
         //注意 这里的this 指的是 mo
-        console.log("onerror");
+        // console.log("onerror");
     }
 
     /**
@@ -2168,7 +2171,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onloadeddata(evt){
         //注意 这里的this 指的是 mo
-        console.log("onloadeddata");
+        // console.log("onloadeddata");
     }
 
     /**
@@ -2176,7 +2179,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onloadedmetadata(evt){
         //注意 这里的this 指的是 mo
-        console.log("onloadedmetadata");
+        // console.log("onloadedmetadata");
     }
 
     /**
@@ -2184,7 +2187,7 @@ class GMLMedia extends BaseEventDispatcher{
      * */
     onloadstart(evt){
         //注意 这里的this 指的是 mo
-        console.log("onloadstart");
+        // console.log("onloadstart");
     }
 
     /**
@@ -2286,6 +2289,8 @@ class ResourceManager extends BaseObject{
                     let resultImg = evt.target;
                     //计算resultImg对应的位图数据
                     let tempcanvas = document.createElement("canvas");
+                    tempcanvas.width = resultImg.width;
+                    tempcanvas.height = resultImg.height;
                     let tempctx = tempcanvas.getContext("2d");
                     tempctx.drawImage(resultImg,0,0);
                     resultImg.data = tempctx.getImageData(0,0,resultImg.width,resultImg.height);
