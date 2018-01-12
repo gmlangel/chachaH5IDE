@@ -2385,6 +2385,9 @@ class OSManager{
         if (isMac) return "Mac";
         let isIos = (navigator.platform == "iPhone") || (navigator.platform == "iPad")
         if (isIos) return "IOS";
+        let isAndroid = String(navigator.platform).toLocaleLowerCase().indexOf("android") > -1
+        if (isAndroid) return "Android";
+
         let isUnix = (navigator.platform == "X11") && !isWin && !isMac;
         if (isUnix) return "Unix";
         let isLinux = (String(navigator.platform).indexOf("Linux") > -1);

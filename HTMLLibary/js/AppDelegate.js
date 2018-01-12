@@ -10,14 +10,15 @@ class AppDelegate{
     }
 
     constructor(){
+        //测试用
+        this.master = null;//队长
+        this.mastertimeinterval = 0;//
+        this.masterTaskId = -1;
         //初始化背景音
         this.bgAudio = new GMLAudio();
         this.bgAudio.preload = true;
         this.bgAudio.src = "./resource/bg.mp3"
-
-
         console.log(this.bgAudio);
-       // document.body.appendChild(this.bgAudio);
         //初始化场景
         this.scene = BaseScene.main;
         this.container = new GMLSprite();//地图和monster的容器
@@ -56,78 +57,80 @@ class AppDelegate{
      * 开始游戏
      * */
     beginGame(_nickName){
-        if(OSManager.OS == "IOS")
+        if(OSManager.OS == "IOS" || OSManager.OS == "Android")
         {
             window.addEventListener("touchstart",function(evt){
                 if(evt.targetTouches.length >0 && AppDelegate.app.selfMonster){
-                    //方向盘方式
-                    let globelx = AppDelegate.app.selfMonster.x + AppDelegate.app.container.x
-                    let globely = AppDelegate.app.selfMonster.y + AppDelegate.app.container.y
-                    let t = evt.targetTouches[0];
-                    globelx = t.pageX - globelx;
-                    globely = t.pageY - globely;
-                    let jiaodu = Math.atan2(globely,globelx);
-                    jiaodu = jiaodu / Math.PI * 180;
-                    jiaodu = jiaodu < 0 ? 360 + jiaodu : jiaodu;
-                    console.log(jiaodu);
-                    if(jiaodu > 22.5 && jiaodu <= 67.5)
-                    {
-                        //右下
-                        AppDelegate.app.keyMoveX = 1;
-                        AppDelegate.app.keyMoveY = 1;
-                        AppDelegate.app.updateSelfMonster();
-                    }else if(jiaodu > 67.5 && jiaodu <= 112.5){
-                        //下
-                        AppDelegate.app.keyMoveX = 0;
-                        AppDelegate.app.keyMoveY = 1;
-                        AppDelegate.app.updateSelfMonster();
-                    }else if(jiaodu > 112.5 && jiaodu < 157.5){
-                        //左下
-                        AppDelegate.app.keyMoveX = -1;
-                        AppDelegate.app.keyMoveY = 1;
-                        AppDelegate.app.updateSelfMonster();
-                    }
-                    else if(jiaodu > 157.5 && jiaodu < 202.5){
-                        //左
-                        AppDelegate.app.keyMoveX = -1;
-                        AppDelegate.app.keyMoveY = 0;
-                        AppDelegate.app.updateSelfMonster();
-                    }else if(jiaodu > 202.5 && jiaodu < 247.5){
-                        //左上
-                        AppDelegate.app.keyMoveX = -1;
-                        AppDelegate.app.keyMoveY = -1;
-                        AppDelegate.app.updateSelfMonster();
-                    }else if(jiaodu > 247.5 && jiaodu < 292.5){
-                        //上
-                        AppDelegate.app.keyMoveX = 0;
-                        AppDelegate.app.keyMoveY = -1;
-                        AppDelegate.app.updateSelfMonster();
-                    }else if(jiaodu > 292.5 && jiaodu < 337.5){
-                        //右上
-                        AppDelegate.app.keyMoveX = 1;
-                        AppDelegate.app.keyMoveY = -1;
-                        AppDelegate.app.updateSelfMonster();
-                    }else{
-                        //右
-                        AppDelegate.app.keyMoveX = 1;
-                        AppDelegate.app.keyMoveY = 0;
-                        AppDelegate.app.updateSelfMonster();
-                    }
-
-                    ////点击位移方式
+                    ////方向盘方式
+                    //let globelx = AppDelegate.app.selfMonster.x + AppDelegate.app.container.x
+                    //let globely = AppDelegate.app.selfMonster.y + AppDelegate.app.container.y
                     //let t = evt.targetTouches[0];
-                    //let localX = -AppDelegate.app.container.x + t.pageX;
-                    //let localY = -AppDelegate.app.container.y + t.pageY;
-                    //AppDelegate.app.selfMonster.toEndPoint(localX,localY)
+                    //globelx = t.pageX - globelx;
+                    //globely = t.pageY - globely;
+                    //let jiaodu = Math.atan2(globely,globelx);
+                    //jiaodu = jiaodu / Math.PI * 180;
+                    //jiaodu = jiaodu < 0 ? 360 + jiaodu : jiaodu;
+                    //console.log(jiaodu);
+                    //if(jiaodu > 22.5 && jiaodu <= 67.5)
+                    //{
+                    //    //右下
+                    //    AppDelegate.app.keyMoveX = 1;
+                    //    AppDelegate.app.keyMoveY = 1;
+                    //    AppDelegate.app.updateSelfMonster();
+                    //}else if(jiaodu > 67.5 && jiaodu <= 112.5){
+                    //    //下
+                    //    AppDelegate.app.keyMoveX = 0;
+                    //    AppDelegate.app.keyMoveY = 1;
+                    //    AppDelegate.app.updateSelfMonster();
+                    //}else if(jiaodu > 112.5 && jiaodu < 157.5){
+                    //    //左下
+                    //    AppDelegate.app.keyMoveX = -1;
+                    //    AppDelegate.app.keyMoveY = 1;
+                    //    AppDelegate.app.updateSelfMonster();
+                    //}
+                    //else if(jiaodu > 157.5 && jiaodu < 202.5){
+                    //    //左
+                    //    AppDelegate.app.keyMoveX = -1;
+                    //    AppDelegate.app.keyMoveY = 0;
+                    //    AppDelegate.app.updateSelfMonster();
+                    //}else if(jiaodu > 202.5 && jiaodu < 247.5){
+                    //    //左上
+                    //    AppDelegate.app.keyMoveX = -1;
+                    //    AppDelegate.app.keyMoveY = -1;
+                    //    AppDelegate.app.updateSelfMonster();
+                    //}else if(jiaodu > 247.5 && jiaodu < 292.5){
+                    //    //上
+                    //    AppDelegate.app.keyMoveX = 0;
+                    //    AppDelegate.app.keyMoveY = -1;
+                    //    AppDelegate.app.updateSelfMonster();
+                    //}else if(jiaodu > 292.5 && jiaodu < 337.5){
+                    //    //右上
+                    //    AppDelegate.app.keyMoveX = 1;
+                    //    AppDelegate.app.keyMoveY = -1;
+                    //    AppDelegate.app.updateSelfMonster();
+                    //}else{
+                    //    //右
+                    //    AppDelegate.app.keyMoveX = 1;
+                    //    AppDelegate.app.keyMoveY = 0;
+                    //    AppDelegate.app.updateSelfMonster();
+                    //}
+
+                    //点击位移方式
+                    let t = evt.targetTouches[0];
+                    let me = new GMLMouseEvent()
+                    me.data = {"globelX":t.pageX,"globelY": t.pageY}
+                    AppDelegate.app.ongMouseDown(me)
                 }
             })
             window.addEventListener("touchend",function(evt){
-                //方向盘方式
-                AppDelegate.app.keyMoveX = 0;
-                AppDelegate.app.keyMoveY = 0;
-                AppDelegate.app.updateSelfMonster();
+                ////方向盘方式
+                //AppDelegate.app.keyMoveX = 0;
+                //AppDelegate.app.keyMoveY = 0;
+                //AppDelegate.app.updateSelfMonster();
 
             })
+        }else{
+            this.scene._rootSprite.addEventListener(GMLMouseEvent.Down,this.ongMouseDown,this)
         }
 
         this.nickName = _nickName.length > 7 ? _nickName.substr(0,7) : _nickName;
@@ -136,10 +139,13 @@ class AppDelegate{
         this.bgAudio.play();
         this.bgAudio.loop = true;
         //添加背景
-        this.bg = new GMLImage("./resource/bg.jpg",[0,0,this.scene.width,this.scene.height]);
+        this.bg = new GMLImage("./resource/aaa.png",[0,0,this.scene.width,this.scene.height]);
+        //this.tempBg = new GMLImage("./resource/aaaPath.png");
+        ResourceManager.main.getImgByURL("./resource/aaaPath.png",this,this.onPathMapLoadend)
         this.scene.addChildAt(this.bg,0);
+        //this.scene.addChildAt(this.tempBg,1);
         //链接socket
-        this.ws = new WebSocketHandler("ws://39.106.135.11:31111",[])
+        this.ws = new WebSocketHandler("ws://39.106.135.11:31111",[]);;//localhost:31111
         this.ws.addEventListener(WebSocketEvent.SOCKET_CLOSE,this.onSocketClose,this)
         this.ws.addEventListener(WebSocketEvent.SOCKET_DATA,this.onSocketData,this);
         this.ws.addEventListener(WebSocketEvent.SOCKET_ERROR,this.onSocketError,this)
@@ -151,6 +157,38 @@ class AppDelegate{
                 AppDelegate.app.ws.sendData(JSON.stringify(req))
             }
         },30)
+    }
+
+    ongMouseDown(evt){
+        if(this.mastertimeinterval < 12)
+            return;
+        if(this.master)
+            return;//如果有队长,存在,则需要跟随队长移动,自己不能控制移动
+        let wX = evt.data.globelX;//全局坐标
+        let wY = evt.data.globelY;
+        let lX = wX - this.container.x;//相对于container的局部坐标
+        let lY = wY - this.container.y;
+        if(this.userinfo.nn == "chacha"){
+            //如果自己是队长,则上报自己的位置给其他人
+            let req = {"cmd":0x00FF102E,"seq":0,"uid":AppDelegate.app.selfMonster.uid,"ca":{x:lX,y:lY}}
+            AppDelegate.app.ws.sendData(JSON.stringify(req))
+        }
+        if(this.pathBG && this.selfMonster)
+        {
+            //如果路径图像信息存在,则进行,寻路
+            let arr = AStar.main.searchRoadByImgData(this.selfMonster.x,this.selfMonster.y,lX,lY,this.pathBG);
+            this.mastertimeinterval = 0;
+            if(arr.length > 0){
+                arr.push({"x":lX,"y":lY})//添加最终的终点
+                //让自身的角色移动
+                this.selfMonster.toMoveByPath(arr);
+            }
+        }
+
+    }
+
+    onPathMapLoadend(img){
+        this.pathBG = img;
     }
     onSocketClose(e){
         console.log("socket断开")
@@ -211,8 +249,8 @@ class AppDelegate{
         })
 
         //添加时间监听
-        BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyDown,this.ongKeyDown);
-        BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyUp,this.ongKeyUp);
+        //BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyDown,this.ongKeyDown);
+        //BaseNotificationCenter.main.addObserver(this,GMLKeyBoardEvent.KeyUp,this.ongKeyUp);
         BaseNotificationCenter.main.addObserver(this,GMLEvent.EnterFrame,this.onenterFrame)
     }
 
@@ -243,6 +281,10 @@ class AppDelegate{
      * 帧频事件
      * */
     onenterFrame(e){
+        if(this.mastertimeinterval < 12)
+        {
+            this.mastertimeinterval++;
+        }
         let arr = this.allMonster;
         let j = arr.length;
         for(var i = 0;i<j;i++){
@@ -282,6 +324,7 @@ class AppDelegate{
             }
             this.bg.zhuaquRect = [-this.container.x,-this.container.y,this.scene.width,this.scene.height]
         }
+
     }
 
     /**
@@ -304,7 +347,7 @@ class AppDelegate{
                             "nn":this.userinfo.nn,
                             "hi":this.userinfo.hi,
                             "sex":this.userinfo.sex,
-                            "ca":{x:parseInt(this.scene.width/2+Math.random()*100),y:parseInt(this.scene.height/2+Math.random()*100)},
+                            "ca":{x:34,y:387},//{x:parseInt(this.scene.width/2+Math.random()*100),y:parseInt(this.scene.height/2+Math.random()*100)},
                             "rp":this.userinfo.resourcePath
                         };
                         this.ws.sendData(JSON.stringify(req));
@@ -347,6 +390,7 @@ class AppDelegate{
                     if(j == 0)
                         return;
                     let temparr = this.allMonster;
+                    let tx=0,ty=0;
                     for(var key in dic){
                         if(key==this.selfMonster.uid)
                         {
@@ -357,9 +401,31 @@ class AppDelegate{
                         for(let i=0;i<j;i++){
                             if(key == temparr[i].uid){
                                 //更新其它所有的monster的位置
-                                temparr[i].toEndPoint(dic[key].x,dic[key].y);
+                                tx = dic[key].x
+                                ty = dic[key].y;
+                                temparr[i].toEndPoint(tx,ty);
                             }
                         }
+                    }
+                    break;
+                case 0x00FF102F:
+                    //收到了master队长的位置信息
+                    console.log("收到队长数据,uid=",jsonObj.data.uid,"  x=",jsonObj.data.x,"  y=",jsonObj.data.y);
+                    let lX = jsonObj.data.x || this.selfMonster.x;
+                    let lY = jsonObj.data.y || this.selfMonster.y;
+                    if(this.pathBG && this.selfMonster)
+                    {
+                        if(this.masterTaskId > -1)
+                            clearTimeout(this.masterTaskId)
+                        //让自身的角色移动
+                        this.masterTaskId = setTimeout(function(){
+                            //如果路径图像信息存在,则进行,寻路
+                            let arr = AStar.main.searchRoadByImgData(AppDelegate.app.selfMonster.x,AppDelegate.app.selfMonster.y,lX,lY,AppDelegate.app.pathBG);
+                            if(arr.length > 0){
+                                arr.push({"x":lX,"y":lY})//添加最终的终点
+                            }
+                            AppDelegate.app.selfMonster.toMoveByPath(arr);
+                        },250);
                     }
                     break;
             }
@@ -379,11 +445,19 @@ class AppDelegate{
         AppDelegate.app.container.addChild(mons);
         mons.uid = item.uid;
         AppDelegate.app.allMonster.push(mons);
+        if(item.nn == "chacha" && item.nn != this.userinfo.nn){
+            //如果该玩家的名字是 chacha,且这个玩家的名字和自己的不同,则证明自己是队员,会被队长带着走
+            this.master = mons;
+        }
         return mons;
     }
 
     //其它用户退出
     userOut(item){
+        if(item.nn == "chacha"){
+            //如果该玩家的名字是 chacha,则标识,队长离开了
+            this.master = null;
+        }
         let j = AppDelegate.app.allMonster.length;
         let arr = AppDelegate.app.allMonster
         for(var i=0;i<j;i++){

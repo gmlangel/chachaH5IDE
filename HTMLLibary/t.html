@@ -6,54 +6,69 @@
     <script type="text/javascript" src="./js/GMLCore.js"></script>
     <script type="text/javascript">
         window.onload = function(){
-            let arr = ["./resource/bg.mp3","./resource/bg1.mp3","./resource/bg2.mp3","./resource/bg3.mp3"]
-            let currentIdx = 1;
-            let audio = new GMLAudio();
-            audio.mo.width = 200;
-            audio.mo.height = 30;
-            audio.controls = true;
-            document.body.appendChild(audio.mo);
+            var can = document.getElementById("mycan");
+            var cans = can.getContext("2d");
+//            cans.fillStyle = "#ff6600ff";
+//            cans.fillRect(0,0,400,400);
+            cans.strokeStyle = "#ff6600ff";
+            cans.lineWidth = 2;
+            cans.moveTo(20,20);
+            cans.lineTo(100,100);
+            cans.lineTo(150,100);
+            cans.lineTo(150,150);
+            cans.stroke();
 
-            let te = null
-            let c = 0;
-            if(OSManager.OS == "IOS"){
-                window.addEventListener("touchstart",function(evt){
-                    audio.mo.play()
-                    audio.mo.pause();
-
-
-                })
-                setInterval(function(){
-                    let src = arr[currentIdx] + "?t=" + new Date().valueOf();
-                    console.log("要播放的内容=",src)
-                    audio.src = src;
-                    audio.mo.play();
-                    if(currentIdx < arr.length - 1){
-                        currentIdx ++;
-                    }else{
-                        currentIdx = 0;
-                    }
-                },10000)
-
-
-
-            }else{
-                window.addEventListener("mousedown",function(){
-                    let src = arr[currentIdx] + "?t=" + new Date().valueOf();
-                    console.log("要播放的内容=",src)
-                    audio.src = src;
-                    audio.mo.play();
-                    if(currentIdx < arr.length - 1){
-                        currentIdx ++;
-                    }else{
-                        currentIdx = 0;
-                    }
-                })
-            }
+            var bbb = cans.getImageData(0,0,400,400);
+            console.log(bbb);
+//            let arr = ["./resource/bg.mp3","./resource/bg1.mp3","./resource/bg2.mp3","./resource/bg3.mp3"]
+//            let currentIdx = 1;
+//            let audio = new GMLAudio();
+//            audio.mo.width = 200;
+//            audio.mo.height = 30;
+//            audio.controls = true;
+//            document.body.appendChild(audio.mo);
+//
+//            let te = null
+//            let c = 0;
+//            if(OSManager.OS == "IOS"){
+//                window.addEventListener("touchstart",function(evt){
+//                    audio.mo.play()
+//                    audio.mo.pause();
+//
+//
+//                })
+//                setInterval(function(){
+//                    let src = arr[currentIdx] + "?t=" + new Date().valueOf();
+//                    console.log("要播放的内容=",src)
+//                    audio.src = src;
+//                    audio.mo.play();
+//                    if(currentIdx < arr.length - 1){
+//                        currentIdx ++;
+//                    }else{
+//                        currentIdx = 0;
+//                    }
+//                },10000)
+//
+//
+//
+//            }else{
+//                window.addEventListener("mousedown",function(){
+//                    let src = arr[currentIdx] + "?t=" + new Date().valueOf();
+//                    console.log("要播放的内容=",src)
+//                    audio.src = src;
+//                    audio.mo.play();
+//                    if(currentIdx < arr.length - 1){
+//                        currentIdx ++;
+//                    }else{
+//                        currentIdx = 0;
+//                    }
+//                })
+//            }
         }
     </script>
 </head>
 <body>
+<canvas width="600" height="500" id="mycan"></canvas>
 <br/>
 <br/>
 </body>

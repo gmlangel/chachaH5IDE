@@ -9,6 +9,7 @@ class Monster extends GMLSprite{
 
     constructor(_nickName,_resourcePath,_conKey){
         super();
+        this.waitMovePointArr = [];//等待移动路径
         this.hasEndPoint = false;//是否有终点
         this.endPointX = 0;//终点坐标
         this.endPointY = 0;//终点坐标
@@ -58,6 +59,11 @@ class Monster extends GMLSprite{
      * 匀速移动到指定位置
      * */
     toEndPoint(_toX,_toY){
+        this.waitMovePointArr = [];
+        this._toMove(_toX,_toY);
+    }
+
+    _toMove(_toX,_toY){
         this.hasEndPoint = true;
         this.endPointX = _toX;
         this.endPointY = _toY;
@@ -73,6 +79,18 @@ class Monster extends GMLSprite{
             my = -1
         let tttkey = mx + "," + my;
         this.changeAniType(AppDelegate.app.fangxiangDic[tttkey],mx,my);
+    }
+
+    /**
+     * 根据路线轨迹移动
+     * */
+    toMoveByPath(pathArr){
+        this.waitMovePointArr = pathArr;
+        if(this.waitMovePointArr.length <= 0)
+            return;
+        this.waitMovePointArr.push(this.waitMovePointArr[this.waitMovePointArr.length-1])//创造两个相同的终点,以便人物动画恢复默认状态
+        let currentP = this.waitMovePointArr.shift();
+        this._toMove(currentP.x,currentP.y);
     }
 
     get itiwX(){
@@ -115,6 +133,12 @@ class Monster extends GMLSprite{
         if(this.hasEndPoint == false || Math.abs(this.y - this.endPointY) > this.offsetPX)
             this.y += this.fangxiangY * this.offsetPX;//每帧纵向移动offsetPX
         super.drawInContext(ctx,offsetX,offsetY,offsetScaleX,offsetScaleY);
+
+        if(!this.hasEndPoint && this.waitMovePointArr.length > 0)
+        {
+            let currentP = this.waitMovePointArr.shift();
+            this._toMove(currentP.x,currentP.y);
+        }
     }
 
     updateImg(){
@@ -301,7 +325,7 @@ WebSocketEvent.SOCKET_CONNECTED = "WebSocketEvent.socket.connected";
 /**
  * A星寻路算法
  * */
-class AStar extends BaseEvent{
+class AStar extends BaseObject{
     static get main(){
         if(!window.gmlaSTAR)
             window.gmlaSTAR = new AStar();
@@ -309,12 +333,24 @@ class AStar extends BaseEvent{
     }
     constructor(){
         super();
+        this.o = 10;//每隔多少像素,计算一次. 如果为1的话,计算时间特别长,浏览器会卡死
     }
 
     /**
      * 障碍物图像数据检索路径
      * */
-    searchRoadByImgData(start_x,start_y,end_x,end_y,_imgData){
+    searchRoadByImgData(start_x,start_y,end_x,end_y,_img){
+        let data = _img.data.data;
+        let imgW = _img.width*4
+        if(this._getColorByXY(data,end_x,end_y,imgW,0) == 0){
+            //如果终点不可到达,则生成一条起点到离终点最近点的 路径
+            return [];
+        }
+        let toff = this.o;
+        start_x = parseInt(start_x/toff)*toff;
+        start_y = parseInt(start_y/toff)*toff;
+        end_x = parseInt(end_x/toff)*toff;
+        end_y = parseInt(end_y/toff)*toff;
         var openList=[],    //开启列表
             closeList=[],   //关闭列表
             result=[],      //结果数组
@@ -323,25 +359,17 @@ class AStar extends BaseEvent{
         openList.push({x:start_x,y:start_y,G:0});//把当前点加入到开启列表中，并且G是0
 
         do{
+            //当openlist中没有值了,或者openlist中,有{x:end_x,y:end_y}则退出循环
             var currentPoint = openList.pop();
             closeList.push(currentPoint);
             var surroundPoint=this._SurroundPoint(currentPoint);
             for(var i in surroundPoint) {
                 var item = surroundPoint[i];                //获得周围的八个点
-                //if (
-                //    item.x>=0 &&                            //判断是否在地图上
-                //    item.y>=0 &&
-                //    item.x<MAP.rows &&
-                //    item.y<MAP.cols &&
-                //    MAP.arr[item.x][item.y] != 1 &&         //判断是否是障碍物
-                //    !this._existList(item, closeList) &&          //判断是否在关闭列表中
-                //    MAP.arr[item.x][currentPoint.y]!=1 &&   //判断之间是否有障碍物，如果有障碍物是过不去的
-                //    MAP.arr[currentPoint.x][item.y]!=1) {
                 if (
-                    this._getColorByXY(_imgData.data,item.x,item.y,_imgData.width,0) > 1 &&         //判断是否是障碍物
+                    this._getColorByXY(data,item.x,item.y,imgW,0) > 1 &&         //判断是否是障碍物
                     !this._existList(item, closeList) &&          //判断是否在关闭列表中
-                    this._getColorByXY(_imgData.data,item.x,currentPoint.y,_imgData.width,0) > 1 &&   //判断之间是否有障碍物，如果有障碍物是过不去的
-                    this._getColorByXY(_imgData.data,currentPoint.x,item.y,_imgData.width,0) > 1) {
+                    this._getColorByXY(data,item.x,currentPoint.y,imgW,0) > 1 &&   //判断之间是否有障碍物，如果有障碍物是过不去的
+                    this._getColorByXY(data,currentPoint.x,item.y,imgW,0) > 1) {
                     //g 到父节点的位置
                     //如果是上下左右位置的则g等于10，斜对角的就是14
                     var g = currentPoint.G + ((currentPoint.x - item.x) * (currentPoint.y - item.y) == 0 ? 10 : 14);
@@ -370,6 +398,7 @@ class AStar extends BaseEvent{
                 break;
             }
             openList.sort(this._sortF);//这一步是为了循环回去的时候，找出 F 值最小的, 将它从 "开启列表" 中移掉
+
         }while(!(result_index=this._existList({x:end_x,y:end_y},openList)));
 
         //判断结果列表是否为空
@@ -400,15 +429,16 @@ class AStar extends BaseEvent{
     //获取周围八个点的值
     _SurroundPoint(curPoint){
         var x=curPoint.x,y=curPoint.y;
+        let toff = this.o;
         return [
-            {x:x-1,y:y-1},
-            {x:x,y:y-1},
-            {x:x+1,y:y-1},
-            {x:x+1,y:y},
-            {x:x+1,y:y+1},
-            {x:x,y:y+1},
-            {x:x-1,y:y+1},
-            {x:x-1,y:y}
+            {x:x-toff,y:y-toff},
+            {x:x,y:y-toff},
+            {x:x+toff,y:y-toff},
+            {x:x+toff,y:y},
+            {x:x+toff,y:y+toff},
+            {x:x,y:y+toff},
+            {x:x-toff,y:y+toff},
+            {x:x-toff,y:y}
         ]
     }
     //判断点是否存在在列表中，是的话返回的是序列号
