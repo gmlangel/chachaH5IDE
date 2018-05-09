@@ -391,7 +391,7 @@ class BaseEventDispatcher extends BaseObject{
             //针对GMLEvent事件和GMLKeyboardEvent,做特殊处理,以使其正常响应
             BaseNotificationCenter.main.addObserver(this,evtType,function(evt){
                 this.dispatchEvent(evt)
-            });//这里只需要一个非实质函数作为参数即可,因为这个函数在后续流程中是不会被用到的
+            });
         }
 
         let mp = new Map();
@@ -1047,7 +1047,8 @@ class GMLSprite extends GMLDisplay{
         //绘制子对象
         this._children.forEach(function(item,idx){
             //console.log("外部",tOffsetX,tOffsetY)
-            item.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
+            if(item.hidden == false)
+                item.drawInContext(ctx,tOffsetX,tOffsetY,tOffsetScaleX,tOffsetScaleY)
         });
     }
 
