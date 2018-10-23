@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.2941175">
-              <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.02640845">
+              <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -40,12 +40,14 @@
         <entry file="file://$PROJECT_DIR$/js/Custom.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="339" column="18" selection-start-line="339" selection-start-column="18" selection-end-line="339" selection-end-column="18" />
+              <caret line="244" column="44" selection-start-line="244" selection-start-column="44" selection-end-line="244" selection-end-column="44" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="n#Monster#0" expanded="false" />
+                <element signature="n#!!block;n#constructor#0;n#Monster#0" expanded="false" />
                 <element signature="n#!!block;n#itiwY#0;n#Monster#0" expanded="false" />
                 <element signature="n#AniTypeEnum#0" expanded="false" />
-                <element signature="n#WebSocketHandler#0" expanded="false" />
+                <element signature="n#AStar#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -55,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+              <caret line="387" column="44" selection-start-line="386" selection-start-column="26" selection-end-line="386" selection-end-column="33" />
               <folding>
                 <element signature="n#!!block;n#loadAllResource#0;n#AppDelegate#0" expanded="false" />
                 <element signature="n#!!block;n#ongKeyDown#0;n#AppDelegate#0" expanded="false" />
@@ -75,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GMLCore.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.06725664">
+            <state vertical-scroll-proportion="0.0">
               <caret line="171" column="4" selection-start-line="171" selection-start-column="4" selection-end-line="171" selection-end-column="4" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -188,8 +190,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -238,6 +238,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -321,24 +323,24 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="689" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -359,10 +361,56 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+    <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2957" column="43" selection-start-line="2957" selection-start-column="41" selection-end-line="2957" selection-end-column="43" />
+          <caret line="171" column="4" selection-start-line="171" selection-start-column="4" selection-end-line="171" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#BaseObject#0" expanded="false" />
+            <element signature="e#4613#4871#0" expanded="false" />
+            <element signature="n#!!block;n#getObserversByKey#0;n#BaseNotificationCenter#0" expanded="false" />
+            <element signature="n#GMLTextFieldAliginEnum#0" expanded="false" />
+            <element signature="n#GMLCanvas#0" expanded="false" />
+            <element signature="n#GMLDisplay#0" expanded="false" />
+            <element signature="n#GMLShape#0" expanded="false" />
+            <element signature="n#GMLSprite#0" expanded="false" />
+            <element signature="n#GMLImage#0" expanded="false" />
+            <element signature="n#!!block;n#hasBorder#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#hasBackground#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#width#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#width#1;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#fontSize#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#fontSize#1;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#fontName#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#fontName#1;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#text#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#text#1;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#hAliginment#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#hAliginment#1;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#itiwX#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#itiwX#1;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#itiwY#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#itiwY#1;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#width#2;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#width#3;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#height#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#height#1;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#hitTestPoint#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#!!block;n#reCountResultText#0;n#GMLStaticTextField#0" expanded="false" />
+            <element signature="n#GMLKeyBoardEvent#0" expanded="false" />
+            <element signature="n#GMLEvent#0" expanded="false" />
+            <element signature="n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#0;n#TimeLine#0" expanded="false" />
+            <element signature="n#!!block;n#frameRate#1;n#TimeLine#0" expanded="false" />
+            <element signature="n#GMLMedia#0" expanded="false" />
+            <element signature="n#GMLAudio#0" expanded="false" />
+            <element signature="n#GMLVideo#0" expanded="false" />
+            <element signature="n#ResourceManager#0" expanded="false" />
+            <element signature="n#GTool#0" expanded="false" />
+            <element signature="n#OSManager#0" expanded="false" />
+            <element signature="n#ScreenManager#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1363,7 +1411,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30743244">
           <caret line="431" column="23" selection-start-line="431" selection-start-column="19" selection-end-line="431" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1392,7 +1439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1414,7 +1460,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.0">
           <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1422,19 +1467,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.814815">
           <caret line="6594" column="50" selection-start-line="6594" selection-start-column="50" selection-end-line="6594" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="339" column="18" selection-start-line="339" selection-start-column="18" selection-end-line="339" selection-end-column="18" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#itiwY#0;n#Monster#0" expanded="false" />
-            <element signature="n#AniTypeEnum#0" expanded="false" />
-            <element signature="n#WebSocketHandler#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1446,34 +1478,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.2941175">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1515669706000" expanded="true" signature="2583:2633" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-          <folding>
-            <element signature="n#!!block;n#loadAllResource#0;n#AppDelegate#0" expanded="false" />
-            <element signature="n#!!block;n#ongKeyDown#0;n#AppDelegate#0" expanded="false" />
-            <element signature="n#!!block;n#ongKeyUp#0;n#AppDelegate#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/GMLCore.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06725664">
+        <state vertical-scroll-proportion="0.0">
           <caret line="171" column="4" selection-start-line="171" selection-start-column="4" selection-end-line="171" selection-end-column="4" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -1520,6 +1527,46 @@
             <element signature="n#GTool#0" expanded="false" />
             <element signature="n#OSManager#0" expanded="false" />
             <element signature="n#ScreenManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.02640845">
+          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1515669706000" expanded="true" signature="2583:2633" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="244" column="44" selection-start-line="244" selection-start-column="44" selection-end-line="244" selection-end-column="44" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#Monster#0" expanded="false" />
+            <element signature="n#!!block;n#constructor#0;n#Monster#0" expanded="false" />
+            <element signature="n#!!block;n#itiwY#0;n#Monster#0" expanded="false" />
+            <element signature="n#AniTypeEnum#0" expanded="false" />
+            <element signature="n#AStar#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/AppDelegate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="387" column="44" selection-start-line="386" selection-start-column="26" selection-end-line="386" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!block;n#loadAllResource#0;n#AppDelegate#0" expanded="false" />
+            <element signature="n#!!block;n#ongKeyDown#0;n#AppDelegate#0" expanded="false" />
+            <element signature="n#!!block;n#ongKeyUp#0;n#AppDelegate#0" expanded="false" />
           </folding>
         </state>
       </provider>
